@@ -1,6 +1,6 @@
-﻿namespace Core.Data.World
+﻿namespace Core.Data.World.Location
 {
-    public class StaticCity
+    public class StaticCity : ILocation
     {
         // General
         public int Id { get; set; }

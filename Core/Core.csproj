@@ -41,8 +41,11 @@
   <ItemGroup>
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
-    <Compile Include="Data\World\StaticCity.cs" />
-    <Compile Include="Data\World\StaticProvince.cs" />
+    <Compile Include="Data\World\Location\ILocation.cs" />
+    <Compile Include="Data\World\Location\StaticCity.cs" />
+    <Compile Include="Data\World\StaticIndustry.cs" />
+    <Compile Include="Data\World\Location\StaticPort.cs" />
+    <Compile Include="Data\World\Location\StaticProvince.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

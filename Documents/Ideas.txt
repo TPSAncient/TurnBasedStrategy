@@ -1,0 +1,34 @@
+Ideas to be refined later
+
+Occupation 
+1. you can't occupie territory if you don't have casus belli
+2. Lots of unrest when you occupie territory
+	a) wrong religion
+	b) wrong culture
+	c) Do weak military
+3. You need to garrioson army to province after occupation for some time. To get the land for yourself.
+
+Province
+What can you do with City
+	1. Build culture buildings
+	2. Build religious buildings
+	3. Build Economic buildings
+	4. Build military buildings
+	5. Build Defensive buildings
+	6. Collect Tax
+	7. Control Province
+	8. Build Trading buildings
+	9. Build Industrial buildings
+	10. Train units
+	11. Build Research buildings
+	
+Buildings explained 
+	1. Has name
+	2. Has requirments (resources, money, population)
+	3. Has maintaince
+	4. Has type ( Military, Economic, Religious, Culture, Industrial, Infastructure, Defensive, Trading, Research)
+	
+Building data structure
+	1. How to hold build building data
+	2. How to hold initial building data what can you build
+	

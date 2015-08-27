@@ -9,6 +9,6 @@
         // Spesific
         public int PopulationCount { get; set; }
         // Building List
-
+        
     }
 }

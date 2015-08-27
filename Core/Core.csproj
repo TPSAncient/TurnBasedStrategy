@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Building\StaticBuilding.cs" />
+    <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\World\StaticCity.cs" />
     <Compile Include="Data\World\StaticProvince.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,18 @@
+Economic:
+	Money negative:
+		1. Buildings need upkeep
+		2. Soldiers need upkeep
+		3. Can build new buildings
+		4. Can build army's
+		5. Researchers have upkeep
+		6. Tribute to overlord
+		7. Diplomacy
+		
+	Money positive:
+		1. Trade
+		2. Taxes
+		3. Looting
+		4. Tribute from vassals
+		5. Diplomacy
+		
+		

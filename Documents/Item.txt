@@ -1,0 +1,37 @@
+Weapon use cases
+
+Name: Rusty Dagger
+WeaponType: Dagger
+
+BaseDamageMin: 5
+BaseDamageMax: 10
+
+MagicDamageType: Fire
+MagicDamageMin: 1
+MagicDamageMax: 2
+
+
+Attributes
+Increase Strength: 2
+Decrease Dexterity: -3
+
+Stats
+Increase Damage 10%
+Decrase BaseDamageMax -1
+
+Skills
+Add FireBall Spell
+Add Bash Skill
+
+test
+
+Weapon Parts
+Blade
+Handle
+
+
+Engravemnt system
+Player can engrave items 
+
+
+Soul gem system

@@ -1,0 +1,17 @@
+Army:
+	1. General
+	2. Sub Generals
+	3. Support
+	
+
+Units:
+	1. Customized gear
+	2. Higher level gear will increase cost and training time
+
+	
+Battles:
+	1. Will give you military points that you can use in military research
+	
+	
+Gear: 
+	1. Weapons will be unlocked by doing quests. After that you need do research do mass produce

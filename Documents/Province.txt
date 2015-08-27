@@ -1,0 +1,36 @@
+Province: 
+	Contains: 
+		1. City (Province center)
+		2. Farms
+		3. Villages
+		4. Infrastructure
+		5. Ports
+		6. Industry
+
+City:
+	1. Can be razed
+	2. Can be sacked
+	3. Can be occupied
+	4. Can be liberated
+	5. If City has walls need do be siege
+
+Farms:
+	1. Provide food
+	2. Can be looted
+	3. Needs upkeep
+		
+Villages:
+	1. Specialised ( Research, trade, military, industry)
+	2. Can be looted and destroyed
+	
+Infrastructure:
+	1. Aqueducts
+	2. Roads
+	
+Ports:
+	1. If city isn't near water and province is near water then port can be built
+	2. Can be destroyed
+	3. Can be looted
+	
+Industry:
+	1. 

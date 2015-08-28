@@ -2,5 +2,17 @@ Research
 
 	1. Investigate Paradox capalitites
 	2. Investigate Udp System for Unity
+		a) Create Server and Client console application do communicate each other
+		b) How to create AI in .Net
+		c) Easier to change front end systems
 	3. Investigate Data Driven design
+	
+	
+Domain Driven 
+
+Socket layer will run in threaded envirment 
+How socket layer communicate with Game logic ?
+Read about threading system and how to implement it ?
+
+	
 	

@@ -32,3 +32,19 @@ Building data structure
 	1. How to hold build building data
 	2. How to hold initial building data what can you build
 	
+How to link data models togheter
+	1. Using Dictionary to hold data
+	2. Acces trough ID for O(1)
+
+Next steps
+	1. Add Static Building Collection. Contains Data Parsing, And easy access for buildings.
+	2. Create mock up for UI (Province view)
+	3. Add reference object for buildings to Static City. Use dictionary<buildingId, IsBuilt>
+	4. Set up Unity project for git ( Use local gitignore for Unity)
+	5. Create Basic camera system, add object selection
+	6. Create basic UI to show basic buildings data
+	7. Create test scene. Basic one province with all location for testing links between them.
+	8. Add data saving and loading for stati objects. ( Json.net)
+	9. Investigae if i can run Back end separtly. (Easier to implement multi threading and AI)
+	10. Create basic messega system between backend and frontend
+	

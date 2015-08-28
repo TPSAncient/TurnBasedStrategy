@@ -1,0 +1,6 @@
+Research
+
+	1. Investigate Paradox capalitites
+	2. Investigate Udp System for Unity
+	3. Investigate Data Driven design
+	

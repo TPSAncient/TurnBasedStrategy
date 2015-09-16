@@ -1,0 +1,7 @@
+Ideas revision:
+
+1. You have diffrent points ( Adm, Dip, Mil) that you can use do too different actions.
+	a) Build buildings
+	b) Negotionate deals
+	c) Train armys, refit them, and so on...
+	

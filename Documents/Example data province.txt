@@ -2,6 +2,8 @@ Example data province
 
 ID = 1
 Name = "Harjumaa"
+ProvinceIncome = 100
+ProvinceExpense = 100
 
 Locations:
 	[
@@ -16,6 +18,7 @@ Locations:
 		
 		Income = 100
 		Expense = 20
+		
 		
 	]
 

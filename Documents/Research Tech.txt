@@ -15,4 +15,7 @@ How socket layer communicate with Game logic ?
 Read about threading system and how to implement it ?
 
 	
+
+Modular system:
+	Province system
 	

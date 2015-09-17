@@ -18,4 +18,4 @@ Ideas revision:
 	
 4. Province
 	a) when you conqure the province you have to assimilate it. 
-	b) Development level taking account all assets in province. 
+	b) Development level taking account all assets in province.

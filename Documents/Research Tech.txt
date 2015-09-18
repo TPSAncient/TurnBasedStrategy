@@ -19,3 +19,5 @@ Read about threading system and how to implement it ?
 Modular system:
 	Province system
 	
+	
+Change ILocation interface and LocationType to IIsObject and ObjectType

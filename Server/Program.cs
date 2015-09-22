@@ -13,10 +13,11 @@ namespace Server
         static void Main(string[] args)
         {
             UdpClient udpServer = new UdpClient(11000);
+            var remoteEP = new IPEndPoint(IPAddress.Any, 11000);
 
             while (true)
             {
-                var remoteEP = new IPEndPoint(IPAddress.Any, 11000);
+                
                 var data = udpServer.Receive(ref remoteEP); // listen on port 11000
                 Console.Write("receive data from " + remoteEP.ToString());
                 udpServer.Send(new byte[] { 1 }, 1, remoteEP); // reply back

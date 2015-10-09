@@ -1,0 +1,3 @@
+Add restrictions for selection story
+	1. Like you can select city only one and not multiple ones
+	2. Same with army in world map

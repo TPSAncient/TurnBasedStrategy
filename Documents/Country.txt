@@ -1,0 +1,5 @@
+Country/Empire (Player or AI)
+
+1. Is Human player or AI
+2. Contains Data what AI/Player owns in the world like provinces/citys/Armys/Resources/Money/Population/...
+3. Whos turn it is 

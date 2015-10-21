@@ -1,0 +1,13 @@
+RoadMap
+
+1. Basic Camera system (done)
+2. Basic Terrain
+	a) Populate some provinces
+		1) Add City
+		2) Add Farms
+		3) Add other types objects
+3. Menu system
+	a) Basic option menu
+4. Basic UI
+	a) Seeing province data
+	b) Seeing city/farm/... data

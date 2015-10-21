@@ -1,0 +1,25 @@
+Example data province
+
+ID = 1
+Name = "Harjumaa"
+ProvinceIncome = 100
+ProvinceExpense = 100
+
+Locations:
+	[
+		Id = 1
+		Name = "Tallinn"
+		LocationType = LocationType.City
+		
+		// Static city specific
+		PopulationCount = 1000
+		PopulationBirthRate = 10
+		PopulationImmigrationRate = 1
+		
+		Income = 100
+		Expense = 20
+		
+		
+	]
+
+

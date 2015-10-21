@@ -1,0 +1,21 @@
+Ideas revision:
+
+1. You have diffrent points ( Adm, Dip, Mil) that you can use do too different actions.
+	a) Build buildings
+	b) Negotionate deals
+	c) Train armys, refit them, and so on...
+	
+2. How you can build buildings ?
+	a) You need money
+	b) 
+	
+	
+3. Edicts 
+	a) will cost points to use
+	b) Will cost money to use
+	c) 
+	
+	
+4. Province
+	a) when you conqure the province you have to assimilate it. 
+	b) Development level taking account all assets in province.

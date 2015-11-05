@@ -52,6 +52,7 @@
     <Compile Include="Data\World\Location\StaticSettlement.cs" />
     <Compile Include="Data\World\Location\StaticIndustry.cs" />
     <Compile Include="Data\World\Location\StaticPort.cs" />
+    <Compile Include="Data\World\StaticRegion.cs" />
     <Compile Include="Data\World\StaticProvince.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\DataAccess\LoadJsonData.cs" />

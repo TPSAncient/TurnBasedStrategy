@@ -36,4 +36,37 @@ Industry:
 	1. 
 	
 	
+Building improvments:
+	Farm
+		1) Example: When building windmill it will take some time do build it every where in region. But Every turn you start having more bonuses from it. Maybe make it stages. 
+		2) 
+	
+Idea 
+	Province/State contains smaller counts
+	
+	Province -> Region -> Infrastructure
+					   -> Town	
+					   -> Farm
+					   -> Mine
+					
+	
+	
+Blight Idea
+	Enemy armys are spwaning from there
+	Can't enter first need do get tech up and magic special units
+	
+Magic Idea
+	Woman and man use different sides of magic.
+	Fire-Earth-Water-Air-Spirit
+	Magic is rare. Users are like heros. Player can't choose what they learn when leveling up.
+	
+	
+Neutral Countrys 
+	Attacking those will bring all other nation do attack you
+	They offer quests
+	Can get better weapons
+	
+
+	
+	
 	

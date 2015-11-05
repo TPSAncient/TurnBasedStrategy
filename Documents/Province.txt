@@ -84,8 +84,30 @@ Neutral Countrys
 	Can get better weapons
 	
 
-	
 
-	
+Read trough	
+
+Province farmland 
+
+will it be different object or texture ? And will it be managed trough city view or trough province view 
+How it can be looted ?
+If we take account you need quite big army to loot farmland
+If army is stationd in province it will automatically degrees farm output (Enemy army)
+If army is allied or your own it will only take away chunk from it. 
+
+Farmland has 100% intugrity and produce food 8 out 8
+
+FarmlandModel:
+
+ID
+Name
+
+Integrity
+FoodProducedAmount
+MaximumFoodProducedAmount
+
+Buildings/Addons
+
+AffectedBySeason
 	
 	

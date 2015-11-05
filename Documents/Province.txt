@@ -49,7 +49,24 @@ Idea
 					   -> Farm
 					   -> Mine
 					
+
+Region:
+	Every region has tow or city
+	Every region has Farm Improvments
+	Every region has infastructure
+	Regions that have sea next do border has seaport
+	Regions that have minerals have Mines
 	
+	Region has Population
+	Region has Total maintaince
+	Region has Total Income
+	Region has Total Food Production
+	
+	Region has Total Resource Production
+	
+Resource Ideas:
+	Will Region produce only one resource ?
+	Will Resources only used for Trading ?
 	
 Blight Idea
 	Enemy armys are spwaning from there
@@ -65,6 +82,8 @@ Neutral Countrys
 	Attacking those will bring all other nation do attack you
 	They offer quests
 	Can get better weapons
+	
+
 	
 
 	

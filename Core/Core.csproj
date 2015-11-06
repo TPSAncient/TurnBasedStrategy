@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
+    <Compile Include="Data\StaticPlayer.cs" />
     <Compile Include="Data\World\Location\ILocation.cs" />
     <Compile Include="Data\World\Location\LocationType.cs" />
     <Compile Include="Data\World\Location\StaticCity.cs" />
@@ -52,12 +53,14 @@
     <Compile Include="Data\World\Location\StaticSettlement.cs" />
     <Compile Include="Data\World\Location\StaticIndustry.cs" />
     <Compile Include="Data\World\Location\StaticPort.cs" />
+    <Compile Include="Data\World\StaticCountry.cs" />
     <Compile Include="Data\World\StaticRegion.cs" />
     <Compile Include="Data\World\StaticProvince.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\DataAccess\LoadJsonData.cs" />
+    <Compile Include="System\Helpers\JsonData.cs" />
     <Compile Include="System\GameManager.cs" />
     <Compile Include="System\UnityMonoBehaviour.cs" />
+    <Compile Include="Test\Data\SeedData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

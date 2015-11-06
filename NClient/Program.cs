@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Remoting.Messaging;
+using Core.Data.World.Location;
+using Core.System;
+using Core.System.Helpers;
+using Core.Test.Data;
 
 namespace NClient
 {
@@ -12,19 +12,17 @@ namespace NClient
     {
         static void Main(string[] args)
         {
-            var client = new UdpClient();
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 11000); // endpoint where server is listening
-            client.Connect(ep);
 
-            // send data
-            client.Send(new byte[] { 1, 2, 3, 4, 5 }, 5);
+            SeedData data = new SeedData();
+            data.SaveData();
 
-            // then receive data
-            var receivedData = client.Receive(ref ep);
+            Dictionary<string, StaticCity> cities = JsonData.LoadJson<Dictionary<string, StaticCity>>("Citys");
+            foreach (var city in cities)
+            {
+                Console.WriteLine(city.Value.TagName);
+            }
 
-            Console.Write("receive data from " + ep.ToString());
-
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }

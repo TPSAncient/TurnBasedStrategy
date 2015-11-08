@@ -63,22 +63,22 @@ namespace Core.Test.Data
 
             StaticRegion regionRoma = new StaticRegion();
             regionRoma.Id = 1;
-            regionRoma.City = "city_roma";
-            regionRoma.Province = "province_italia";
+            regionRoma.CityTag = "city_roma";
+            regionRoma.ProvinceTag = "province_italia";
             regionRoma.TagName = "region_roma";
             regionRoma.Player = 1;
 
             StaticRegion regionVelathria = new StaticRegion();
             regionVelathria.Id = 2;
-            regionVelathria.City = "city_velathri";
-            regionVelathria.Province = "province_italia";
+            regionVelathria.CityTag = "city_velathri";
+            regionVelathria.ProvinceTag = "province_italia";
             regionVelathria.TagName = "region_velathria";
             regionVelathria.Player = 1;
 
             StaticRegion regionAriminum = new StaticRegion();
             regionAriminum.Id = 3;
-            regionAriminum.City = "city_ariminum";
-            regionAriminum.Province = "province_italia";
+            regionAriminum.CityTag = "city_ariminum";
+            regionAriminum.ProvinceTag = "province_italia";
             regionAriminum.TagName = "region_ariminum";
             regionAriminum.Player = 1;
 

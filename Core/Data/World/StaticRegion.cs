@@ -1,4 +1,5 @@
 ﻿using Core.Data.World.Location;
+using Newtonsoft.Json;
 
 namespace Core.Data.World
 {
@@ -10,9 +11,13 @@ namespace Core.Data.World
 
         public int Player { get; set; }
 
-        public string Province { get; set; }
+        public string ProvinceTag { get; set; }
         // Only one may be in region
-        public string City { get; set; }
+        public string CityTag { get; set; }
+        
+        [JsonIgnore]
+        public StaticCity City { get; set; }
+        
         //public StaticSettlement Settlement { get; set; }
         
 

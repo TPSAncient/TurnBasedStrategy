@@ -36,4 +36,13 @@ Industry:
 	1. 
 	
 	
+Farming:
+	1. Has integrity (100%)
+	2. Has Amount food produced
+	3. Own troops will consume food when staying province
+	4. Allay troops will consume food but will pay for it
+	5. Enemy troops will consume food and degrese integrity
+	6. Neutral army winn consume food and degrese integrity and pays for it. If standind is not set for raiding.
+	
+	
 	

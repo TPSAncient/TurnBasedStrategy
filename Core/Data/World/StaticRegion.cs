@@ -14,14 +14,13 @@ namespace Core.Data.World
         public string ProvinceTag { get; set; }
         // Only one may be in region
         public string CityTag { get; set; }
-        
+        public string FarmTag { get; set; }
         [JsonIgnore]
         public StaticCity City { get; set; }
-        
-        //public StaticSettlement Settlement { get; set; }
+        [JsonIgnore]
+        public StaticFarm Farm { get; set; }
         
 
-        //public StaticFarm Farm { get; set; }
         //public StaticIndustry Industry { get; set; }
         //public StaticPort Port { get; set; }
 

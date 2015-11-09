@@ -9,10 +9,11 @@ namespace Core.Test.Data
     public class SeedData
     {
         public Dictionary<int, StaticPlayer> Players { get; set; }
-        public Dictionary<string, StaticRegion> Regions { get; set; }
-        public Dictionary<string, StaticProvince> Provinces { get; set; }
-        public Dictionary<string, StaticCity> Citys { get; set; }
         public Dictionary<string, StaticCountry> Countries { get; set; }
+        public Dictionary<string, StaticProvince> Provinces { get; set; }
+        public Dictionary<string, StaticRegion> Regions { get; set; }
+        public Dictionary<string, StaticCity> Citys { get; set; }
+        public Dictionary<string, StaticFarm> Farms { get; set; }
 
         public SeedData()
         {
@@ -21,8 +22,15 @@ namespace Core.Test.Data
             SeedProvincesData();
             SeedRegionsData();
             SeedCitiesData();
+            SeedFarmsData();
+
+            MergeProvinceAndCityData();
         }
 
+        public void MergeProvinceAndCityData()
+        {
+            
+        }
 
         public void SeedPlayerData()
         {
@@ -64,6 +72,7 @@ namespace Core.Test.Data
             StaticRegion regionRoma = new StaticRegion();
             regionRoma.Id = 1;
             regionRoma.CityTag = "city_roma";
+            regionRoma.CityTag = "farm_roma";
             regionRoma.ProvinceTag = "province_italia";
             regionRoma.TagName = "region_roma";
             regionRoma.Player = 1;
@@ -71,6 +80,7 @@ namespace Core.Test.Data
             StaticRegion regionVelathria = new StaticRegion();
             regionVelathria.Id = 2;
             regionVelathria.CityTag = "city_velathri";
+            regionVelathria.CityTag = "farm_velathri";
             regionVelathria.ProvinceTag = "province_italia";
             regionVelathria.TagName = "region_velathria";
             regionVelathria.Player = 1;
@@ -78,6 +88,7 @@ namespace Core.Test.Data
             StaticRegion regionAriminum = new StaticRegion();
             regionAriminum.Id = 3;
             regionAriminum.CityTag = "city_ariminum";
+            regionAriminum.CityTag = "farm_ariminum";
             regionAriminum.ProvinceTag = "province_italia";
             regionAriminum.TagName = "region_ariminum";
             regionAriminum.Player = 1;
@@ -113,13 +124,41 @@ namespace Core.Test.Data
             Citys.Add(cityArminum.TagName, cityArminum);
         }
 
+        public void SeedFarmsData()
+        {
+            Farms = new Dictionary<string, StaticFarm>();
+
+            StaticFarm farmRoma = new StaticFarm();
+            farmRoma.Id = 1;
+            farmRoma.Name = "Roma Farm";
+            farmRoma.TagName = "farm_roma";
+            farmRoma.LocationType = LocationType.Farm;
+
+            StaticFarm farmVelathri = new StaticFarm();
+            farmVelathri.Id = 2;
+            farmVelathri.Name = "Velathri Farm";
+            farmVelathri.TagName = "farm_velathri";
+            farmVelathri.LocationType = LocationType.Farm;
+
+            StaticFarm farmAriminum = new StaticFarm();
+            farmAriminum.Id = 3;
+            farmAriminum.Name = "Ariminum Farm";
+            farmAriminum.TagName = "farm_ariminum";
+            farmAriminum.LocationType = LocationType.Farm;
+
+            Farms.Add("farm_roma", farmRoma);
+            Farms.Add("farm_velathri", farmVelathri);
+            Farms.Add("farm_ariminum", farmAriminum);
+        }
+
         public void SaveData()
         {
-            JsonData.SaveJson("Regions", Regions);
             JsonData.SaveJson("Players", Players);
-            JsonData.SaveJson("Provinces", Provinces);
-            JsonData.SaveJson("Citys", Citys);
             JsonData.SaveJson("Countries", Countries);
+            JsonData.SaveJson("Provinces", Provinces);
+            JsonData.SaveJson("Regions", Regions);
+            JsonData.SaveJson("Citys", Citys);
+            JsonData.SaveJson("Farms", Farms);
         }
 
 

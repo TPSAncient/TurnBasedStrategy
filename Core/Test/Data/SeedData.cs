@@ -25,34 +25,6 @@ namespace Core.Test.Data
             SeedCitiesData();
             SeedFarmsData();
             SeedPortsData();
-
-            MergeRegionsAndCityData();
-            MergeRegionsAndPortData();
-            MergeRegionsAndFarmData();
-        }
-
-        public void MergeRegionsAndCityData()
-        {
-            foreach (var region in Regions)
-            {
-                region.Value.City = Citys[region.Value.CityTag];
-            }
-        }
-
-        public void MergeRegionsAndPortData()
-        {
-            foreach (var region in Regions)
-            {
-                region.Value.Port = Ports[region.Value.PortTag];
-            }
-        }
-
-        public void MergeRegionsAndFarmData()
-        {
-            foreach (var region in Regions)
-            {
-                region.Value.Farm = Farms[region.Value.FarmTag];
-            }
         }
 
         public void SeedPlayerData()

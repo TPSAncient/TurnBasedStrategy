@@ -22,6 +22,12 @@ namespace Core.System
 
         public override void Awake()
         {
+            LoadData();
+            MergeData();
+        }
+
+        public void LoadData()
+        {
             SeedData data = new SeedData();
             Players = data.Players;
             Countries = data.Countries;
@@ -32,6 +38,11 @@ namespace Core.System
             Ports = data.Ports;
         }
 
+        public void MergeData()
+        {
+            MergeData mergeData = new MergeData();
+            mergeData.MergeRegionData(Regions, Ports, Citys, Farms);
+        }
         
     }
 }

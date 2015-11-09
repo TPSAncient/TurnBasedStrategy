@@ -15,11 +15,16 @@ namespace Core.Data.World
         // Only one may be in region
         public string CityTag { get; set; }
         public string FarmTag { get; set; }
+        public string PortTag { get; set; }
+   
+        public bool CanBuildPort { get; set; }
+
         [JsonIgnore]
         public StaticCity City { get; set; }
         [JsonIgnore]
         public StaticFarm Farm { get; set; }
-        
+        [JsonIgnore]
+        public StaticPort Port { get; set; }
 
         //public StaticIndustry Industry { get; set; }
         //public StaticPort Port { get; set; }

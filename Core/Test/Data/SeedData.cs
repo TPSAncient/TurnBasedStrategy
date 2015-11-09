@@ -14,6 +14,7 @@ namespace Core.Test.Data
         public Dictionary<string, StaticRegion> Regions { get; set; }
         public Dictionary<string, StaticCity> Citys { get; set; }
         public Dictionary<string, StaticFarm> Farms { get; set; }
+        public Dictionary<string, StaticPort> Ports { get; set; } 
 
         public SeedData()
         {
@@ -23,6 +24,7 @@ namespace Core.Test.Data
             SeedRegionsData();
             SeedCitiesData();
             SeedFarmsData();
+            SeedPortsData();
 
             MergeProvinceAndCityData();
         }
@@ -151,6 +153,33 @@ namespace Core.Test.Data
             Farms.Add("farm_ariminum", farmAriminum);
         }
 
+        public void SeedPortsData()
+        {
+            Ports = new Dictionary<string, StaticPort>();
+
+            StaticPort portRoma = new StaticPort();
+            portRoma.Id = 1;
+            portRoma.Name = "Roma port";
+            portRoma.LocationType = LocationType.Port;
+            portRoma.TagName = "port_roma";
+
+            StaticPort portVelathri = new StaticPort();
+            portVelathri.Id = 2;
+            portVelathri.Name = "Velathri port";
+            portVelathri.LocationType = LocationType.Port;
+            portVelathri.TagName = "port_velathri";
+
+            StaticPort portAriminum = new StaticPort();
+            portAriminum.Id = 3;
+            portAriminum.Name = "Ariminum port";
+            portAriminum.LocationType = LocationType.Port;
+            portAriminum.TagName = "port_ariminum";
+
+            Ports.Add("port_roma", portRoma);
+            Ports.Add("port_velathri", portRoma);
+            Ports.Add("port_ariminum", portRoma);
+        }
+
         public void SaveData()
         {
             JsonData.SaveJson("Players", Players);
@@ -159,6 +188,7 @@ namespace Core.Test.Data
             JsonData.SaveJson("Regions", Regions);
             JsonData.SaveJson("Citys", Citys);
             JsonData.SaveJson("Farms", Farms);
+            JsonData.SaveJson("Ports", Ports);
         }
 
 

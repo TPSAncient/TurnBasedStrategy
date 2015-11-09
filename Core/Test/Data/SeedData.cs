@@ -75,6 +75,8 @@ namespace Core.Test.Data
             regionRoma.Id = 1;
             regionRoma.CityTag = "city_roma";
             regionRoma.CityTag = "farm_roma";
+            regionRoma.CityTag = "port_roma";
+            regionRoma.CanBuildPort = true;
             regionRoma.ProvinceTag = "province_italia";
             regionRoma.TagName = "region_roma";
             regionRoma.Player = 1;
@@ -83,6 +85,8 @@ namespace Core.Test.Data
             regionVelathria.Id = 2;
             regionVelathria.CityTag = "city_velathri";
             regionVelathria.CityTag = "farm_velathri";
+            regionVelathria.CityTag = "port_velathri";
+            regionVelathria.CanBuildPort = true;
             regionVelathria.ProvinceTag = "province_italia";
             regionVelathria.TagName = "region_velathria";
             regionVelathria.Player = 1;
@@ -91,6 +95,8 @@ namespace Core.Test.Data
             regionAriminum.Id = 3;
             regionAriminum.CityTag = "city_ariminum";
             regionAriminum.CityTag = "farm_ariminum";
+            regionAriminum.CityTag = "port_ariminum";
+            regionAriminum.CanBuildPort = true;
             regionAriminum.ProvinceTag = "province_italia";
             regionAriminum.TagName = "region_ariminum";
             regionAriminum.Player = 1;

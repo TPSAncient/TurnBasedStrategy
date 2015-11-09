@@ -74,8 +74,8 @@ namespace Core.Test.Data
             StaticRegion regionRoma = new StaticRegion();
             regionRoma.Id = 1;
             regionRoma.CityTag = "city_roma";
-            regionRoma.CityTag = "farm_roma";
-            regionRoma.CityTag = "port_roma";
+            regionRoma.FarmTag = "farm_roma";
+            regionRoma.PortTag = "port_roma";
             regionRoma.CanBuildPort = true;
             regionRoma.ProvinceTag = "province_italia";
             regionRoma.TagName = "region_roma";
@@ -84,8 +84,8 @@ namespace Core.Test.Data
             StaticRegion regionVelathria = new StaticRegion();
             regionVelathria.Id = 2;
             regionVelathria.CityTag = "city_velathri";
-            regionVelathria.CityTag = "farm_velathri";
-            regionVelathria.CityTag = "port_velathri";
+            regionVelathria.FarmTag = "farm_velathri";
+            regionVelathria.PortTag = "port_velathri";
             regionVelathria.CanBuildPort = true;
             regionVelathria.ProvinceTag = "province_italia";
             regionVelathria.TagName = "region_velathria";
@@ -94,8 +94,8 @@ namespace Core.Test.Data
             StaticRegion regionAriminum = new StaticRegion();
             regionAriminum.Id = 3;
             regionAriminum.CityTag = "city_ariminum";
-            regionAriminum.CityTag = "farm_ariminum";
-            regionAriminum.CityTag = "port_ariminum";
+            regionAriminum.FarmTag = "farm_ariminum";
+            regionAriminum.PortTag = "port_ariminum";
             regionAriminum.CanBuildPort = true;
             regionAriminum.ProvinceTag = "province_italia";
             regionAriminum.TagName = "region_ariminum";

@@ -13,13 +13,21 @@ namespace NClient
         static void Main(string[] args)
         {
 
-            SeedData data = new SeedData();
-            data.SaveData();
+            //SeedData data = new SeedData();
+            //data.SaveData();
 
-            Dictionary<string, StaticCity> cities = JsonData.LoadJson<Dictionary<string, StaticCity>>("Citys");
-            foreach (var city in cities)
+            //Dictionary<string, StaticCity> cities = JsonData.LoadJson<Dictionary<string, StaticCity>>("Citys");
+            //foreach (var city in cities)
+            //{
+            //    Console.WriteLine(city.Value.TagName);
+            //}
+
+            GameManager manager = new GameManager();
+            manager.Awake();
+
+            foreach (var region in manager.Regions)
             {
-                Console.WriteLine(city.Value.TagName);
+                Console.WriteLine(region.Value.Farm.Name);
             }
 
             Console.ReadKey();

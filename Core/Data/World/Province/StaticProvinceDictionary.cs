@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Data.World
+namespace Core.Data.World.Province
 {
     public class StaticProvinceDictionary : IDataDictionary<StaticProvince>
     {

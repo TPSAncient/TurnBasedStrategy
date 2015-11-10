@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Data.World.Location
+namespace Core.Data.World.Region
 {
     public class StaticPortDictionary : IDataDictionary<StaticPort>
     {

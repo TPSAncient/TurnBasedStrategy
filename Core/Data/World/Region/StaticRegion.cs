@@ -1,7 +1,6 @@
-﻿using Core.Data.World.Location;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace Core.Data.World
+namespace Core.Data.World.Region
 {
     public class StaticRegion : IData
     {

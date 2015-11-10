@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
-namespace Core.Data.World.Location
+namespace Core.Data.World.Region
 {
     public class StaticCityDictionary : IDataDictionary<StaticCity>
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Data.World
+namespace Core.Data.World.Region
 {
     public class StaticRegionDictionary : IDataDictionary<StaticRegion>
     {

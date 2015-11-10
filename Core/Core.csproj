@@ -47,24 +47,24 @@
     <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\IDataDictionary.cs" />
-    <Compile Include="Data\World\Location\StaticCityDictionary.cs" />
-    <Compile Include="Data\World\Location\StaticFarmDictionary.cs" />
-    <Compile Include="Data\World\Location\StaticPortDictionary.cs" />
-    <Compile Include="Data\World\StaticCountryDictionary.cs" />
+    <Compile Include="Data\World\Region\StaticCityDictionary.cs" />
+    <Compile Include="Data\World\Region\StaticFarmDictionary.cs" />
+    <Compile Include="Data\World\Region\StaticPortDictionary.cs" />
+    <Compile Include="Data\World\Country\StaticCountryDictionary.cs" />
     <Compile Include="Data\World\StaticPlayer.cs" />
     <Compile Include="Data\IData.cs" />
     <Compile Include="Data\DataType.cs" />
-    <Compile Include="Data\World\Location\StaticCity.cs" />
-    <Compile Include="Data\World\Location\StaticFarm.cs" />
-    <Compile Include="Data\World\Location\StaticSettlement.cs" />
-    <Compile Include="Data\World\Location\StaticIndustry.cs" />
-    <Compile Include="Data\World\Location\StaticPort.cs" />
-    <Compile Include="Data\World\StaticCountry.cs" />
+    <Compile Include="Data\World\Region\StaticCity.cs" />
+    <Compile Include="Data\World\Region\StaticFarm.cs" />
+    <Compile Include="Data\World\Region\StaticSettlement.cs" />
+    <Compile Include="Data\World\Region\StaticIndustry.cs" />
+    <Compile Include="Data\World\Region\StaticPort.cs" />
+    <Compile Include="Data\World\Country\StaticCountry.cs" />
     <Compile Include="Data\World\StaticPlayerDictionary.cs" />
-    <Compile Include="Data\World\StaticProvinceDictionary.cs" />
-    <Compile Include="Data\World\StaticRegion.cs" />
-    <Compile Include="Data\World\StaticProvince.cs" />
-    <Compile Include="Data\World\StaticRegionDictionary.cs" />
+    <Compile Include="Data\World\Province\StaticProvinceDictionary.cs" />
+    <Compile Include="Data\World\Region\StaticRegion.cs" />
+    <Compile Include="Data\World\Province\StaticProvince.cs" />
+    <Compile Include="Data\World\Region\StaticRegionDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Helpers\JsonData.cs" />
     <Compile Include="System\GameManager.cs" />
@@ -76,6 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\World\Location\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

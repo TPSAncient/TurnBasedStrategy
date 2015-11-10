@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Data.World.Location;
-
-namespace Core.Data.World
+﻿namespace Core.Data.World.Province
 {
     public class StaticProvince : IData
     {

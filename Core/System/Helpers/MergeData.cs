@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Data;
 using Core.Data.World;
-using Core.Data.World.Location;
+using Core.Data.World.Region;
 
 namespace Core.System.Helpers
 {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
-using Core.Data.World.Location;
 using Core.System;
 using Core.System.Helpers;
 using Core.Test.Data;

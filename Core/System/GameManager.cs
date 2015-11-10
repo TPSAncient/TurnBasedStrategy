@@ -12,13 +12,56 @@ namespace Core.System
     /// </summary>
     public class GameManager : UnityMonoBehaviour
     {
-        public Dictionary<int, StaticPlayer> Players { get; set; }
-        public Dictionary<string, StaticCountry> Countries { get; set; }
-        public Dictionary<string, StaticProvince> Provinces { get; set; }
-        public Dictionary<string, StaticRegion> Regions { get; set; }
-        public Dictionary<string, StaticCity> Citys { get; set; }
-        public Dictionary<string, StaticFarm> Farms { get; set; }
-        public Dictionary<string, StaticPort> Ports { get; set; }
+        private Dictionary<string, StaticCountry> _countries;
+        private Dictionary<int, StaticPlayer> _players;
+        private Dictionary<string, StaticProvince> _provinces;
+        private Dictionary<string, StaticCity> _citys;
+        private Dictionary<string, StaticFarm> _farms;
+        private Dictionary<string, StaticPort> _ports;
+        private Dictionary<string, StaticRegion> _regions;
+
+        public Dictionary<int, StaticPlayer> Players
+        {
+            get { return _players; }
+            set { _players = value; }
+        }
+
+        public Dictionary<string, StaticCountry> Countries
+        {
+            get { return _countries; }
+            set { _countries = value; }
+        }
+
+        public Dictionary<string, StaticProvince> Provinces
+        {
+            get { return _provinces; }
+            set { _provinces = value; }
+        }
+
+        public Dictionary<string, StaticRegion> Regions
+        {
+            get { return _regions; }
+            set { _regions = value; }
+        }
+
+        public Dictionary<string, StaticCity> Citys
+        {
+            get { return _citys; }
+            set { _citys = value; }
+        }
+
+        public Dictionary<string, StaticFarm> Farms
+        {
+            get { return _farms; }
+            set { _farms = value; }
+        }
+
+        public Dictionary<string, StaticPort> Ports
+        {
+            get { return _ports; }
+            set { _ports = value; }
+        }
+
 
         public override void Awake()
         {
@@ -28,14 +71,19 @@ namespace Core.System
 
         public void LoadData()
         {
-            SeedData data = new SeedData();
-            Players = data.Players;
-            Countries = data.Countries;
-            Provinces = data.Provinces;
-            Regions = data.Regions;
-            Citys = data.Citys;
-            Farms = data.Farms;
-            Ports = data.Ports;
+            // For populatind data files with basic data
+            //SeedData data = new SeedData();
+
+
+            LoadData load = new LoadData();
+            load.LoadCountryData(out _countries);
+            load.LoadProvincesData(out _provinces);
+            load.LoadRegionsData(out _regions);
+            load.LoadCitysData(out _citys);
+            load.LoadFarmsData(out _farms);
+            load.LoadPortsData(out _ports);
+
+            
         }
 
         public void MergeData()

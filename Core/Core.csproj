@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Helpers\JsonData.cs" />
     <Compile Include="System\GameManager.cs" />
+    <Compile Include="System\LoadData.cs" />
     <Compile Include="System\MergeData.cs" />
     <Compile Include="System\UnityMonoBehaviour.cs" />
     <Compile Include="Test\Data\SeedData.cs" />

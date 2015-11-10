@@ -171,10 +171,6 @@ namespace Core.Test.Data
 
         public void SaveData()
         {
-            IDataDictionary<StaticCity> city = new StaticDictionary<StaticCity>();
-            JsonData.SaveJson("Test", city);
-            JsonData.LoadJson<StaticDictionary<StaticCity>>("Test");
-
             JsonData.SaveJson("Players", DataCollection.Players);
             JsonData.SaveJson("Countries", DataCollection.Countries);
             JsonData.SaveJson("Provinces", DataCollection.Provinces);

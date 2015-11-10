@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string TagName { get; set; }
-        public LocationType LocationType { get; set; }
+        public DataType DataType { get; set; }
     }
 }

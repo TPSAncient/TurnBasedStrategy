@@ -48,7 +48,7 @@
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\StaticPlayer.cs" />
     <Compile Include="Data\World\Location\ILocation.cs" />
-    <Compile Include="Data\World\Location\LocationType.cs" />
+    <Compile Include="Data\DataType.cs" />
     <Compile Include="Data\World\Location\StaticCity.cs" />
     <Compile Include="Data\World\Location\StaticFarm.cs" />
     <Compile Include="Data\World\Location\StaticSettlement.cs" />
@@ -62,6 +62,7 @@
     <Compile Include="System\GameManager.cs" />
     <Compile Include="System\LoadData.cs" />
     <Compile Include="System\MergeData.cs" />
+    <Compile Include="System\SelectData.cs" />
     <Compile Include="System\UnityMonoBehaviour.cs" />
     <Compile Include="Test\Data\SeedData.cs" />
   </ItemGroup>

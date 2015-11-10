@@ -12,6 +12,8 @@ namespace Core.System
     /// </summary>
     public class GameManager : UnityMonoBehaviour
     {
+        #region Variables
+
         private Dictionary<string, StaticCountry> _countries;
         private Dictionary<int, StaticPlayer> _players;
         private Dictionary<string, StaticProvince> _provinces;
@@ -61,6 +63,8 @@ namespace Core.System
             get { return _ports; }
             set { _ports = value; }
         }
+
+        #endregion
 
 
         public override void Awake()

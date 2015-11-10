@@ -106,21 +106,21 @@ namespace Core.Test.Data
             StaticCity cityRoma = new StaticCity();
             cityRoma.Id = 1;
             cityRoma.Name = "Roma";
-            cityRoma.LocationType = LocationType.City;
+            cityRoma.DataType = DataType.City;
             cityRoma.TagName = "city_roma";
             Citys.Add(cityRoma.TagName, cityRoma);
 
             StaticCity cityVelathri = new StaticCity();
             cityVelathri.Id = 2;
             cityVelathri.Name = "Velathri";
-            cityVelathri.LocationType = LocationType.City;
+            cityVelathri.DataType = DataType.City;
             cityVelathri.TagName = "city_velathri";
             Citys.Add(cityVelathri.TagName, cityVelathri);
 
             StaticCity cityArminum = new StaticCity();
             cityArminum.Id = 2;
             cityArminum.Name = "Ariminum";
-            cityArminum.LocationType = LocationType.City;
+            cityArminum.DataType = DataType.City;
             cityArminum.TagName = "city_ariminum";
             Citys.Add(cityArminum.TagName, cityArminum);
         }
@@ -133,19 +133,19 @@ namespace Core.Test.Data
             farmRoma.Id = 1;
             farmRoma.Name = "Roma Farm";
             farmRoma.TagName = "farm_roma";
-            farmRoma.LocationType = LocationType.Farm;
+            farmRoma.DataType = DataType.Farm;
 
             StaticFarm farmVelathri = new StaticFarm();
             farmVelathri.Id = 2;
             farmVelathri.Name = "Velathri Farm";
             farmVelathri.TagName = "farm_velathri";
-            farmVelathri.LocationType = LocationType.Farm;
+            farmVelathri.DataType = DataType.Farm;
 
             StaticFarm farmAriminum = new StaticFarm();
             farmAriminum.Id = 3;
             farmAriminum.Name = "Ariminum Farm";
             farmAriminum.TagName = "farm_ariminum";
-            farmAriminum.LocationType = LocationType.Farm;
+            farmAriminum.DataType = DataType.Farm;
 
             Farms.Add("farm_roma", farmRoma);
             Farms.Add("farm_velathri", farmVelathri);
@@ -159,19 +159,19 @@ namespace Core.Test.Data
             StaticPort portRoma = new StaticPort();
             portRoma.Id = 1;
             portRoma.Name = "Roma port";
-            portRoma.LocationType = LocationType.Port;
+            portRoma.DataType = DataType.Port;
             portRoma.TagName = "port_roma";
 
             StaticPort portVelathri = new StaticPort();
             portVelathri.Id = 2;
             portVelathri.Name = "Velathri port";
-            portVelathri.LocationType = LocationType.Port;
+            portVelathri.DataType = DataType.Port;
             portVelathri.TagName = "port_velathri";
 
             StaticPort portAriminum = new StaticPort();
             portAriminum.Id = 3;
             portAriminum.Name = "Ariminum port";
-            portAriminum.LocationType = LocationType.Port;
+            portAriminum.DataType = DataType.Port;
             portAriminum.TagName = "port_ariminum";
 
             Ports.Add("port_roma", portRoma);

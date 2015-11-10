@@ -12,7 +12,7 @@ namespace Core.System.Helpers
             if (Directory.Exists(folder))
             {
                 string json = File.ReadAllText(folder + name + ".json");
-                T data = JsonConvert.DeserializeObject<T>(json);
+                 T data = JsonConvert.DeserializeObject<T>(json);
                 return data;
             }
 

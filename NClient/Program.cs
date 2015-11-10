@@ -25,7 +25,7 @@ namespace NClient
             GameManager manager = new GameManager();
             manager.Awake();
 
-            foreach (var region in manager.Regions)
+            foreach (var region in manager.Regions.Data)
             {
                 Console.WriteLine(region.Value.Farm.Name);
             }

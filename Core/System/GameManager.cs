@@ -14,51 +14,51 @@ namespace Core.System
     {
         #region Variables
 
-        private Dictionary<string, StaticCountry> _countries;
-        private Dictionary<int, StaticPlayer> _players;
-        private Dictionary<string, StaticProvince> _provinces;
-        private Dictionary<string, StaticCity> _citys;
-        private Dictionary<string, StaticFarm> _farms;
-        private Dictionary<string, StaticPort> _ports;
-        private Dictionary<string, StaticRegion> _regions;
+        private IDataDictionary<StaticCountry> _countries;
+        private IDataDictionary<StaticPlayer> _players;
+        private IDataDictionary<StaticProvince> _provinces;
+        private IDataDictionary<StaticCity> _citys;
+        private IDataDictionary<StaticFarm> _farms;
+        private IDataDictionary<StaticPort> _ports;
+        private IDataDictionary<StaticRegion> _regions;
 
-        public Dictionary<int, StaticPlayer> Players
+        public IDataDictionary<StaticPlayer> Players
         {
             get { return _players; }
             set { _players = value; }
         }
 
-        public Dictionary<string, StaticCountry> Countries
+        public IDataDictionary<StaticCountry> Countries
         {
             get { return _countries; }
             set { _countries = value; }
         }
 
-        public Dictionary<string, StaticProvince> Provinces
+        public IDataDictionary<StaticProvince> Provinces
         {
             get { return _provinces; }
             set { _provinces = value; }
         }
 
-        public Dictionary<string, StaticRegion> Regions
+        public IDataDictionary<StaticRegion> Regions
         {
             get { return _regions; }
             set { _regions = value; }
         }
 
-        public Dictionary<string, StaticCity> Citys
+        public IDataDictionary<StaticCity> Citys
         {
             get { return _citys; }
             set { _citys = value; }
         }
 
-        public Dictionary<string, StaticFarm> Farms
+        public IDataDictionary<StaticFarm> Farms
         {
             get { return _farms; }
             set { _farms = value; }
         }
 
-        public Dictionary<string, StaticPort> Ports
+        public IDataDictionary<StaticPort> Ports
         {
             get { return _ports; }
             set { _ports = value; }
@@ -89,7 +89,7 @@ namespace Core.System
             load.LoadPortsData(out _ports);
 
             IDataDictionary<StaticCountry> cc = new StaticCountryDictionary();
-            cc.Data = _countries;
+            cc = _countries;
             StaticCountry c = SelectData.GetDataById(cc, DataType.Country, "country_rome");
             
         }

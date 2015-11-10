@@ -8,13 +8,13 @@ namespace Core.Test.Data
 {
     public class SeedData
     {
-        public Dictionary<int, StaticPlayer> Players { get; set; }
-        public Dictionary<string, StaticCountry> Countries { get; set; }
-        public Dictionary<string, StaticProvince> Provinces { get; set; }
-        public Dictionary<string, StaticRegion> Regions { get; set; }
-        public Dictionary<string, StaticCity> Citys { get; set; }
-        public Dictionary<string, StaticFarm> Farms { get; set; }
-        public Dictionary<string, StaticPort> Ports { get; set; } 
+        public IDataDictionary<StaticPlayer> Players { get; set; }
+        public IDataDictionary<StaticCountry> Countries { get; set; }
+        public IDataDictionary<StaticProvince> Provinces { get; set; }
+        public IDataDictionary<StaticRegion> Regions { get; set; }
+        public IDataDictionary<StaticCity> Citys { get; set; }
+        public IDataDictionary<StaticFarm> Farms { get; set; }
+        public IDataDictionary<StaticPort> Ports { get; set; } 
 
         public SeedData()
         {
@@ -29,14 +29,14 @@ namespace Core.Test.Data
 
         public void SeedPlayerData()
         {
-            Players = new Dictionary<int, StaticPlayer>();
+            Players = new StaticPlayerDictionary();
             StaticPlayer player = new StaticPlayer { IsPlayer = true };
-            Players.Add(1, player);
+            Players.Add("1", player);
         }
 
         public void SeedCountriesData()
         {
-            Countries = new Dictionary<string, StaticCountry>();
+            Countries = new StaticCountryDictionary();
 
             StaticCountry country = new StaticCountry();
             country.Id = 1;
@@ -49,7 +49,7 @@ namespace Core.Test.Data
 
         public void SeedProvincesData()
         {
-            Provinces = new Dictionary<string, StaticProvince>();
+            Provinces = new StaticProvinceDictionary();
 
             StaticProvince province = new StaticProvince
             {
@@ -64,7 +64,7 @@ namespace Core.Test.Data
 
         public void SeedRegionsData()
         {
-            Regions = new Dictionary<string, StaticRegion>();
+            Regions = new StaticRegionDictionary();
 
             StaticRegion regionRoma = new StaticRegion();
             regionRoma.Id = 1;
@@ -106,7 +106,7 @@ namespace Core.Test.Data
 
         public void SeedCitiesData()
         {
-            Citys = new Dictionary<string, StaticCity>();
+            Citys = new StaticCityDictionary();
 
             StaticCity cityRoma = new StaticCity();
             cityRoma.Id = 1;
@@ -132,7 +132,7 @@ namespace Core.Test.Data
 
         public void SeedFarmsData()
         {
-            Farms = new Dictionary<string, StaticFarm>();
+            Farms = new StaticFarmDictionary();
 
             StaticFarm farmRoma = new StaticFarm();
             farmRoma.Id = 1;
@@ -159,7 +159,7 @@ namespace Core.Test.Data
 
         public void SeedPortsData()
         {
-            Ports = new Dictionary<string, StaticPort>();
+            Ports = new StaticPortDictionary();
 
             StaticPort portRoma = new StaticPort();
             portRoma.Id = 1;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.Data;
 using Core.Data.World;
 using Core.Data.World.Location;
 
@@ -6,18 +7,18 @@ namespace Core.System.Helpers
 {
     public static class MergeData
     {
-        public static void MergeRegionData(Dictionary<string, StaticRegion> regions, Dictionary<string, StaticPort> ports, Dictionary<string, StaticCity> cities, Dictionary<string, StaticFarm> farms)
+        public static void MergeRegionData(IDataDictionary<StaticRegion> regions, IDataDictionary<StaticPort> ports, IDataDictionary<StaticCity> cities, IDataDictionary<StaticFarm> farms)
         {
-            foreach (var region in regions)
+            foreach (var region in regions.Data)
             {
                 if (region.Value.CanBuildPort)
                 {
-                    region.Value.Port = ports[region.Value.PortTag];
+                    region.Value.Port = ports.Data[region.Value.PortTag];
                 }
 
-                region.Value.City = cities[region.Value.CityTag];
+                region.Value.City = cities.Data[region.Value.CityTag];
 
-                region.Value.Farm = farms[region.Value.FarmTag];
+                region.Value.Farm = farms.Data[region.Value.FarmTag];
             }
         }
     }

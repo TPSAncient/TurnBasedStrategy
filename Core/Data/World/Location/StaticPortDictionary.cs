@@ -4,7 +4,12 @@ namespace Core.Data.World.Location
 {
     public class StaticPortDictionary : IDataDictionary<StaticPort>
     {
-        public Dictionary<string, StaticPort> Data { get; set; }
+        public Dictionary<string, StaticPort> Data { get; set; } = new Dictionary<string, StaticPort>();
+        public void Add(string key, StaticPort value)
+        {
+            Data.Add(key, value);
+        }
+
         public DataType DataType { get; set; }
     }
 }

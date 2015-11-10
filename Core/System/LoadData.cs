@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Data;
+﻿using Core.Data;
 using Core.Data.World;
 using Core.Data.World.Location;
 using Core.System.Helpers;
@@ -8,39 +7,39 @@ namespace Core.System
 {
     public class LoadData
     {
-        public void LoadPlayersData(out Dictionary<int, StaticPlayer> players)
+        public void LoadPlayersData(out IDataDictionary<StaticPlayer> players)
         {
-            players = JsonData.LoadJson<Dictionary<int, StaticPlayer>>(Constants.PlayersFileName);
+            players = JsonData.LoadJson<StaticPlayerDictionary>(Constants.PlayersFileName);
         }
 
-        public void LoadCountryData(out Dictionary<string, StaticCountry> country)
+        public void LoadCountryData(out IDataDictionary<StaticCountry> country)
         {
-            country =  JsonData.LoadJson<Dictionary<string, StaticCountry>>(Constants.CountriesFileName);
+            country =  JsonData.LoadJson<StaticCountryDictionary>(Constants.CountriesFileName);
         }
 
-        public void LoadProvincesData(out Dictionary<string, StaticProvince> provinces)
+        public void LoadProvincesData(out IDataDictionary<StaticProvince> provinces)
         {
-            provinces = JsonData.LoadJson<Dictionary<string, StaticProvince>>(Constants.ProvincesFileName);
+            provinces = JsonData.LoadJson<StaticProvinceDictionary>(Constants.ProvincesFileName);
         }
 
-        public void LoadRegionsData(out Dictionary<string, StaticRegion> regions)
+        public void LoadRegionsData(out IDataDictionary<StaticRegion> regions)
         {
-            regions = JsonData.LoadJson<Dictionary<string, StaticRegion>>(Constants.RegionsFileName);
+            regions = JsonData.LoadJson<StaticRegionDictionary>(Constants.RegionsFileName);
         }
 
-        public void LoadCitysData(out Dictionary<string, StaticCity> citys)
+        public void LoadCitysData(out IDataDictionary<StaticCity> citys)
         {
-            citys = JsonData.LoadJson<Dictionary<string, StaticCity>>(Constants.CitysFileName);
+            citys = JsonData.LoadJson<StaticCityDictionary>(Constants.CitysFileName);
         }
 
-        public void LoadFarmsData(out Dictionary<string, StaticFarm> farms)
+        public void LoadFarmsData(out IDataDictionary<StaticFarm> farms)
         {
-            farms = JsonData.LoadJson<Dictionary<string, StaticFarm>>(Constants.FarmsFileName);
+            farms = JsonData.LoadJson<StaticFarmDictionary>(Constants.FarmsFileName);
         }
 
-        public void LoadPortsData(out Dictionary<string, StaticPort> ports)
+        public void LoadPortsData(out IDataDictionary<StaticPort> ports)
         {
-            ports = JsonData.LoadJson<Dictionary<string, StaticPort>>(Constants.PortsFileName);
+            ports = JsonData.LoadJson<StaticPortDictionary>(Constants.PortsFileName);
         }
     }
 }

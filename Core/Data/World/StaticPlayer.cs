@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Data.World;
-
-namespace Core.Data
+﻿namespace Core.Data.World
 {
     public class StaticPlayer
     {

@@ -42,6 +42,7 @@ namespace Core.Test.Data
             country.Id = 1;
             country.Name = "Rome";
             country.TagName = "country_rome";
+            country.DataType = DataType.Country;
 
             Countries.Add(country.TagName, country);
         }
@@ -54,7 +55,8 @@ namespace Core.Test.Data
             {
                 Id = 1,
                 Name = "Italia",
-                TagName = "province_italia"
+                TagName = "province_italia",
+                DataType = DataType.Province
             };
 
             Provinces.Add(province.TagName, province);
@@ -73,6 +75,7 @@ namespace Core.Test.Data
             regionRoma.ProvinceTag = "province_italia";
             regionRoma.TagName = "region_roma";
             regionRoma.Player = 1;
+            regionRoma.DataType = DataType.Region;
 
             StaticRegion regionVelathria = new StaticRegion();
             regionVelathria.Id = 2;
@@ -83,6 +86,7 @@ namespace Core.Test.Data
             regionVelathria.ProvinceTag = "province_italia";
             regionVelathria.TagName = "region_velathria";
             regionVelathria.Player = 1;
+            regionVelathria.DataType = DataType.Region;
 
             StaticRegion regionAriminum = new StaticRegion();
             regionAriminum.Id = 3;
@@ -93,6 +97,7 @@ namespace Core.Test.Data
             regionAriminum.ProvinceTag = "province_italia";
             regionAriminum.TagName = "region_ariminum";
             regionAriminum.Player = 1;
+            regionAriminum.DataType = DataType.Region;
 
             Regions.Add(regionRoma.TagName, regionRoma);
             Regions.Add(regionVelathria.TagName, regionVelathria);

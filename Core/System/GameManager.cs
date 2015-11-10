@@ -76,8 +76,8 @@ namespace Core.System
         public void LoadData()
         {
             // For populatind data files with basic data
-            //SeedData data = new SeedData();
-
+            SeedData data = new SeedData();
+            data.SaveData();
 
             LoadData load = new LoadData();
             load.LoadCountryData(out _countries);

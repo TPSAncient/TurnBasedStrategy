@@ -3,10 +3,12 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World
 {
-    public class StaticRegion
+    public class StaticRegion : IData
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public DataType DataType { get; set; }
+
         public string TagName { get; set; }
 
         public int Player { get; set; }

@@ -10,6 +10,6 @@ namespace Core.Data.World.Region
             Data.Add(key, value);
         }
 
-        public DataType DataType { get; set; }
+        public DataType DataType { get; set; } = DataType.Port;
     }
 }

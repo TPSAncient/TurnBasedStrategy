@@ -8,6 +8,7 @@
         Region,
         City,
         Farm,
-        Port
+        Port,
+        Infrastructure
     }
 }

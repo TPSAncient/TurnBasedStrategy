@@ -10,6 +10,6 @@ namespace Core.Data.World.Country
             Data.Add(key, value);
         }
 
-        public DataType DataType { get; set; }
+        public DataType DataType { get; set; } = DataType.Country;
     }
 }

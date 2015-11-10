@@ -49,14 +49,16 @@
     <Compile Include="Data\IDataDictionary.cs" />
     <Compile Include="Data\World\Region\StaticCityDictionary.cs" />
     <Compile Include="Data\World\Region\StaticFarmDictionary.cs" />
+    <Compile Include="Data\World\Region\StaticIndustryDictionary.cs" />
     <Compile Include="Data\World\Region\StaticPortDictionary.cs" />
     <Compile Include="Data\World\Country\StaticCountryDictionary.cs" />
+    <Compile Include="Data\World\Region\StaticInfrastructureDictionary.cs" />
     <Compile Include="Data\World\StaticPlayer.cs" />
     <Compile Include="Data\IData.cs" />
     <Compile Include="Data\DataType.cs" />
     <Compile Include="Data\World\Region\StaticCity.cs" />
     <Compile Include="Data\World\Region\StaticFarm.cs" />
-    <Compile Include="Data\World\Region\StaticSettlement.cs" />
+    <Compile Include="Data\World\Region\StaticInfrastructure.cs" />
     <Compile Include="Data\World\Region\StaticIndustry.cs" />
     <Compile Include="Data\World\Region\StaticPort.cs" />
     <Compile Include="Data\World\Country\StaticCountry.cs" />

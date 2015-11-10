@@ -16,58 +16,51 @@ namespace Core.System
     {
         #region Variables
 
-        private IDataDictionary<StaticCountry> _countries;
-        private IDataDictionary<StaticPlayer> _players;
-        private IDataDictionary<StaticProvince> _provinces;
-        private IDataDictionary<StaticCity> _citys;
-        private IDataDictionary<StaticFarm> _farms;
-        private IDataDictionary<StaticPort> _ports;
-        private IDataDictionary<StaticRegion> _regions;
-
         public IDataDictionary<StaticPlayer> Players
         {
-            get { return _players; }
-            set { _players = value; }
+            get { return DataCollection.Players; }
+            set { DataCollection.Players = value; }
         }
 
         public IDataDictionary<StaticCountry> Countries
         {
-            get { return _countries; }
-            set { _countries = value; }
+            get { return DataCollection.Countries; }
+            set { DataCollection.Countries = value; }
         }
 
         public IDataDictionary<StaticProvince> Provinces
         {
-            get { return _provinces; }
-            set { _provinces = value; }
+            get { return DataCollection.Provinces; }
+            set { DataCollection.Provinces = value; }
         }
 
         public IDataDictionary<StaticRegion> Regions
         {
-            get { return _regions; }
-            set { _regions = value; }
+            get { return DataCollection.Regions; }
+            set { DataCollection.Regions = value; }
         }
 
         public IDataDictionary<StaticCity> Citys
         {
-            get { return _citys; }
-            set { _citys = value; }
+            get { return DataCollection.Citys; }
+            set { DataCollection.Citys = value; }
         }
 
         public IDataDictionary<StaticFarm> Farms
         {
-            get { return _farms; }
-            set { _farms = value; }
+            get { return DataCollection.Farms; }
+            set { DataCollection.Farms = value; }
         }
 
         public IDataDictionary<StaticPort> Ports
         {
-            get { return _ports; }
-            set { _ports = value; }
+            get { return DataCollection.Ports; }
+            set { DataCollection.Ports = value; }
         }
 
         #endregion
 
+        public DataCollection DataCollection { get; set; } = new DataCollection();
 
         public override void Awake()
         {
@@ -82,23 +75,18 @@ namespace Core.System
             data.SaveData();
 
             LoadData load = new LoadData();
-            load.LoadPlayersData(out _players);
-            load.LoadCountryData(out _countries);
-            load.LoadProvincesData(out _provinces);
-            load.LoadRegionsData(out _regions);
-            load.LoadCitysData(out _citys);
-            load.LoadFarmsData(out _farms);
-            load.LoadPortsData(out _ports);
-
-            IDataDictionary<StaticCountry> cc = new StaticCountryDictionary();
-            cc = _countries;
-            StaticCountry c = SelectData.GetDataById(cc, DataType.Country, "country_rome");
-            
+            DataCollection.Players = load.Load<StaticDictionary<StaticPlayer>>(Constants.PlayersFileName);
+            DataCollection.Countries = load.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName);
+            DataCollection.Provinces = load.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName);
+            DataCollection.Regions = load.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName);
+            DataCollection.Citys = load.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName);
+            DataCollection.Farms = load.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName);
+            DataCollection.Ports= load.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName);
         }
 
         public void Merge()
         {
-            MergeData.MergeRegionData(Regions, Ports, Citys, Farms);
+            MergeData.MergeRegionData(DataCollection.Regions, DataCollection.Ports, DataCollection.Citys, DataCollection.Farms);
         }
         
     }

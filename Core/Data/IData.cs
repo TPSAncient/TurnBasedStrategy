@@ -7,6 +7,7 @@ namespace Core.Data
     {
         int Id { get; set; }
         string Name { get; set; }
+        string TagName { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         DataType DataType { get; set; }
     }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Data;
+﻿using Core.Data;
 using Core.Data.World;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
@@ -10,13 +9,7 @@ namespace Core.Test.Data
 {
     public class SeedData
     {
-        public IDataDictionary<StaticPlayer> Players { get; set; }
-        public IDataDictionary<StaticCountry> Countries { get; set; }
-        public IDataDictionary<StaticProvince> Provinces { get; set; }
-        public IDataDictionary<StaticRegion> Regions { get; set; }
-        public IDataDictionary<StaticCity> Citys { get; set; }
-        public IDataDictionary<StaticFarm> Farms { get; set; }
-        public IDataDictionary<StaticPort> Ports { get; set; } 
+        public DataCollection DataCollection { get; set; } = new DataCollection();
 
         public SeedData()
         {
@@ -31,28 +24,23 @@ namespace Core.Test.Data
 
         public void SeedPlayerData()
         {
-            Players = new StaticPlayerDictionary();
             StaticPlayer player = new StaticPlayer { IsPlayer = true };
-            Players.Add("1", player);
+            DataCollection.Players.Add("1", player);
         }
 
         public void SeedCountriesData()
         {
-            Countries = new StaticCountryDictionary();
-
             StaticCountry country = new StaticCountry();
             country.Id = 1;
             country.Name = "Rome";
             country.TagName = "country_rome";
             country.DataType = DataType.Country;
 
-            Countries.Add(country.TagName, country);
+            DataCollection.Countries.Add(country.TagName, country);
         }
 
         public void SeedProvincesData()
         {
-            Provinces = new StaticProvinceDictionary();
-
             StaticProvince province = new StaticProvince
             {
                 Id = 1,
@@ -61,13 +49,11 @@ namespace Core.Test.Data
                 DataType = DataType.Province
             };
 
-            Provinces.Add(province.TagName, province);
+            DataCollection.Provinces.Add(province.TagName, province);
         }
 
         public void SeedRegionsData()
         {
-            Regions = new StaticRegionDictionary();
-
             StaticRegion regionRoma = new StaticRegion();
             regionRoma.Id = 1;
             regionRoma.CityTag = "city_roma";
@@ -101,41 +87,40 @@ namespace Core.Test.Data
             regionAriminum.Player = 1;
             regionAriminum.DataType = DataType.Region;
 
-            Regions.Add(regionRoma.TagName, regionRoma);
-            Regions.Add(regionVelathria.TagName, regionVelathria);
-            Regions.Add(regionAriminum.TagName, regionAriminum);
+            DataCollection.Regions.Add(regionRoma.TagName, regionRoma);
+            DataCollection.Regions.Add(regionVelathria.TagName, regionVelathria);
+            DataCollection.Regions.Add(regionAriminum.TagName, regionAriminum);
         }
 
         public void SeedCitiesData()
         {
-            Citys = new StaticCityDictionary();
-
             StaticCity cityRoma = new StaticCity();
             cityRoma.Id = 1;
             cityRoma.Name = "Roma";
             cityRoma.DataType = DataType.City;
             cityRoma.TagName = "city_roma";
-            Citys.Add(cityRoma.TagName, cityRoma);
+            
 
             StaticCity cityVelathri = new StaticCity();
             cityVelathri.Id = 2;
             cityVelathri.Name = "Velathri";
             cityVelathri.DataType = DataType.City;
             cityVelathri.TagName = "city_velathri";
-            Citys.Add(cityVelathri.TagName, cityVelathri);
+            
 
             StaticCity cityArminum = new StaticCity();
             cityArminum.Id = 2;
             cityArminum.Name = "Ariminum";
             cityArminum.DataType = DataType.City;
             cityArminum.TagName = "city_ariminum";
-            Citys.Add(cityArminum.TagName, cityArminum);
+
+            DataCollection.Citys.Add(cityRoma.TagName, cityRoma);
+            DataCollection.Citys.Add(cityVelathri.TagName, cityVelathri);
+            DataCollection.Citys.Add(cityArminum.TagName, cityArminum);
         }
 
         public void SeedFarmsData()
         {
-            Farms = new StaticFarmDictionary();
-
             StaticFarm farmRoma = new StaticFarm();
             farmRoma.Id = 1;
             farmRoma.Name = "Roma Farm";
@@ -154,15 +139,13 @@ namespace Core.Test.Data
             farmAriminum.TagName = "farm_ariminum";
             farmAriminum.DataType = DataType.Farm;
 
-            Farms.Add("farm_roma", farmRoma);
-            Farms.Add("farm_velathri", farmVelathri);
-            Farms.Add("farm_ariminum", farmAriminum);
+            DataCollection.Farms.Add("farm_roma", farmRoma);
+            DataCollection.Farms.Add("farm_velathri", farmVelathri);
+            DataCollection.Farms.Add("farm_ariminum", farmAriminum);
         }
 
         public void SeedPortsData()
         {
-            Ports = new StaticPortDictionary();
-
             StaticPort portRoma = new StaticPort();
             portRoma.Id = 1;
             portRoma.Name = "Roma port";
@@ -181,20 +164,24 @@ namespace Core.Test.Data
             portAriminum.DataType = DataType.Port;
             portAriminum.TagName = "port_ariminum";
 
-            Ports.Add("port_roma", portRoma);
-            Ports.Add("port_velathri", portRoma);
-            Ports.Add("port_ariminum", portRoma);
+            DataCollection.Ports.Add("port_roma", portRoma);
+            DataCollection.Ports.Add("port_velathri", portRoma);
+            DataCollection.Ports.Add("port_ariminum", portRoma);
         }
 
         public void SaveData()
         {
-            JsonData.SaveJson("Players", Players);
-            JsonData.SaveJson("Countries", Countries);
-            JsonData.SaveJson("Provinces", Provinces);
-            JsonData.SaveJson("Regions", Regions);
-            JsonData.SaveJson("Citys", Citys);
-            JsonData.SaveJson("Farms", Farms);
-            JsonData.SaveJson("Ports", Ports);
+            IDataDictionary<StaticCity> city = new StaticDictionary<StaticCity>();
+            JsonData.SaveJson("Test", city);
+            JsonData.LoadJson<StaticDictionary<StaticCity>>("Test");
+
+            JsonData.SaveJson("Players", DataCollection.Players);
+            JsonData.SaveJson("Countries", DataCollection.Countries);
+            JsonData.SaveJson("Provinces", DataCollection.Provinces);
+            JsonData.SaveJson("Regions", DataCollection.Regions);
+            JsonData.SaveJson("Citys", DataCollection.Citys);
+            JsonData.SaveJson("Farms", DataCollection.Farms);
+            JsonData.SaveJson("Ports", DataCollection.Ports);
         }
 
 

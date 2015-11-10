@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
+using Core.Data;
+using Core.Data.World.Country;
 using Core.System;
 using Core.System.Helpers;
 using Core.Test.Data;
@@ -11,20 +13,13 @@ namespace NClient
     {
         static void Main(string[] args)
         {
-
-            //SeedData data = new SeedData();
-            //data.SaveData();
-
-            //Dictionary<string, StaticCity> cities = JsonData.LoadJson<Dictionary<string, StaticCity>>("Citys");
-            //foreach (var city in cities)
-            //{
-            //    Console.WriteLine(city.Value.TagName);
-            //}
-
             GameManager manager = new GameManager();
             manager.Awake();
+            StaticCountry c = SelectData.GetDataById(manager.DataCollection.Countries, DataType.Country, "country_rome");
 
-            foreach (var region in manager.Regions.Data)
+            Console.WriteLine(c.Name);
+
+            foreach (var region in manager.DataCollection.Regions.Data)
             {
                 Console.WriteLine(region.Value.Farm.Name);
             }

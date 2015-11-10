@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Core.Data.World;
 using Core.Data.World.Location;
 
-namespace Core.System
+namespace Core.System.Helpers
 {
-    public class MergeData
+    public static class MergeData
     {
-        public void MergeRegionData(Dictionary<string, StaticRegion> regions, Dictionary<string, StaticPort> ports, Dictionary<string, StaticCity> cities, Dictionary<string, StaticFarm> farms)
+        public static void MergeRegionData(Dictionary<string, StaticRegion> regions, Dictionary<string, StaticPort> ports, Dictionary<string, StaticCity> cities, Dictionary<string, StaticFarm> farms)
         {
             foreach (var region in regions)
             {

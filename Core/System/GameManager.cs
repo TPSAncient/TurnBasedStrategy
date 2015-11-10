@@ -70,7 +70,7 @@ namespace Core.System
         public override void Awake()
         {
             LoadData();
-            MergeData();
+            Merge();
         }
 
         public void LoadData()
@@ -80,6 +80,7 @@ namespace Core.System
             data.SaveData();
 
             LoadData load = new LoadData();
+            load.LoadPlayersData(out _players);
             load.LoadCountryData(out _countries);
             load.LoadProvincesData(out _provinces);
             load.LoadRegionsData(out _regions);
@@ -87,13 +88,15 @@ namespace Core.System
             load.LoadFarmsData(out _farms);
             load.LoadPortsData(out _ports);
 
+            IDataDictionary<StaticCountry> cc = new StaticCountryDictionary();
+            cc.Data = _countries;
+            StaticCountry c = SelectData.GetDataById(cc, DataType.Country, "country_rome");
             
         }
 
-        public void MergeData()
+        public void Merge()
         {
-            MergeData mergeData = new MergeData();
-            mergeData.MergeRegionData(Regions, Ports, Citys, Farms);
+            MergeData.MergeRegionData(Regions, Ports, Citys, Farms);
         }
         
     }

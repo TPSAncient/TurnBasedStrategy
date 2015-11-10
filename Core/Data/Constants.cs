@@ -8,6 +8,7 @@ namespace Core.Data
     public static class Constants
     {
         public const string DataPath = "";
+        public const string PlayersFileName = "Players";
         public const string CountriesFileName = "Countries";
         public const string ProvincesFileName = "Provinces";
         public const string RegionsFileName = "Regions";

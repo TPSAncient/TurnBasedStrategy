@@ -7,9 +7,9 @@ using Core.System.Helpers;
 
 namespace Core.System
 {
-    public class LoadData
+    public static class LoadData
     {
-        public T Load<T>(string fileName)
+        public static T Load<T>(string fileName)
         {
             return JsonData.LoadJson<T>(fileName);
         }

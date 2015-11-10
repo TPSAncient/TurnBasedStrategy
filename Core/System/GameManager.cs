@@ -64,24 +64,23 @@ namespace Core.System
 
         public override void Awake()
         {
-            LoadData();
+            Load();
             Merge();
         }
 
-        public void LoadData()
+        public void Load()
         {
             // For populatind data files with basic data
             SeedData data = new SeedData();
             data.SaveData();
 
-            LoadData load = new LoadData();
-            DataCollection.Players = load.Load<StaticDictionary<StaticPlayer>>(Constants.PlayersFileName);
-            DataCollection.Countries = load.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName);
-            DataCollection.Provinces = load.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName);
-            DataCollection.Regions = load.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName);
-            DataCollection.Citys = load.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName);
-            DataCollection.Farms = load.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName);
-            DataCollection.Ports= load.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName);
+            DataCollection.Players = LoadData.Load<StaticDictionary<StaticPlayer>>(Constants.PlayersFileName);
+            DataCollection.Countries = LoadData.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName);
+            DataCollection.Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName);
+            DataCollection.Regions = LoadData.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName);
+            DataCollection.Citys = LoadData.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName);
+            DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName);
+            DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName);
         }
 
         public void Merge()

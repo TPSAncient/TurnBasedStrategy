@@ -13,9 +13,9 @@ namespace Core.Data.Building
 
         public bool IsBuilt { get; set; }
         // Building requirment
-
+        public float Cost { get; set; }
         // Building maintainence
-
+        public float Maintenance { get; set; }
         // Where can you build buildings
     }
 }

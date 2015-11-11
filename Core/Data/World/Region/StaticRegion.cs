@@ -13,10 +13,11 @@ namespace Core.Data.World.Region
         public int Player { get; set; }
 
         public string ProvinceTag { get; set; }
-        // Only one may be in region
         public string CityTag { get; set; }
         public string FarmTag { get; set; }
         public string PortTag { get; set; }
+        public string InfrastructureTag { get; set; }
+        public string IndustryTag { get; set; }
    
         public bool CanBuildPort { get; set; }
 
@@ -26,13 +27,13 @@ namespace Core.Data.World.Region
         public StaticFarm Farm { get; set; }
         [JsonIgnore]
         public StaticPort Port { get; set; }
-
-        //public StaticIndustry Industry { get; set; }
-        //public StaticPort Port { get; set; }
+        [JsonIgnore]
+        public StaticInfrastructure Infrastructure { get; set; }
+        [JsonIgnore]
+        public StaticIndustry Industry { get; set; }
 
         // Population
         //public float TotalPopulation { get; set; }
         //public float PopulationGrowth { get; set; }
-
     }
 }

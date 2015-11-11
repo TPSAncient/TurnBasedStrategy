@@ -15,5 +15,7 @@ namespace Core.Data
         public const string CitysFileName = "Citys";
         public const string FarmsFileName = "Farms";
         public const string PortsFileName = "Ports";
+        public const string InfrastructureFileName = "Infrastructure";
+        public const string IndustryFileName = "Industry";
     }
 }

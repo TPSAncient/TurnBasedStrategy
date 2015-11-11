@@ -14,5 +14,7 @@ namespace Core.Data
         public IDataDictionary<StaticCity> Citys { get; set; } = new StaticDictionary<StaticCity>();
         public IDataDictionary<StaticFarm> Farms { get; set; } = new StaticDictionary<StaticFarm>();
         public IDataDictionary<StaticPort> Ports { get; set; } = new StaticDictionary<StaticPort>();
+        public IDataDictionary<StaticInfrastructure> Infrastructures { get; set; } = new StaticDictionary<StaticInfrastructure>();
+        public IDataDictionary<StaticIndustry> Industries { get; set; } = new StaticDictionary<StaticIndustry>();
     }
 }

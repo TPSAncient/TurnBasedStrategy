@@ -81,6 +81,7 @@ namespace Core.System
             DataCollection.Citys = LoadData.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName);
             DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName);
             DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName);
+            DataCollection.Infrastructures= LoadData.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName);
         }
 
         public void Merge()

@@ -20,6 +20,7 @@ namespace Core.Test.Data
             SeedCitiesData();
             SeedFarmsData();
             SeedPortsData();
+            SeedInfrastructureData();
         }
 
         public void SeedPlayerData()
@@ -177,6 +178,42 @@ namespace Core.Test.Data
             DataCollection.Ports.Add("port_ariminum", portRoma);
         }
 
+        public void SeedInfrastructureData()
+        {
+            StaticInfrastructure infrastructureRoma = new StaticInfrastructure
+            {
+                Id = 1,
+                Name = "Infra Roma",
+                DataType = DataType.Infrastructure,
+                TagName = "infrastructure_roma"
+            };
+
+            StaticInfrastructure infrastructureVelathri = new StaticInfrastructure
+            {
+                Id = 1,
+                Name = "Infra Velathri",
+                DataType = DataType.Infrastructure,
+                TagName = "infrastructure_velathri"
+            };
+
+            StaticInfrastructure infrastructureAriminum = new StaticInfrastructure
+            {
+                Id = 1,
+                Name = "Infra Ariminum",
+                DataType = DataType.Infrastructure,
+                TagName = "infrastructure_ariminum"
+            };
+
+            DataCollection.Infrastructures.Add(infrastructureRoma.TagName, infrastructureRoma);
+            DataCollection.Infrastructures.Add(infrastructureVelathri.TagName, infrastructureVelathri);
+            DataCollection.Infrastructures.Add(infrastructureAriminum.TagName, infrastructureAriminum);
+        }
+
+        public void SeedIndustryData()
+        {
+            
+        }
+
         public void SaveData()
         {
             JsonData.SaveJson(Constants.PlayersFileName, DataCollection.Players);
@@ -186,6 +223,7 @@ namespace Core.Test.Data
             JsonData.SaveJson(Constants.CitysFileName, DataCollection.Citys);
             JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms);
             JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports);
+            JsonData.SaveJson(Constants.InfrastructureFileName, DataCollection.Infrastructures);
         }
 
 

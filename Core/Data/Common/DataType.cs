@@ -10,6 +10,8 @@
         Farm,
         Port,
         Infrastructure,
-        Building
+        Building,
+        Actor,
+        Army
     }
 }

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Army\StaticArmy.cs" />
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\Common\Constants.cs" />
@@ -73,7 +74,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Army\" />
     <Folder Include="Data\World\Location\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

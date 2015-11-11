@@ -25,6 +25,8 @@ namespace Core.Test.Data
         public void SeedPlayerData()
         {
             StaticPlayer player = new StaticPlayer { IsPlayer = true };
+
+            DataCollection.Players.DataType = DataType.Empty;
             DataCollection.Players.Add("1", player);
         }
 
@@ -36,6 +38,7 @@ namespace Core.Test.Data
             country.TagName = "country_rome";
             country.DataType = DataType.Country;
 
+            DataCollection.Countries.DataType = DataType.Country;
             DataCollection.Countries.Add(country.TagName, country);
         }
 
@@ -49,6 +52,7 @@ namespace Core.Test.Data
                 DataType = DataType.Province
             };
 
+            DataCollection.Provinces.DataType = DataType.Province;
             DataCollection.Provinces.Add(province.TagName, province);
         }
 
@@ -87,6 +91,7 @@ namespace Core.Test.Data
             regionAriminum.Player = 1;
             regionAriminum.DataType = DataType.Region;
 
+            DataCollection.Regions.DataType = DataType.Region;
             DataCollection.Regions.Add(regionRoma.TagName, regionRoma);
             DataCollection.Regions.Add(regionVelathria.TagName, regionVelathria);
             DataCollection.Regions.Add(regionAriminum.TagName, regionAriminum);
@@ -114,6 +119,7 @@ namespace Core.Test.Data
             cityArminum.DataType = DataType.City;
             cityArminum.TagName = "city_ariminum";
 
+            DataCollection.Citys.DataType = DataType.City;
             DataCollection.Citys.Add(cityRoma.TagName, cityRoma);
             DataCollection.Citys.Add(cityVelathri.TagName, cityVelathri);
             DataCollection.Citys.Add(cityArminum.TagName, cityArminum);
@@ -139,6 +145,7 @@ namespace Core.Test.Data
             farmAriminum.TagName = "farm_ariminum";
             farmAriminum.DataType = DataType.Farm;
 
+            DataCollection.Farms.DataType = DataType.Farm;
             DataCollection.Farms.Add("farm_roma", farmRoma);
             DataCollection.Farms.Add("farm_velathri", farmVelathri);
             DataCollection.Farms.Add("farm_ariminum", farmAriminum);
@@ -164,6 +171,7 @@ namespace Core.Test.Data
             portAriminum.DataType = DataType.Port;
             portAriminum.TagName = "port_ariminum";
 
+            DataCollection.Ports.DataType = DataType.Port;
             DataCollection.Ports.Add("port_roma", portRoma);
             DataCollection.Ports.Add("port_velathri", portRoma);
             DataCollection.Ports.Add("port_ariminum", portRoma);

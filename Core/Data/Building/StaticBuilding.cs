@@ -10,6 +10,8 @@ namespace Core.Data.Building
         public DataType DataType { get; set; }
         // Building Type
         public StaticBuildingType BuildingType { get; set; }
+
+        public bool IsBuilt { get; set; }
         // Building requirment
 
         // Building maintainence

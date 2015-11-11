@@ -171,13 +171,13 @@ namespace Core.Test.Data
 
         public void SaveData()
         {
-            JsonData.SaveJson("Players", DataCollection.Players);
-            JsonData.SaveJson("Countries", DataCollection.Countries);
-            JsonData.SaveJson("Provinces", DataCollection.Provinces);
-            JsonData.SaveJson("Regions", DataCollection.Regions);
-            JsonData.SaveJson("Citys", DataCollection.Citys);
-            JsonData.SaveJson("Farms", DataCollection.Farms);
-            JsonData.SaveJson("Ports", DataCollection.Ports);
+            JsonData.SaveJson(Constants.PlayersFileName, DataCollection.Players);
+            JsonData.SaveJson(Constants.CountriesFileName, DataCollection.Countries);
+            JsonData.SaveJson(Constants.ProvincesFileName, DataCollection.Provinces);
+            JsonData.SaveJson(Constants.RegionsFileName, DataCollection.Regions);
+            JsonData.SaveJson(Constants.CitysFileName, DataCollection.Citys);
+            JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms);
+            JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports);
         }
 
 

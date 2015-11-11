@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Data
+namespace Core.Data.Common
 {
     public class StaticDictionary<T> : IDataDictionary<T>
     {

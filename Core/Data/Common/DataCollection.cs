@@ -1,13 +1,13 @@
-﻿using Core.Data.World;
+﻿using Core.Data.Actor;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
 
-namespace Core.Data
+namespace Core.Data.Common
 {
     public class DataCollection
     {
-        public IDataDictionary<StaticPlayer> Players { get; set; } = new StaticDictionary<StaticPlayer>();
+        public IDataDictionary<StaticActor> Players { get; set; } = new StaticDictionary<StaticActor>();
         public IDataDictionary<StaticCountry> Countries { get; set; } = new StaticDictionary<StaticCountry>();
         public IDataDictionary<StaticProvince> Provinces { get; set; } = new StaticDictionary<StaticProvince>();
         public IDataDictionary<StaticRegion> Regions { get; set; } = new StaticDictionary<StaticRegion>();

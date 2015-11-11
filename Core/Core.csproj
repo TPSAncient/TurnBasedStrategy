@@ -45,13 +45,13 @@
   <ItemGroup>
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
-    <Compile Include="Data\Constants.cs" />
-    <Compile Include="Data\DataCollection.cs" />
-    <Compile Include="Data\IDataDictionary.cs" />
-    <Compile Include="Data\StaticDictionary.cs" />
-    <Compile Include="Data\World\StaticPlayer.cs" />
-    <Compile Include="Data\IData.cs" />
-    <Compile Include="Data\DataType.cs" />
+    <Compile Include="Data\Common\Constants.cs" />
+    <Compile Include="Data\Common\DataCollection.cs" />
+    <Compile Include="Data\Common\IDataDictionary.cs" />
+    <Compile Include="Data\Common\StaticDictionary.cs" />
+    <Compile Include="Data\Actor\StaticActor.cs" />
+    <Compile Include="Data\Common\IData.cs" />
+    <Compile Include="Data\Common\DataType.cs" />
     <Compile Include="Data\World\Region\StaticCity.cs" />
     <Compile Include="Data\World\Region\StaticFarm.cs" />
     <Compile Include="Data\World\Region\StaticInfrastructure.cs" />
@@ -73,6 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Army\" />
     <Folder Include="Data\World\Location\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

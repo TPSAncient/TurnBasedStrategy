@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Data;
+using Core.Data.Actor;
+using Core.Data.Common;
 using Core.Data.World;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
@@ -16,7 +18,7 @@ namespace Core.System
     {
         #region Variables
 
-        public IDataDictionary<StaticPlayer> Players
+        public IDataDictionary<StaticActor> Players
         {
             get { return DataCollection.Players; }
             set { DataCollection.Players = value; }
@@ -74,7 +76,7 @@ namespace Core.System
             SeedData data = new SeedData();
             data.SaveData();
 
-            DataCollection.Players = LoadData.Load<StaticDictionary<StaticPlayer>>(Constants.PlayersFileName);
+            DataCollection.Players = LoadData.Load<StaticDictionary<StaticActor>>(Constants.PlayersFileName);
             DataCollection.Countries = LoadData.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName);
             DataCollection.Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName);
             DataCollection.Regions = LoadData.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName);

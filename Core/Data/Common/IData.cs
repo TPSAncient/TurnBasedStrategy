@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Core.Data
+namespace Core.Data.Common
 {
     public interface IData
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Data
+namespace Core.Data.Common
 {
     public interface IDataDictionary<T>
     {

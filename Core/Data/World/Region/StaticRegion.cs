@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Core.Data.Common;
+using Newtonsoft.Json;
 
 namespace Core.Data.World.Region
 {

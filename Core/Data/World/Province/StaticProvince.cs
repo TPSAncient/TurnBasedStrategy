@@ -1,4 +1,6 @@
-﻿namespace Core.Data.World.Province
+﻿using Core.Data.Common;
+
+namespace Core.Data.World.Province
 {
     public class StaticProvince : IData
     {

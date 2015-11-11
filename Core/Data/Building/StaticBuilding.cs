@@ -1,4 +1,6 @@
-﻿namespace Core.Data.Building
+﻿using Core.Data.Common;
+
+namespace Core.Data.Building
 {
     public class StaticBuilding : IData
     {

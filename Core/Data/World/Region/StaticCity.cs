@@ -1,4 +1,6 @@
-﻿namespace Core.Data.World.Region
+﻿using Core.Data.Common;
+
+namespace Core.Data.World.Region
 {
     public class StaticCity : IData
     {

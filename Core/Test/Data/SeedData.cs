@@ -1,4 +1,6 @@
 ﻿using Core.Data;
+using Core.Data.Actor;
+using Core.Data.Common;
 using Core.Data.World;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
@@ -25,10 +27,10 @@ namespace Core.Test.Data
 
         public void SeedPlayerData()
         {
-            StaticPlayer player = new StaticPlayer { IsPlayer = true };
+            StaticActor actor = new StaticActor { IsPlayer = true };
 
             DataCollection.Players.DataType = DataType.Empty;
-            DataCollection.Players.Add("1", player);
+            DataCollection.Players.Add("1", actor);
         }
 
         public void SeedCountriesData()

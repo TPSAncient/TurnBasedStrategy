@@ -1,4 +1,5 @@
 ﻿using Core.Data;
+using Core.Data.Common;
 
 namespace Core.System.Helpers
 {

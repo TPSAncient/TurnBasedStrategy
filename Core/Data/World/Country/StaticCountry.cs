@@ -1,4 +1,6 @@
-﻿namespace Core.Data.World.Country
+﻿using Core.Data.Common;
+
+namespace Core.Data.World.Country
 {
     public class StaticCountry : IData
     {

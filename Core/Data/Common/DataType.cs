@@ -2,7 +2,8 @@
 {
     public enum DataType
     {
-        Empty,
+        None,
+        Terrain,
         Country,
         Province,
         Region,

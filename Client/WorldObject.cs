@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.Data.Common;
+using UnityEngine;
 
 namespace Client
 {
@@ -7,7 +8,7 @@ namespace Client
         #region Data acces values
 
         public string Tag = "";
-        public WorldObjectEnum SelectedObjectType = WorldObjectEnum.None;
+        public DataType SelectedObjectType = DataType.None;
         
         #endregion
 

@@ -63,7 +63,7 @@
     <Compile Include="Data\World\Province\StaticProvince.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Helpers\JsonData.cs" />
-    <Compile Include="System\GameManager.cs" />
+    <Compile Include="System\SystemManager.cs" />
     <Compile Include="System\Helpers\LoadData.cs" />
     <Compile Include="System\Helpers\MergeData.cs" />
     <Compile Include="System\Helpers\SelectData.cs" />

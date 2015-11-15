@@ -14,7 +14,7 @@ namespace Core.System
     /// <summary>
     /// Start class
     /// </summary>
-    public class GameManager : UnityMonoBehaviour
+    public class SystemManager : UnityMonoBehaviour
     {
         #region Variables
 

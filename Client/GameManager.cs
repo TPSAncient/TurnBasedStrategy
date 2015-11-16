@@ -34,5 +34,7 @@ namespace Client
             // Game Starting place
             SystemManager = new SystemManager();
         }
+
+        // test
     }
 }

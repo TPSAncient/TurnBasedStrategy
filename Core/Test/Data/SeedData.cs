@@ -1,4 +1,5 @@
 ﻿using Core.Data.Actor;
+using Core.Data.Building;
 using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
@@ -22,6 +23,7 @@ namespace Core.Test.Data
             SeedFarmsData();
             SeedPortsData();
             SeedInfrastructureData();
+            SeedBuildingsData();
         }
 
         public void SeedPlayerData()
@@ -215,6 +217,23 @@ namespace Core.Test.Data
             
         }
 
+        public void SeedBuildingsData()
+        {
+            StaticBuilding building = new StaticBuilding();
+            building.DataType = DataType.Building;
+            building.BuildingType = StaticBuildingType.Infrastructure;
+            building.Id = 1;
+            building.TagName = "building_road";
+            building.Name = "Road";
+            building.Cost = 100;
+            building.IsBuilt = false;
+            building.Maintenance = 10;
+
+            DataCollection.Buildings.DataType = DataType.Building;
+            DataCollection.Buildings.Add("building_road", building);
+        }
+
+
         public void SaveData()
         {
             JsonData.SaveJson(Constants.PlayersFileName, DataCollection.Players, Path);
@@ -225,6 +244,7 @@ namespace Core.Test.Data
             JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms, Path);
             JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports, Path);
             JsonData.SaveJson(Constants.InfrastructureFileName, DataCollection.Infrastructures, Path);
+            JsonData.SaveJson(Constants.BuildingsFileName, DataCollection.Buildings, Path);
         }
 
 

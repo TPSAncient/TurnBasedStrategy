@@ -13,6 +13,7 @@ namespace Core.Data.World.Region
         public string TagName { get; set; }
         public DataType DataType { get; set; }
 
+        public List<string> BuildingTags { get; set; } = new List<string>();
 
         [JsonIgnore]
         public StaticDictionary<StaticBuilding> Buildings { get; set; }  

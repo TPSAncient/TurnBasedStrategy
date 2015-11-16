@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Runtime.Remoting.Messaging;
 using Core.Data;
 using Core.Data.Common;
@@ -14,7 +16,12 @@ namespace NClient
     {
         static void Main(string[] args)
         {
+            SeedData data = new SeedData();
+            data.Path = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            data.SaveData();
+
             SystemManager manager = new SystemManager();
+            manager.Path = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             manager.Awake();
             StaticCountry c = SelectData.GetDataById(manager.DataCollection.Countries, "country_rome");
 

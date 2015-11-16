@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Data;
 using Core.Data.Actor;
+using Core.Data.Building;
 using Core.Data.Common;
 using Core.Data.World;
 using Core.Data.World.Country;
@@ -86,6 +87,7 @@ namespace Core.System
             DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName, Path);
             DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName, Path);
             DataCollection.Infrastructures= LoadData.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName, Path);
+            DataCollection.Buildings = LoadData.Load<StaticDictionary<StaticBuilding>>(Constants.BuildingsFileName, Path);
         }
 
         public void Merge()

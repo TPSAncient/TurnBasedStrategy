@@ -9,6 +9,7 @@
         Defensive,
         Trade,
         Industrial,
-        Research
+        Research,
+        Infrastructure
     }
 }

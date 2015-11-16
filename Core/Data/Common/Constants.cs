@@ -12,5 +12,6 @@
         public const string PortsFileName = "Ports";
         public const string InfrastructureFileName = "Infrastructure";
         public const string IndustryFileName = "Industry";
+        public const string BuildingsFileName = "Buildings";
     }
 }

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region
 {
-    public class StaticCity : IData
+    public class StaticCity : IData, IBuilding
     {
         // General
         public int Id { get; set; }
@@ -13,7 +13,7 @@ namespace Core.Data.World.Region
         public string TagName { get; set; }
         public DataType DataType { get; set; }
 
-        public List<string> BuildingTags { get; set; } = new List<string>();
+        public List<string> BuildingTag { get; set; } = new List<string>();
 
         [JsonIgnore]
         public StaticDictionary<StaticBuilding> Buildings { get; set; }  

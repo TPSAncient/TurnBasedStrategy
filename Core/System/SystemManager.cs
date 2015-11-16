@@ -93,7 +93,9 @@ namespace Core.System
         public void Merge()
         {
             MergeData.MergeRegionData(DataCollection);
-            MergeData.MergeInfrastructureData(DataCollection);
+
+            MergeData.MergeBuildings(DataCollection.Infrastructures, DataCollection.Buildings);
+            MergeData.MergeBuildings(DataCollection.Farms, DataCollection.Buildings);
         }
         
     }

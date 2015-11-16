@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region
 {
-    public class StaticInfrastructure : IData
+    public class StaticInfrastructure : IData, IBuilding
     {
         public int Id { get; set; }
         public string Name { get; set; }

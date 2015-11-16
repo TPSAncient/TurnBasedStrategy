@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Army\StaticArmy.cs" />
+    <Compile Include="Data\Building\IBuilding.cs" />
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\Common\Constants.cs" />

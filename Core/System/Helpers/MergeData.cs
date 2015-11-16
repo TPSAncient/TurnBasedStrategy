@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Data;
+using Core.Data.Building;
 using Core.Data.Common;
 using Core.Data.World;
 using Core.Data.World.Region;
@@ -27,15 +28,16 @@ namespace Core.System.Helpers
             }
         }
 
-        public static void MergeInfrastructureData(DataCollection collection)
+        public static void MergeBuildings<T>(IDataDictionary<T> list, IDataDictionary<StaticBuilding> buildings)
         {
-            foreach (var infrastructure in collection.Infrastructures.Data)
+            foreach (var data in list.Data)
             {
-                foreach (var tag in infrastructure.Value.BuildingTag)
+                var iBuilding = data.Value as IBuilding;
+                foreach (var tag in iBuilding.BuildingTag)
                 {
-                    var building = collection.Buildings.Data[tag];
+                    var building = buildings.Data[tag];
                     building.IsBuilt = true;
-                    infrastructure.Value.Buildings.Data.Add(tag, building);
+                    iBuilding.Buildings.Data.Add(tag, building);
                 }
             }
         }

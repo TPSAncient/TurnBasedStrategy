@@ -169,7 +169,7 @@ namespace Client.Camera
             selected.IsWorldObjectSelected = true;
             _selectedWorldObjects.Add(selected);
 
-            return null;
+            return GameManager.Instance.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
         }
     }
 }

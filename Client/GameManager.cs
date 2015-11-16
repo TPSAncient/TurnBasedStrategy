@@ -25,6 +25,7 @@ namespace Client
         #endregion
 
         public SystemManager SystemManager { get; set; }
+        public SelectManager SelectManager { get; set; }
 
         void Awake()
         {
@@ -33,6 +34,7 @@ namespace Client
 
             // Game Starting place
             SystemManager = new SystemManager();
+            SelectManager = new SelectManager(SystemManager.DataCollection);
         }
 
         // test

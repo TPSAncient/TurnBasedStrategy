@@ -16,7 +16,7 @@ namespace NClient
         {
             SystemManager manager = new SystemManager();
             manager.Awake();
-            StaticCountry c = SelectData.GetDataById(manager.DataCollection.Countries, DataType.Country, "country_rome");
+            StaticCountry c = SelectData.GetDataById(manager.DataCollection.Countries, "country_rome");
 
             Console.WriteLine(c.Name);
 

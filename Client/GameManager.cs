@@ -19,7 +19,7 @@ namespace Client
             DontDestroyOnLoad(this);
 
             // Game Starting place
-            if (false)
+            if (true)
             {
                 SeedData seedData = new SeedData();
                 seedData.Path = Application.dataPath;

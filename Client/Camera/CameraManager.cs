@@ -154,8 +154,15 @@ namespace Client.Camera
                 if (Physics.Raycast(ray, out hit, 100))
                 {
                     var data = SingleSelection(hit.transform.GetComponent<WorldObject>());
-                    _gameManager.UIManager.ChangeDataTypeName(data.DataType.ToString());
-                    _gameManager.UIManager.ChangeDataName(data.Name);
+                    if (data != null && data.DataType == DataType.City)
+                    {
+                        _gameManager.UIManager.OpenOverViewPanel(data);
+                    }
+                    else
+                    {
+                        _gameManager.UIManager.CloseOverViewPanel();
+                    }
+                    
                 }
             }
         }
@@ -173,7 +180,6 @@ namespace Client.Camera
             selected.IsWorldObjectSelected = true;
             _selectedWorldObjects.Add(selected);
             return _gameManager.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
-            //return GameManager.Instance.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
         }
     }
 }

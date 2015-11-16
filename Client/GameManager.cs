@@ -7,24 +7,7 @@ namespace Client
 {
     public class GameManager : MonoBehaviour
     {
-        #region Singleton
-
-        private static GameManager _instance = null;
-
-        public static GameManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new GameManager();
-                }
-
-                return _instance;
-            }
-        }
-
-        #endregion
+        public GameObject OverViewPanel;
 
         public SystemManager SystemManager { get; set; }
         public SelectManager SelectManager { get; set; }
@@ -49,6 +32,11 @@ namespace Client
             SystemManager.Awake();
             SelectManager = new SelectManager(SystemManager.DataCollection);
             UIManager = new UIManager();
+            UIManager.OverViewPanel = OverViewPanel;
+        }
+
+        public void LoadAllUIGameObjectReferences()
+        {
         }
 
         // test

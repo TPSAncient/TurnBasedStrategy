@@ -14,7 +14,7 @@ namespace NClient
     {
         static void Main(string[] args)
         {
-            GameManager manager = new GameManager();
+            SystemManager manager = new SystemManager();
             manager.Awake();
             StaticCountry c = SelectData.GetDataById(manager.DataCollection.Countries, DataType.Country, "country_rome");
 

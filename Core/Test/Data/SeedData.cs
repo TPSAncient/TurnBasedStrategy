@@ -1,7 +1,5 @@
-﻿using Core.Data;
-using Core.Data.Actor;
+﻿using Core.Data.Actor;
 using Core.Data.Common;
-using Core.Data.World;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
@@ -29,7 +27,7 @@ namespace Core.Test.Data
         {
             StaticActor actor = new StaticActor { IsPlayer = true };
 
-            DataCollection.Players.DataType = DataType.Empty;
+            DataCollection.Players.DataType = DataType.None;
             DataCollection.Players.Add("1", actor);
         }
 

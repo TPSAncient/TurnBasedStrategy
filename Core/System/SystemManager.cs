@@ -18,6 +18,8 @@ namespace Core.System
     {
         #region Variables
 
+        public string Path { get; set; }
+
         public IDataDictionary<StaticActor> Players
         {
             get { return DataCollection.Players; }
@@ -73,17 +75,17 @@ namespace Core.System
         public void Load()
         {
             // For populatind data files with basic data
-            SeedData data = new SeedData();
-            data.SaveData();
+            //SeedData data = new SeedData();
+            //data.SaveData();
 
-            DataCollection.Players = LoadData.Load<StaticDictionary<StaticActor>>(Constants.PlayersFileName);
-            DataCollection.Countries = LoadData.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName);
-            DataCollection.Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName);
-            DataCollection.Regions = LoadData.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName);
-            DataCollection.Citys = LoadData.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName);
-            DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName);
-            DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName);
-            DataCollection.Infrastructures= LoadData.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName);
+            DataCollection.Players = LoadData.Load<StaticDictionary<StaticActor>>(Constants.PlayersFileName, Path);
+            DataCollection.Countries = LoadData.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName, Path);
+            DataCollection.Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName, Path);
+            DataCollection.Regions = LoadData.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName, Path);
+            DataCollection.Citys = LoadData.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName, Path);
+            DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName, Path);
+            DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName, Path);
+            DataCollection.Infrastructures= LoadData.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName, Path);
         }
 
         public void Merge()

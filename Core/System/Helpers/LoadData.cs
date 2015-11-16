@@ -2,9 +2,9 @@
 {
     public static class LoadData
     {
-        public static T Load<T>(string fileName)
+        public static T Load<T>(string fileName, string path)
         {
-            return JsonData.LoadJson<T>(fileName);
+            return JsonData.LoadJson<T>(fileName, path);
         }
     }
 }

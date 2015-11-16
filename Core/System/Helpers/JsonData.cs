@@ -6,9 +6,9 @@ namespace Core.System.Helpers
 {
     public static class JsonData
     {
-        public static T LoadJson<T>(string name)
+        public static T LoadJson<T>(string name, string path)
         {
-            string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\Data\";
+            string folder = path + @"\Data\";
             if (Directory.Exists(folder))
             {
                 string json = File.ReadAllText(folder + name + ".json");
@@ -19,9 +19,9 @@ namespace Core.System.Helpers
             return default(T);
         }
 
-        public static void SaveJson<T>(string name, T obj)
+        public static void SaveJson<T>(string name, T obj, string path)
         {
-            string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\Data\";
+            string folder = path + @"\Data\";
 
             if (!Directory.Exists(folder))
             {

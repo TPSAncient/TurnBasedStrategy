@@ -10,6 +10,7 @@ namespace Core.Test.Data
     public class SeedData
     {
         public DataCollection DataCollection { get; set; } = new DataCollection();
+        public string Path { get; set; }
 
         public SeedData()
         {
@@ -216,14 +217,14 @@ namespace Core.Test.Data
 
         public void SaveData()
         {
-            JsonData.SaveJson(Constants.PlayersFileName, DataCollection.Players);
-            JsonData.SaveJson(Constants.CountriesFileName, DataCollection.Countries);
-            JsonData.SaveJson(Constants.ProvincesFileName, DataCollection.Provinces);
-            JsonData.SaveJson(Constants.RegionsFileName, DataCollection.Regions);
-            JsonData.SaveJson(Constants.CitysFileName, DataCollection.Citys);
-            JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms);
-            JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports);
-            JsonData.SaveJson(Constants.InfrastructureFileName, DataCollection.Infrastructures);
+            JsonData.SaveJson(Constants.PlayersFileName, DataCollection.Players, Path);
+            JsonData.SaveJson(Constants.CountriesFileName, DataCollection.Countries, Path);
+            JsonData.SaveJson(Constants.ProvincesFileName, DataCollection.Provinces, Path);
+            JsonData.SaveJson(Constants.RegionsFileName, DataCollection.Regions, Path);
+            JsonData.SaveJson(Constants.CitysFileName, DataCollection.Citys, Path);
+            JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms, Path);
+            JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports, Path);
+            JsonData.SaveJson(Constants.InfrastructureFileName, DataCollection.Infrastructures, Path);
         }
 
 

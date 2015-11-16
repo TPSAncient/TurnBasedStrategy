@@ -9,12 +9,14 @@ namespace Client.Camera
     {
         private UnityEngine.Camera _mainCamera;
 
+        private GameManager _gameManager;
 
         #region Unity Methods
 
         void Awake()
         {
             _mainCamera = UnityEngine.Camera.main;
+            _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
         // Update is called once per frame
@@ -151,7 +153,9 @@ namespace Client.Camera
 
                 if (Physics.Raycast(ray, out hit, 100))
                 {
-                    SingleSelection(hit.transform.GetComponent<WorldObject>());
+                    var data = SingleSelection(hit.transform.GetComponent<WorldObject>());
+                    _gameManager.UIManager.ChangeDataTypeName(data.DataType.ToString());
+                    _gameManager.UIManager.ChangeDataName(data.Name);
                 }
             }
         }
@@ -168,8 +172,8 @@ namespace Client.Camera
 
             selected.IsWorldObjectSelected = true;
             _selectedWorldObjects.Add(selected);
-
-            return GameManager.Instance.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
+            return _gameManager.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
+            //return GameManager.Instance.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
         }
     }
 }

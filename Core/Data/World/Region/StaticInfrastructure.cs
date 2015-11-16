@@ -15,6 +15,6 @@ namespace Core.Data.World.Region
         public List<string> BuildingTag { get; set; } = new List<string>();
         
         [JsonIgnore]
-        public StaticDictionary<StaticBuilding> Buildings { get; set; } 
+        public StaticDictionary<StaticBuilding> Buildings { get; set; }  = new StaticDictionary<StaticBuilding>();
     }
 }

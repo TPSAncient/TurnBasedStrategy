@@ -29,7 +29,16 @@ namespace NClient
 
             foreach (var region in manager.DataCollection.Regions.Data)
             {
-                Console.WriteLine(region.Value.Farm.Name);
+                if (region.Value.Infrastructure.Buildings.Data != null)
+                {
+                    foreach (var building in region.Value.Infrastructure.Buildings.Data)
+                    {
+                        Console.WriteLine(building.Value.Name);
+                    }
+                }
+                
+
+                Console.WriteLine(region.Value.Infrastructure.Name);
             }
 
             Console.ReadKey();

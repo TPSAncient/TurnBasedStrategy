@@ -67,6 +67,7 @@ namespace Core.Test.Data
             regionRoma.CityTag = "city_roma";
             regionRoma.FarmTag = "farm_roma";
             regionRoma.PortTag = "port_roma";
+            regionRoma.InfrastructureTag = "infrastructure_roma";
             regionRoma.CanBuildPort = true;
             regionRoma.ProvinceTag = "province_italia";
             regionRoma.TagName = "region_roma";
@@ -78,6 +79,7 @@ namespace Core.Test.Data
             regionVelathria.CityTag = "city_velathri";
             regionVelathria.FarmTag = "farm_velathri";
             regionVelathria.PortTag = "port_velathri";
+            regionVelathria.InfrastructureTag = "infrastructure_velathri";
             regionVelathria.CanBuildPort = true;
             regionVelathria.ProvinceTag = "province_italia";
             regionVelathria.TagName = "region_velathria";
@@ -89,6 +91,7 @@ namespace Core.Test.Data
             regionAriminum.CityTag = "city_ariminum";
             regionAriminum.FarmTag = "farm_ariminum";
             regionAriminum.PortTag = "port_ariminum";
+            regionAriminum.InfrastructureTag = "infrastructure_ariminum";
             regionAriminum.CanBuildPort = true;
             regionAriminum.ProvinceTag = "province_italia";
             regionAriminum.TagName = "region_ariminum";
@@ -183,13 +186,12 @@ namespace Core.Test.Data
 
         public void SeedInfrastructureData()
         {
-            StaticInfrastructure infrastructureRoma = new StaticInfrastructure
-            {
-                Id = 1,
-                Name = "Infra Roma",
-                DataType = DataType.Infrastructure,
-                TagName = "infrastructure_roma"
-            };
+            StaticInfrastructure infrastructureRoma = new StaticInfrastructure();
+            infrastructureRoma.Id = 1;
+            infrastructureRoma.Name = "Infra Roma";
+            infrastructureRoma.DataType = DataType.Infrastructure;
+            infrastructureRoma.TagName = "infrastructure_roma";
+            infrastructureRoma.BuildingTag.Add("building_road");
 
             StaticInfrastructure infrastructureVelathri = new StaticInfrastructure
             {

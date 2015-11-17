@@ -1,4 +1,5 @@
-﻿using Core.Data.Common;
+﻿using System.Collections.Generic;
+using Core.Data.Common;
 
 namespace Core.Data.Building
 {
@@ -10,6 +11,10 @@ namespace Core.Data.Building
         public DataType DataType { get; set; }
         // Building Type
         public StaticBuildingType BuildingType { get; set; }
+
+        public List<string> Prerequisites { get; set; } = new List<string>();
+
+        public string UpgradesFrom { get; set; }
 
         public bool IsBuilt { get; set; }
         // Building requirment

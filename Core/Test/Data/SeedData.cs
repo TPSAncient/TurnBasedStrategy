@@ -221,18 +221,31 @@ namespace Core.Test.Data
 
         public void SeedBuildingsData()
         {
-            StaticBuilding building = new StaticBuilding();
-            building.DataType = DataType.Building;
-            building.BuildingType = StaticBuildingType.Infrastructure;
-            building.Id = 1;
-            building.TagName = "building_road";
-            building.Name = "Road";
-            building.Cost = 100;
-            building.IsBuilt = false;
-            building.Maintenance = 10;
+            StaticBuilding pathBuilding = new StaticBuilding();
+            pathBuilding.DataType = DataType.Building;
+            pathBuilding.BuildingType = StaticBuildingType.Infrastructure;
+            pathBuilding.Id = 2;
+            pathBuilding.TagName = "building_path";
+            pathBuilding.Name = "Path";
+            pathBuilding.Cost = 100;
+            pathBuilding.IsBuilt = false;
+            pathBuilding.Maintenance = 10;
+
+            StaticBuilding roadBuilding = new StaticBuilding();
+            roadBuilding.DataType = DataType.Building;
+            roadBuilding.BuildingType = StaticBuildingType.Infrastructure;
+            roadBuilding.Id = 1;
+            roadBuilding.TagName = "building_road";
+            roadBuilding.Name = "Road";
+            roadBuilding.Cost = 100;
+            roadBuilding.IsBuilt = false;
+            roadBuilding.Maintenance = 10;
+            roadBuilding.Prerequisites.Add("building_path");
+            roadBuilding.UpgradesFrom = "building_path";
 
             DataCollection.Buildings.DataType = DataType.Building;
-            DataCollection.Buildings.Add("building_road", building);
+            DataCollection.Buildings.Add("building_path", pathBuilding);
+            DataCollection.Buildings.Add("building_road", roadBuilding);
         }
 
 

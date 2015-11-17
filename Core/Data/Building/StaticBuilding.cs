@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.Data.Common;
+using Newtonsoft.Json;
 
 namespace Core.Data.Building
 {
@@ -18,7 +20,7 @@ namespace Core.Data.Building
 
         public bool IsBuilt { get; set; }
         // Building requirment
-        public float Cost { get; set; }
+        public float GoldCost { get; set; }
         // Building maintainence
         public float Maintenance { get; set; }
         // Where can you build buildings

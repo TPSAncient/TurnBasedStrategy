@@ -19,7 +19,7 @@ namespace Core.Data.World.Region
         public string PortTag { get; set; }
         public string InfrastructureTag { get; set; }
         public string IndustryTag { get; set; }
-   
+        
         public bool CanBuildPort { get; set; }
 
         [JsonIgnore]

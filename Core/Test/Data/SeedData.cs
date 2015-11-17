@@ -227,7 +227,7 @@ namespace Core.Test.Data
             pathBuilding.Id = 2;
             pathBuilding.TagName = "building_path";
             pathBuilding.Name = "Path";
-            pathBuilding.Cost = 100;
+            pathBuilding.GoldCost = 100;
             pathBuilding.IsBuilt = false;
             pathBuilding.Maintenance = 10;
 
@@ -237,7 +237,7 @@ namespace Core.Test.Data
             roadBuilding.Id = 1;
             roadBuilding.TagName = "building_road";
             roadBuilding.Name = "Road";
-            roadBuilding.Cost = 100;
+            roadBuilding.GoldCost = 100;
             roadBuilding.IsBuilt = false;
             roadBuilding.Maintenance = 10;
             roadBuilding.Prerequisites.Add("building_path");

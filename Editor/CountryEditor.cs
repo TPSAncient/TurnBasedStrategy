@@ -20,6 +20,8 @@ namespace Editor
         private int selectedSize = 0;
         private bool _isNew = false;
 
+        private TabType _tabType = TabType.Country;
+
         [MenuItem("Game/Country")]
         public static void ShowWindow()
         {
@@ -37,8 +39,33 @@ namespace Editor
 
         void OnGUI()
         {
-            GUILayout.BeginArea(new Rect(10, 10, 500, 100 ));
+            DrawTabs();
+
+            switch (_tabType)
+            {
+                case TabType.Country:
+                {
+                    DrawCountrtyList();
+                    DrawCountry();
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
+            }
+        }
+
+        public void DrawTabs()
+        {
+            _tabType = (TabType)GUILayout.Toolbar((int)_tabType, new[] { "Country", "Province", "Region" });
+        }
+
+        public void DrawCountrtyList()
+        {
+            GUILayout.BeginArea(new Rect(10, 20, 500, 100));
             var rect = EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField("Country List", EditorStyles.boldLabel);
             if (!IDs.Contains(selectedSize))
             {
                 selectedSize = 0;
@@ -49,7 +76,8 @@ namespace Editor
             if (selectedSize > 0)
             {
                 Populate(Countrys.Data.Values.SingleOrDefault(x => x.Id == selectedSize));
-            }else if (!_isNew && selectedSize == 0)
+            }
+            else if (!_isNew && selectedSize == 0)
             {
                 Clear();
             }
@@ -62,33 +90,32 @@ namespace Editor
 
             EditorGUILayout.EndVertical();
             GUILayout.EndArea();
-
-            DrawCountry(rect);
-            
         }
 
-        public void DrawCountry(Rect r)
+        public void DrawCountry()
         {
-            GUILayout.BeginArea(new Rect(10, 50, 500, 500));
-            //var rect = EditorGUILayout.BeginVertical();
-            GUILayout.Label("Country Settings", EditorStyles.boldLabel);
+            GUILayout.BeginArea(new Rect(10, 100, 500, 500));
+            var rect = EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField("Country Settings", EditorStyles.boldLabel);
             
             NewCountry.DataType = DataType.Country;
             NewCountry.Id = int.Parse(EditorGUILayout.TextField("Id", NewCountry.Id.ToString()));
             NewCountry.Name = EditorGUILayout.TextField("Name", NewCountry.Name);
             NewCountry.TagName = EditorGUILayout.TextField("Tag Name", NewCountry.TagName);
             NewCountry.DataType = (DataType)EditorGUILayout.EnumPopup("Data Type", NewCountry.DataType);
-            //EditorGUILayout.EndVertical();
+            EditorGUILayout.EndVertical();
 
-            
 
-            //if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Save"))
-            //{
-            //    Save(NewCountry);
-            //}
+
+            if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Save"))
+            {
+                Save(NewCountry);
+            }
 
             GUILayout.EndArea();
         }
+
+
 
         public void Save(StaticCountry country)
         {

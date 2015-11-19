@@ -1,26 +1,17 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.Linq;
 using Core.Data.Common;
-using Core.Data.World.Province;
 using Core.Data.World.Region;
-using Core.System.Helpers;
 using UnityEditor;
 using UnityEngine;
 
 namespace Editor.Tabs
 {
-    public class RegionTab
+    public class RegionTab : AbstractDataTab<StaticRegion>
     {
-        public StaticDictionary<StaticRegion> Provinces = new StaticDictionary<StaticRegion>();
-        public StaticProvince Province = new StaticProvince();
-
-        private List<PopupData> _regionData = new List<PopupData>();
-        private int _selectedSize;
-
         public RegionTab()
         {
-            Refresh();
+            FileName = Constants.RegionsFileName;
+            Load();
         }
 
         public void Draw()
@@ -36,22 +27,11 @@ namespace Editor.Tabs
 
             EditorGUILayout.LabelField("Region List", EditorStyles.boldLabel);
 
-            _selectedSize = EditorGUILayout.IntPopup("Regions", _selectedSize, _regionData.Select(x => x.Name).ToArray(), _regionData.Select(x => x.Id).ToArray());
+            SelectedItemId = EditorGUILayout.IntPopup("Regions", SelectedItemId, PopupDataList.Select(x => x.Name).ToArray(), PopupDataList.Select(x => x.Id).ToArray());
 
             EditorGUILayout.EndVertical();
 
             GUILayout.EndArea();
-        }
-
-        public void Refresh()
-        {
-            Provinces = LoadData.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName, Application.dataPath);
-            _regionData.Add(new PopupData { Id = 0, Name = "Empty" });
-
-            foreach (var province in Provinces.Data)
-            {
-                _regionData.Add(new PopupData { Id = province.Value.Id, Name = province.Value.Name });
-            }
         }
     }
 }

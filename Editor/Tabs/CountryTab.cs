@@ -1,36 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Core.Data.Common;
 using Core.Data.World.Country;
-using Core.System.Helpers;
 using UnityEditor;
 using UnityEngine;
 
 namespace Editor.Tabs
 {
-    public class CountryTab
+    public class CountryTab : AbstractDataTab<StaticCountry>
     {
-        public StaticDictionary<StaticCountry> Countrys = new StaticDictionary<StaticCountry>();
-        public StaticCountry Country = new StaticCountry();
-
-        private readonly List<PopupData> _countryData = new List<PopupData>();  
-        
-        private int _selectedItemId;
-        private bool _isNew;
-        private bool _isEmpty;
-
         public CountryTab()
         {
-            Refresh();
+            FileName = Constants.CountriesFileName;
+            Load();
         }
 
         public void Draw()
         {
             DrawCountrtyList();
-            if (!_isEmpty)
+            if (!IsEmpty)
             {
                 DrawCountry(); 
-            }else if (_isNew)
+            }else if (IsNew)
             {
                 DrawCountry();
             }      
@@ -42,28 +32,28 @@ namespace Editor.Tabs
             var rect = EditorGUILayout.BeginVertical();
             EditorGUILayout.LabelField("Country List", EditorStyles.boldLabel);
 
-            _selectedItemId = EditorGUILayout.IntPopup("Countrys", _selectedItemId, _countryData.Select(x => x.Name).ToArray(), _countryData.Select(x => x.Id).ToArray());
+            SelectedItemId = EditorGUILayout.IntPopup("Countrys", SelectedItemId, PopupDataList.Select(x => x.Name).ToArray(), PopupDataList.Select(x => x.Id).ToArray());
 
-            if (_selectedItemId > 0)
+            if (SelectedItemId > 0)
             {
-                _isEmpty = false;
-                Populate(Countrys.Data.Values.SingleOrDefault(x => x.Id == _selectedItemId));
+                IsEmpty = false;
+                Data = DataDictionary.Data.Values.SingleOrDefault(x => x.Id == SelectedItemId);
             }
 
-            if (_selectedItemId == 0)
+            if (SelectedItemId == 0)
             {
-                _isEmpty = true;
+                IsEmpty = true;
             }
 
-            else if (!_isNew && _selectedItemId == 0)
+            else if (!IsNew && SelectedItemId == 0)
             {
                 Clear();
             }
 
             if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "New"))
             {
-                Country = New(Country);
-                _selectedItemId = 0;
+                New();
+                SelectedItemId = 0;
             }
 
             EditorGUILayout.EndVertical();
@@ -76,71 +66,28 @@ namespace Editor.Tabs
             var rect = EditorGUILayout.BeginVertical();
             EditorGUILayout.LabelField("Country Settings", EditorStyles.boldLabel);
 
-            Country.DataType = DataType.Country;
-            Country.Id = int.Parse(EditorGUILayout.TextField("Id", Country.Id.ToString()));
-            Country.Name = EditorGUILayout.TextField("Name", Country.Name);
-            Country.TagName = EditorGUILayout.TextField("Tag Name", Country.TagName);
-            Country.DataType = (DataType)EditorGUILayout.EnumPopup("Data Type", Country.DataType);
+            Data.DataType = DataType.Country;
+            Data.Id = int.Parse(EditorGUILayout.TextField("Id", Data.Id.ToString()));
+            Data.Name = EditorGUILayout.TextField("Name", Data.Name);
+            Data.TagName = EditorGUILayout.TextField("Tag Name", Data.TagName);
+            Data.DataType = (DataType)EditorGUILayout.EnumPopup("Data Type", Data.DataType);
             EditorGUILayout.EndVertical();
 
-            if (_isNew)
+            if (IsNew)
             {
                 if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Save"))
                 {
-                    Save(Country);
+                    Save(Data);
                 }
-            }else if (!_isEmpty)
+            }else if (!IsEmpty)
             {
                 if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Update"))
                 {
-                    Save(Country);
+                    Save(Data);
                 }
             }
             
             GUILayout.EndArea();
-        }
-
-        public void Save(StaticCountry country)
-        {
-            if (!Countrys.Data.ContainsKey(country.TagName))
-            {
-                Countrys.Add(country.TagName, country);
-                JsonData.SaveJson(Constants.CountriesFileName,Countrys, Application.dataPath);
-
-                _countryData.Add(new PopupData { Id = country.Id, Name = country.Name });
-                _selectedItemId = country.Id;
-                _isNew = false;
-            }
-        }
-
-        public void Clear()
-        {
-            _isNew = false;
-            _selectedItemId = 0;
-            Country = new StaticCountry();
-        }
-
-        public StaticCountry New(StaticCountry country)
-        {
-            _isNew = true;
-            _selectedItemId = -1;
-            return new StaticCountry();
-        }
-
-        public void Populate(StaticCountry country)
-        {
-            Country = country;
-        }
-
-        public void Refresh()
-        {
-            Countrys = LoadData.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName, Application.dataPath);
-            _countryData.Add(new PopupData { Id = 0, Name = "Empty" });
-
-            foreach (var country in Countrys.Data)
-            {
-                _countryData.Add(new PopupData { Id = country.Value.Id, Name = country.Value.Name });
-            }
         }
     }
 }

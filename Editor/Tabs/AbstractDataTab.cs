@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Data.Common;
 using Core.System.Helpers;
+using UnityEditor;
 using UnityEngine;
 
 namespace Editor.Tabs
@@ -17,6 +19,72 @@ namespace Editor.Tabs
         protected bool IsEmpty;
 
         public string FileName { get; set; }
+
+        public void DrawCommonList()
+        {
+            GUILayout.BeginArea(new Rect(10, 45, 500, 100));
+            var rect = EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField("Country List", EditorStyles.boldLabel);
+
+            SelectedItemId = EditorGUILayout.IntPopup("Countrys", SelectedItemId, PopupDataList.Select(x => x.Name).ToArray(), PopupDataList.Select(x => x.Id).ToArray());
+
+            if (SelectedItemId > 0)
+            {
+                IsEmpty = false;
+                Data = (T)DataDictionary.Data.Values.Cast<IData>().SingleOrDefault(x => x.Id == SelectedItemId);
+            }
+
+            if (SelectedItemId == 0)
+            {
+                IsEmpty = true;
+            }
+
+            else if (!IsNew && SelectedItemId == 0)
+            {
+                Clear();
+            }
+
+            if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "New"))
+            {
+                New();
+                SelectedItemId = 0;
+            }
+
+            EditorGUILayout.EndVertical();
+            GUILayout.EndArea();
+        }
+
+        public void DrawCommonFields()
+        {
+            GUILayout.BeginArea(new Rect(10, 100, 500, 500));
+            var rect = EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField("Country Settings", EditorStyles.boldLabel);
+
+            ((IData)Data).DataType = DataType.Country;
+            ((IData)Data).Id = int.Parse(EditorGUILayout.TextField("Id", ((IData)Data).Id.ToString()));
+            ((IData)Data).Name = EditorGUILayout.TextField("Name", ((IData)Data).Name);
+            ((IData)Data).TagName = EditorGUILayout.TextField("Tag Name", ((IData)Data).TagName);
+            ((IData)Data).DataType = (DataType)EditorGUILayout.EnumPopup("Data Type", ((IData)Data).DataType);
+
+            EditorGUILayout.EndVertical();
+
+            if (IsNew)
+            {
+                if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Save"))
+                {
+                    Save(Data);
+                }
+            }
+            else if (!IsEmpty)
+            {
+                if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Update"))
+                {
+                    Save(Data);
+                }
+            }
+
+            GUILayout.EndArea();
+        }
 
         public void Clear()
         {

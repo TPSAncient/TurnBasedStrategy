@@ -3,6 +3,7 @@ using System.Linq;
 using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.System.Helpers;
+using Editor.Tabs;
 using UnityEditor;
 using UnityEngine;
 
@@ -33,12 +34,18 @@ namespace Editor
         {
             DrawTabs();
 
+            if (GUI.Button(new Rect(5, 20, 100, 20), "Refresh All"))
+            {
+                _countryTab.Refresh();
+                _provinceTab.Refresh();
+                _regionTab.Refresh();
+            }
+            
             switch (_tabType)
             {
                 case TabType.Country:
                 {
-                    _countryTab.DrawCountrtyList();
-                    _countryTab.DrawCountry();
+                    _countryTab.Draw();
                     break;
                 }
                 case TabType.Province:

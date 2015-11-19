@@ -6,7 +6,7 @@ using Core.System.Helpers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace Editor.Tabs
 {
     public class ProvinceTab
     {
@@ -18,13 +18,7 @@ namespace Editor
 
         public ProvinceTab()
         {
-            Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName, Application.dataPath);
-            _provinceData.Add(new PopupData { Id = 0, Name = "Empty" });
-
-            foreach (var province in Provinces.Data)
-            {
-                _provinceData.Add(new PopupData { Id = province.Value.Id, Name = province.Value.Name });
-            }
+            Refresh();
         }
 
         public void Draw()
@@ -34,7 +28,7 @@ namespace Editor
 
         public void DrawProvinceList()
         {
-            GUILayout.BeginArea(new Rect(10, 20, 500, 100));
+            GUILayout.BeginArea(new Rect(10, 45, 500, 100));
 
             var rect = EditorGUILayout.BeginVertical();
 
@@ -45,6 +39,17 @@ namespace Editor
             EditorGUILayout.EndVertical();
 
             GUILayout.EndArea();
+        }
+
+        public void Refresh()
+        {
+            Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName, Application.dataPath);
+            _provinceData.Add(new PopupData { Id = 0, Name = "Empty" });
+
+            foreach (var province in Provinces.Data)
+            {
+                _provinceData.Add(new PopupData { Id = province.Value.Id, Name = province.Value.Name });
+            }
         }
 
     }

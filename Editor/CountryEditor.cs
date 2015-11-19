@@ -11,6 +11,8 @@ namespace Editor
     public class DataEditor : EditorWindow
     {
         private CountryTab _countryTab;
+        private ProvinceTab _provinceTab;
+        private RegionTab _regionTab;
 
         private TabType _tabType = TabType.Country;
 
@@ -23,6 +25,8 @@ namespace Editor
         void OnEnable()
         {
             _countryTab = new CountryTab();
+            _provinceTab = new ProvinceTab();
+            _regionTab = new RegionTab();
         }
 
         void OnGUI()
@@ -35,6 +39,16 @@ namespace Editor
                 {
                     _countryTab.DrawCountrtyList();
                     _countryTab.DrawCountry();
+                    break;
+                }
+                case TabType.Province:
+                {
+                    _provinceTab.Draw();
+                    break;
+                }
+                case TabType.Region:
+                {
+                    _regionTab.Draw();
                     break;
                 }
                 default:

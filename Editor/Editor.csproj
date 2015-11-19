@@ -49,6 +49,8 @@
     <Compile Include="CountryTab.cs" />
     <Compile Include="PopupData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceTab.cs" />
+    <Compile Include="RegionTab.cs" />
     <Compile Include="TabType.cs" />
   </ItemGroup>
   <ItemGroup>

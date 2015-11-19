@@ -64,6 +64,7 @@ namespace Core.Test.Data
         {
             StaticRegion regionRoma = new StaticRegion();
             regionRoma.Id = 1;
+            regionRoma.Name = "Roma";
             regionRoma.CityTag = "city_roma";
             regionRoma.FarmTag = "farm_roma";
             regionRoma.PortTag = "port_roma";
@@ -76,6 +77,7 @@ namespace Core.Test.Data
 
             StaticRegion regionVelathria = new StaticRegion();
             regionVelathria.Id = 2;
+            regionVelathria.Name = "Velathri";
             regionVelathria.CityTag = "city_velathri";
             regionVelathria.FarmTag = "farm_velathri";
             regionVelathria.PortTag = "port_velathri";
@@ -88,6 +90,7 @@ namespace Core.Test.Data
 
             StaticRegion regionAriminum = new StaticRegion();
             regionAriminum.Id = 3;
+            regionAriminum.Name = "Ariminum";
             regionAriminum.CityTag = "city_ariminum";
             regionAriminum.FarmTag = "farm_ariminum";
             regionAriminum.PortTag = "port_ariminum";

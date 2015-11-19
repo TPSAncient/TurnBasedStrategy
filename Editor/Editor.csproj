@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CountryEditor.cs" />
+    <Compile Include="CountryTab.cs" />
+    <Compile Include="PopupData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabType.cs" />
   </ItemGroup>

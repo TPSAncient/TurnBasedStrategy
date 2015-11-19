@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CountryEditor.cs" />
+    <Compile Include="DataEditor.cs" />
     <Compile Include="Tabs\AbstractDataTab.cs" />
     <Compile Include="Tabs\CountryTab.cs" />
     <Compile Include="PopupData.cs" />

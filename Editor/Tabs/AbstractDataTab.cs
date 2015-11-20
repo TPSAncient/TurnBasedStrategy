@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Editor.Tabs
 {
-    public class AbstractDataTab<T> where T : new()
+    public class AbstractDataTab<T> : ITab where T : new()
     {
         public StaticDictionary<T> DataDictionary { get; set; } = new StaticDictionary<T>();
         public List<PopupData> PopupDataList { get; set; } = new List<PopupData>();
@@ -19,14 +19,19 @@ namespace Editor.Tabs
         protected bool IsEmpty;
 
         public string FileName { get; set; }
+        public string ListName { get; set; }
+        public string TabName { get; set; }
+        public string ModelName { get; set; }
+
+        public virtual void Draw() { }
 
         public void DrawCommonList()
         {
             GUILayout.BeginArea(new Rect(10, 45, 500, 100));
             var rect = EditorGUILayout.BeginVertical();
-            EditorGUILayout.LabelField("Country List", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(TabName, EditorStyles.boldLabel);
 
-            SelectedItemId = EditorGUILayout.IntPopup("Countrys", SelectedItemId, PopupDataList.Select(x => x.Name).ToArray(), PopupDataList.Select(x => x.Id).ToArray());
+            SelectedItemId = EditorGUILayout.IntPopup(ListName, SelectedItemId, PopupDataList.Select(x => x.Name).ToArray(), PopupDataList.Select(x => x.Id).ToArray());
 
             if (SelectedItemId > 0)
             {
@@ -58,7 +63,7 @@ namespace Editor.Tabs
         {
             GUILayout.BeginArea(new Rect(10, 100, 500, 500));
             var rect = EditorGUILayout.BeginVertical();
-            EditorGUILayout.LabelField("Country Settings", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(ModelName, EditorStyles.boldLabel);
 
             ((IData)Data).DataType = DataType.Country;
             ((IData)Data).Id = int.Parse(EditorGUILayout.TextField("Id", ((IData)Data).Id.ToString()));

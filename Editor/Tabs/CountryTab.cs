@@ -11,6 +11,9 @@ namespace Editor.Tabs
         public CountryTab()
         {
             FileName = Constants.CountriesFileName;
+            TabName = "Country";
+            ListName = "Country List";
+            ModelName = "Country Model";
             Load();
         }
 

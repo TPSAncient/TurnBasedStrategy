@@ -9,6 +9,11 @@ namespace Editor
         private CountryTab _countryTab;
         private ProvinceTab _provinceTab;
         private RegionTab _regionTab;
+        private PortTab _portTab;
+        private InfrastructureTab _infrastructureTab;
+        private IndustryTab _industryTab;
+        private FarmTab _farmTab;
+        private CityTab _cityTab;
 
         private TabType _tabType = TabType.Country;
 
@@ -23,6 +28,11 @@ namespace Editor
             _countryTab = new CountryTab();
             _provinceTab = new ProvinceTab();
             _regionTab = new RegionTab();
+            _portTab = new PortTab();
+            _infrastructureTab = new InfrastructureTab();
+            _industryTab = new IndustryTab();
+            _farmTab = new FarmTab();
+            _cityTab = new CityTab();
         }
 
         void OnGUI()
@@ -34,6 +44,11 @@ namespace Editor
                 _countryTab.Load();
                 _provinceTab.Load();
                 _regionTab.Load();
+                _portTab.Load();
+                _infrastructureTab.Load();
+                _industryTab.Load();
+                _farmTab.Load();
+                _cityTab.Load();
             }
             
             switch (_tabType)
@@ -51,6 +66,31 @@ namespace Editor
                 case TabType.Region:
                 {
                     _regionTab.Draw();
+                    break;
+                }
+                case TabType.City:
+                {
+                    _cityTab.Draw();
+                    break;
+                }
+                case TabType.Farm:
+                {
+                    _farmTab.Draw();
+                    break;
+                }
+                case TabType.Port:
+                {
+                    _portTab.Draw();
+                    break;
+                }
+                case TabType.Infrastructure:
+                {
+                    _infrastructureTab.Draw();
+                    break;
+                }
+                case TabType.Industry:
+                {
+                    _industryTab.Draw();
                     break;
                 }
                 default:

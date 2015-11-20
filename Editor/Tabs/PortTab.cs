@@ -1,19 +1,16 @@
-﻿using System.Linq;
-using Core.Data.Common;
+﻿using Core.Data.Common;
 using Core.Data.World.Region;
-using UnityEditor;
-using UnityEngine;
 
 namespace Editor.Tabs
 {
-    public class RegionTab : AbstractDataTab<StaticRegion>
+    public class PortTab : AbstractDataTab<StaticPort>
     {
-        public RegionTab()
+        public PortTab()
         {
-            FileName = Constants.RegionsFileName;
-            TabName = "Region";
-            ListName = "Region List";
-            ModelName = "Region Model";
+            FileName = Constants.PortsFileName;
+            TabName = "Port";
+            ListName = "Port List";
+            ModelName = "Port Model";
             Load();
         }
 

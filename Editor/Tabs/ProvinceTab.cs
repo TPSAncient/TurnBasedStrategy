@@ -11,6 +11,9 @@ namespace Editor.Tabs
         public ProvinceTab()
         {
             FileName = Constants.ProvincesFileName;
+            TabName = "Province";
+            ListName = "Province List";
+            ModelName = "Province Model";
             Load();
         }
 

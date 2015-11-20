@@ -4,6 +4,11 @@
     {
         Country,
         Province,
-        Region
+        Region,
+        Port,
+        Infrastructure,
+        Industry,
+        Farm,
+        City
     }
 }

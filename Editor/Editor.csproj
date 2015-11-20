@@ -47,9 +47,15 @@
   <ItemGroup>
     <Compile Include="DataEditor.cs" />
     <Compile Include="Tabs\AbstractDataTab.cs" />
+    <Compile Include="Tabs\CityTab.cs" />
     <Compile Include="Tabs\CountryTab.cs" />
     <Compile Include="PopupData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tabs\FarmTab.cs" />
+    <Compile Include="Tabs\IndustryTab.cs" />
+    <Compile Include="Tabs\InfrastructureTab.cs" />
+    <Compile Include="Tabs\ITab.cs" />
+    <Compile Include="Tabs\PortTab.cs" />
     <Compile Include="Tabs\ProvinceTab.cs" />
     <Compile Include="Tabs\RegionTab.cs" />
     <Compile Include="TabType.cs" />

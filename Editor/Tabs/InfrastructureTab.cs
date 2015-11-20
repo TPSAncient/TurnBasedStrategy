@@ -1,19 +1,16 @@
-﻿using System.Linq;
-using Core.Data.Common;
+﻿using Core.Data.Common;
 using Core.Data.World.Region;
-using UnityEditor;
-using UnityEngine;
 
 namespace Editor.Tabs
 {
-    public class RegionTab : AbstractDataTab<StaticRegion>
+    public class InfrastructureTab : AbstractDataTab<StaticInfrastructure>
     {
-        public RegionTab()
+        public InfrastructureTab()
         {
-            FileName = Constants.RegionsFileName;
-            TabName = "Region";
-            ListName = "Region List";
-            ModelName = "Region Model";
+            FileName = Constants.InfrastructureFileName;
+            TabName = "Infrastructure";
+            ListName = "Infrastructure List";
+            ModelName = "Infrastructure Model";
             Load();
         }
 

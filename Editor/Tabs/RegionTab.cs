@@ -23,11 +23,34 @@ namespace Editor.Tabs
             if (!IsEmpty)
             {
                 DrawCommonFields();
+                DrawRegionFields();
+                DrawCommonButtons(new Rect(10, 350,0,0));
             }
             else if (IsNew)
             {
                 DrawCommonFields();
+                DrawRegionFields();
+                DrawCommonButtons(new Rect(10, 350, 0, 0));
             }
+        }
+
+        public void DrawRegionFields()
+        {
+            GUILayout.BeginArea(new Rect(10, 210, 500, 500));
+
+            Rect = EditorGUILayout.BeginVertical();
+
+            Data.ProvinceTag = EditorGUILayout.TextField("Province", Data.ProvinceTag);
+            Data.CityTag = EditorGUILayout.TextField("City", Data.CityTag);
+            Data.FarmTag = EditorGUILayout.TextField("Farm", Data.FarmTag);
+            Data.PortTag = EditorGUILayout.TextField("Port", Data.PortTag);
+            Data.InfrastructureTag = EditorGUILayout.TextField("Infrastructure", Data.InfrastructureTag);
+            Data.IndustryTag = EditorGUILayout.TextField("Industry", Data.IndustryTag);
+            
+
+            EditorGUILayout.EndVertical();
+
+            GUILayout.EndArea();
         }
     }
 }

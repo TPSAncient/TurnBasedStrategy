@@ -23,6 +23,8 @@ namespace Editor.Tabs
         public string TabName { get; set; }
         public string ModelName { get; set; }
 
+        protected Rect Rect;
+
         public virtual void Draw() { }
 
         public void DrawCommonList()
@@ -72,7 +74,11 @@ namespace Editor.Tabs
             ((IData)Data).DataType = (DataType)EditorGUILayout.EnumPopup("Data Type", ((IData)Data).DataType);
 
             EditorGUILayout.EndVertical();
+            GUILayout.EndArea();
+        }
 
+        public void DrawCommonButtons(Rect rect)
+        {
             if (IsNew)
             {
                 if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Save"))
@@ -87,8 +93,6 @@ namespace Editor.Tabs
                     Save(Data);
                 }
             }
-
-            GUILayout.EndArea();
         }
 
         public void Clear()

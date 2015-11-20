@@ -22,10 +22,13 @@ namespace Editor.Tabs
             DrawCommonList();
             if (!IsEmpty)
             {
-                DrawCommonFields(); 
-            }else if (IsNew)
+                DrawCommonFields();
+                DrawCommonButtons(new Rect(10, 220, 0, 0));
+            }
+            else if (IsNew)
             {
                 DrawCommonFields();
+                DrawCommonButtons(new Rect(10, 220, 0, 0));
             }      
         }
     }

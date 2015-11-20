@@ -198,7 +198,7 @@ namespace Core.Test.Data
 
             StaticInfrastructure infrastructureVelathri = new StaticInfrastructure
             {
-                Id = 1,
+                Id = 2,
                 Name = "Infra Velathri",
                 DataType = DataType.Infrastructure,
                 TagName = "infrastructure_velathri"
@@ -206,7 +206,7 @@ namespace Core.Test.Data
 
             StaticInfrastructure infrastructureAriminum = new StaticInfrastructure
             {
-                Id = 1,
+                Id = 3,
                 Name = "Infra Ariminum",
                 DataType = DataType.Infrastructure,
                 TagName = "infrastructure_ariminum"

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Core.Data.Common;
 using Core.Data.World.Region;
 using UnityEditor;
@@ -39,7 +40,7 @@ namespace Editor.Tabs
             GUILayout.BeginArea(new Rect(10, 210, 500, 500));
 
             Rect = EditorGUILayout.BeginVertical();
-
+            Data.Player = Int32.Parse(EditorGUILayout.TextField("Player", Data.Player.ToString()));
             Data.ProvinceTag = EditorGUILayout.TextField("Province", Data.ProvinceTag);
             Data.CityTag = EditorGUILayout.TextField("City", Data.CityTag);
             Data.FarmTag = EditorGUILayout.TextField("Farm", Data.FarmTag);

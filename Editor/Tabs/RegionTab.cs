@@ -17,7 +17,7 @@ namespace Editor.Tabs
             Load();
         }
 
-        public void Draw()
+        public override void Draw()
         {
             DrawCommonList();
             if (!IsEmpty)

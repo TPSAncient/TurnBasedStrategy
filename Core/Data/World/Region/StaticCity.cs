@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.Data.Building;
 using Core.Data.Common;
 using Newtonsoft.Json;
 
 namespace Core.Data.World.Region
 {
+    [Serializable]
     public class StaticCity : IData, IBuilding
     {
         // General
@@ -13,6 +15,7 @@ namespace Core.Data.World.Region
         public string TagName { get; set; }
         public DataType DataType { get; set; }
 
+        
         public List<string> BuildingTag { get; set; } = new List<string>();
 
         [JsonIgnore]

@@ -1,4 +1,7 @@
-﻿using Editor.Tabs;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Editor.Tabs;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,14 +9,7 @@ namespace Editor
 {
     public class DataEditor : EditorWindow
     {
-        private CountryTab _countryTab;
-        private ProvinceTab _provinceTab;
-        private RegionTab _regionTab;
-        private PortTab _portTab;
-        private InfrastructureTab _infrastructureTab;
-        private IndustryTab _industryTab;
-        private FarmTab _farmTab;
-        private CityTab _cityTab;
+        private Dictionary<TabType, ITab> _tabs = new Dictionary<TabType, ITab>();
 
         private TabType _tabType = TabType.Country;
 
@@ -25,14 +21,14 @@ namespace Editor
 
         void OnEnable()
         {
-            _countryTab = new CountryTab();
-            _provinceTab = new ProvinceTab();
-            _regionTab = new RegionTab();
-            _portTab = new PortTab();
-            _infrastructureTab = new InfrastructureTab();
-            _industryTab = new IndustryTab();
-            _farmTab = new FarmTab();
-            _cityTab = new CityTab();
+            _tabs.Add(TabType.Country, new CountryTab());
+            _tabs.Add(TabType.Province, new ProvinceTab());
+            _tabs.Add(TabType.Region, new RegionTab());
+            _tabs.Add(TabType.Port, new PortTab());
+            _tabs.Add(TabType.Infrastructure, new InfrastructureTab());
+            _tabs.Add(TabType.Industry, new IndustryTab());
+            _tabs.Add(TabType.Farm, new FarmTab());
+            _tabs.Add(TabType.City, new CityTab());
         }
 
         void OnGUI()
@@ -41,68 +37,18 @@ namespace Editor
 
             if (GUI.Button(new Rect(5, 20, 100, 20), "Refresh All"))
             {
-                _countryTab.Load();
-                _provinceTab.Load();
-                _regionTab.Load();
-                _portTab.Load();
-                _infrastructureTab.Load();
-                _industryTab.Load();
-                _farmTab.Load();
-                _cityTab.Load();
-            }
-            
-            switch (_tabType)
-            {
-                case TabType.Country:
+                foreach (var tab in _tabs.Values)
                 {
-                    _countryTab.Draw();
-                    break;
-                }
-                case TabType.Province:
-                {
-                    _provinceTab.Draw();
-                    break;
-                }
-                case TabType.Region:
-                {
-                    _regionTab.Draw();
-                    break;
-                }
-                case TabType.City:
-                {
-                    _cityTab.Draw();
-                    break;
-                }
-                case TabType.Farm:
-                {
-                    _farmTab.Draw();
-                    break;
-                }
-                case TabType.Port:
-                {
-                    _portTab.Draw();
-                    break;
-                }
-                case TabType.Infrastructure:
-                {
-                    _infrastructureTab.Draw();
-                    break;
-                }
-                case TabType.Industry:
-                {
-                    _industryTab.Draw();
-                    break;
-                }
-                default:
-                {
-                    break;
+                    tab.Load();
                 }
             }
+
+            _tabs[_tabType].Draw();
         }
 
         public void DrawTabs()
         {
-            _tabType = (TabType)GUILayout.Toolbar((int)_tabType, new[] { "Country", "Province", "Region" });
+            _tabType = (TabType)GUILayout.Toolbar((int)_tabType, Enum.GetNames(typeof(TabType)));
         }
         
     }

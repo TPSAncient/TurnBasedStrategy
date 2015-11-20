@@ -61,7 +61,7 @@ namespace Editor.Tabs
 
         public void DrawCommonFields()
         {
-            GUILayout.BeginArea(new Rect(10, 100, 500, 500));
+            GUILayout.BeginArea(new Rect(10, 120, 500, 500));
             var rect = EditorGUILayout.BeginVertical();
             EditorGUILayout.LabelField(ModelName, EditorStyles.boldLabel);
 
@@ -121,6 +121,11 @@ namespace Editor.Tabs
         public void Load()
         {
             DataDictionary = LoadData.Load<StaticDictionary<T>>(FileName, Application.dataPath);
+            if (DataDictionary == null)
+            {
+                DataDictionary = new StaticDictionary<T>();
+            }
+
             PopupDataList.Add(new PopupData { Id = 0, Name = "Empty" });
             
             foreach (var data in DataDictionary.Data)

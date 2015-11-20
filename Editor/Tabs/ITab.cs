@@ -3,5 +3,6 @@
     public interface ITab
     {
         void Draw();
+        void Load();
     }
 }

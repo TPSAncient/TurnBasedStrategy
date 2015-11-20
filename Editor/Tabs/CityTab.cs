@@ -22,11 +22,13 @@ namespace Editor.Tabs
             if (!IsEmpty)
             {
                 DrawCommonFields();
+                DrawCityFields();
                 DrawCommonButtons(new Rect(10, 220, 0, 0));
             }
             else if (IsNew)
             {
                 DrawCommonFields();
+                DrawCityFields();
                 DrawCommonButtons(new Rect(10, 220, 0, 0));
             }
         }
@@ -36,7 +38,12 @@ namespace Editor.Tabs
             GUILayout.BeginArea(new Rect(10, 210, 500, 500));
 
             Rect = EditorGUILayout.BeginVertical();
-            
+            for (int index = 1; index < Data.BuildingTag.Count; index++)
+            {
+                Debug.Log(Data.BuildingTag);
+                Data.BuildingTag[index] = EditorGUILayout.TextField("Building", Data.BuildingTag[index]);
+            }
+
             //EditorGUILayout.PropertyField(Data.BuildingTag, GUIContent.none);
 
             EditorGUILayout.EndVertical();

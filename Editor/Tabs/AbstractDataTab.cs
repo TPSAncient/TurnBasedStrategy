@@ -57,6 +57,21 @@ namespace Editor.Tabs
                 SelectedItemId = 0;
             }
 
+            if (IsNew)
+            {
+                if (GUI.Button(new Rect(rect.x + 50, rect.y + rect.height, 50, 25), "Save"))
+                {
+                    Save(Data);
+                }
+            }
+            else if (!IsEmpty)
+            {
+                if (GUI.Button(new Rect(rect.x + 50, rect.y + rect.height, 50, 25), "Update"))
+                {
+                    Save(Data);
+                }
+            }
+
             EditorGUILayout.EndVertical();
             GUILayout.EndArea();
         }
@@ -76,25 +91,7 @@ namespace Editor.Tabs
             EditorGUILayout.EndVertical();
             GUILayout.EndArea();
         }
-
-        public void DrawCommonButtons(Rect rect)
-        {
-            if (IsNew)
-            {
-                if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Save"))
-                {
-                    Save(Data);
-                }
-            }
-            else if (!IsEmpty)
-            {
-                if (GUI.Button(new Rect(rect.x, rect.y + rect.height, 50, 25), "Update"))
-                {
-                    Save(Data);
-                }
-            }
-        }
-
+        
         public void Clear()
         {
             IsNew = false;

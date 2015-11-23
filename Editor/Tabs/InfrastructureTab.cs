@@ -23,13 +23,11 @@ namespace Editor.Tabs
             {
                 DrawCommonFields();
                 DrawInfrastructureFields();
-                DrawCommonButtons(new Rect(10, 220, 0, 0));
             }
             else if (IsNew)
             {
                 DrawCommonFields();
                 DrawInfrastructureFields();
-                DrawCommonButtons(new Rect(10, 220, 0, 0));
             }
         }
 

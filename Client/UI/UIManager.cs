@@ -8,6 +8,7 @@ namespace Client.UI
     public class UIManager
     {
         public GameObject OverViewPanel { get; set; }
+        public GameObject CityBuilding { get; set; }
         
         public void OpenOverViewPanel(IData data)
         {
@@ -29,5 +30,16 @@ namespace Client.UI
                 OverViewPanel.SetActive(false);
             }
         }
+
+        public void OpenCityBuildingView()
+        {
+            CityBuilding.SetActive(true);
+        }
+
+        public void CloseCityBuildingView()
+        {
+            CityBuilding.SetActive(false);
+        }
+        
     }
 }

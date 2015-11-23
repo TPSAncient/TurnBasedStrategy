@@ -157,10 +157,12 @@ namespace Client.Camera
                     if (data != null && data.DataType == DataType.City)
                     {
                         _gameManager.UIManager.OpenOverViewPanel(data);
+                        _gameManager.UIManager.OpenCityBuildingView();
                     }
                     else
                     {
                         _gameManager.UIManager.CloseOverViewPanel();
+                        _gameManager.UIManager.CloseCityBuildingView();
                     }
                     
                 }

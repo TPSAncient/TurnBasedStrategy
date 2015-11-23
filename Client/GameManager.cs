@@ -8,6 +8,7 @@ namespace Client
     public class GameManager : MonoBehaviour
     {
         public GameObject OverViewPanel;
+        public GameObject CityBuilding;
 
         public SystemManager SystemManager { get; set; }
         public SelectManager SelectManager { get; set; }
@@ -18,20 +19,12 @@ namespace Client
             // Don't destroy this class when loading new scene
             DontDestroyOnLoad(this);
 
-            // Game Starting place
-            if (true)
-            {
-                SeedData seedData = new SeedData();
-                seedData.Path = Application.dataPath;
-                seedData.SaveData();
-            }
-            
-
             SystemManager = new SystemManager();
             SystemManager.Path = Application.dataPath;
             SystemManager.Awake();
             SelectManager = new SelectManager(SystemManager.DataCollection);
             UIManager = new UIManager();
+            UIManager.CityBuilding = CityBuilding;
             UIManager.OverViewPanel = OverViewPanel;
         }
 

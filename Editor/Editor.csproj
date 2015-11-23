@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataEditor.cs" />
+    <Compile Include="SeedDataEditor.cs" />
     <Compile Include="Tabs\AbstractDataTab.cs" />
     <Compile Include="Tabs\CityTab.cs" />
     <Compile Include="Tabs\CountryTab.cs" />

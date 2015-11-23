@@ -124,7 +124,7 @@ namespace Core.Test.Data
             
 
             StaticCity cityArminum = new StaticCity();
-            cityArminum.Id = 2;
+            cityArminum.Id = 3;
             cityArminum.Name = "Ariminum";
             cityArminum.DataType = DataType.City;
             cityArminum.TagName = "city_ariminum";

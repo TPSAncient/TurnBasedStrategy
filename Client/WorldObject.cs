@@ -45,5 +45,25 @@ namespace Client
 
         public bool IsWorldObjectSelected = false;
 
+        public float DelayTime = 3.0f;
+
+        void OnMouseEnter()
+        {
+            DelayTime += Time.time;
+        }
+
+        void OnMouseExit()
+        {
+            DelayTime = 3.0f;
+        }
+
+        void OnMouseOver()
+        {
+            if (Time.time > DelayTime)
+            {
+                print(TagName);
+            }
+        }
+
     }
 }

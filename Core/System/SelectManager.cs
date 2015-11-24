@@ -18,13 +18,7 @@ namespace Core.System
         {
             _collection = collection;
         }
-
-        public void SingleSelect(string tag, DataType type)
-        {
-            
-        }
-
-
+        
         public IData GetData(string tag, DataType type)
         {
             switch (type)

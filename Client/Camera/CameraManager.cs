@@ -148,6 +148,8 @@ namespace Client.Camera
 
         private void SelectObject()
         {
+            
+
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);

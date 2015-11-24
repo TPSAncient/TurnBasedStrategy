@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.CodeDom;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Core.Data.Common;
 using Core.System;
 using UnityEngine;
@@ -142,7 +144,7 @@ namespace Client.Camera
             }
         }
 
-        private readonly List<WorldObject> _selectedWorldObjects = new List<WorldObject>();
+        private WorldObject _worldObject = new WorldObject();
 
         private void SelectObject()
         {
@@ -154,15 +156,11 @@ namespace Client.Camera
                 if (Physics.Raycast(ray, out hit, 100))
                 {
                     var data = SingleSelection(hit.transform.GetComponent<WorldObject>());
-                    if (data != null && data.DataType == DataType.City)
+
+
+                    if (data != null)
                     {
-                        _gameManager.UIManager.OpenOverViewPanel(data);
-                        _gameManager.UIManager.OpenCityBuildingView();
-                    }
-                    else
-                    {
-                        _gameManager.UIManager.CloseOverViewPanel();
-                        _gameManager.UIManager.CloseCityBuildingView();
+                        _gameManager.UIManager.OpenPanel(data);
                     }
                     
                 }
@@ -171,17 +169,11 @@ namespace Client.Camera
         
         private IData SingleSelection(WorldObject worldObject)
         {
-            foreach (var selectedWorldObject in _selectedWorldObjects)
-            {
-                selectedWorldObject.IsWorldObjectSelected = false;
-            }
-            _selectedWorldObjects.Clear();
-
-            WorldObject selected = worldObject;
-
-            selected.IsWorldObjectSelected = true;
-            _selectedWorldObjects.Add(selected);
-            return _gameManager.SelectManager.GetData(selected.Tag, selected.SelectedObjectType);
+            _worldObject.IsWorldObjectSelected = false;
+            
+            worldObject.IsWorldObjectSelected = true;
+            _worldObject = worldObject;
+            return _gameManager.SelectManager.GetData(worldObject.TagName, worldObject.DataType);
         }
     }
 }

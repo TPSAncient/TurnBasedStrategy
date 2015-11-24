@@ -22,14 +22,17 @@ namespace Client
             SystemManager = new SystemManager();
             SystemManager.Path = Application.dataPath;
             SystemManager.Awake();
+
             SelectManager = new SelectManager(SystemManager.DataCollection);
+
             UIManager = new UIManager();
             UIManager.CityBuilding = CityBuilding;
             UIManager.OverViewPanel = OverViewPanel;
         }
 
-        public void LoadAllUIGameObjectReferences()
+        public void LoadGame()
         {
+            
         }
 
         // test

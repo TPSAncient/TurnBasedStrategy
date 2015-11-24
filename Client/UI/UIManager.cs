@@ -9,7 +9,33 @@ namespace Client.UI
     {
         public GameObject OverViewPanel { get; set; }
         public GameObject CityBuilding { get; set; }
-        
+
+        public void OpenPanel(IData data)
+        {
+            switch (data.DataType)
+            {
+                case DataType.City:
+                {
+                    OpenOverViewPanel(data);
+                    OpenCityBuildingView();
+                    break;
+                }
+                case DataType.Terrain:
+                {
+                    CloseOverViewPanel();
+                    CloseCityBuildingView();
+                    break;
+                }
+                default:
+                {
+                    CloseOverViewPanel();
+                    CloseCityBuildingView();
+                    break;
+                }
+            }
+        }
+
+
         public void OpenOverViewPanel(IData data)
         {
             if (OverViewPanel != null)
@@ -25,10 +51,7 @@ namespace Client.UI
 
         public void CloseOverViewPanel()
         {
-            if (OverViewPanel != null)
-            {
-                OverViewPanel.SetActive(false);
-            }
+            OverViewPanel?.SetActive(false);
         }
 
         public void OpenCityBuildingView()

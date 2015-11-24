@@ -63,6 +63,7 @@
     <Compile Include="Data\World\Country\StaticCountry.cs" />
     <Compile Include="Data\World\Region\StaticRegion.cs" />
     <Compile Include="Data\World\Province\StaticProvince.cs" />
+    <Compile Include="Data\World\StaticTerrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Helpers\JsonData.cs" />
     <Compile Include="System\SystemManager.cs" />

@@ -1,3 +1,9 @@
 UI system
 
-When do open UI 
+Populate Building view
+	1) If building picture is gray can't build
+	2) If building picture is green it's built
+	3) If building picture is white building can be built
+	
+	4) Add OnClick event do picutre. 
+	5) Add ToolTip do picture

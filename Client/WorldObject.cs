@@ -1,5 +1,6 @@
 ﻿using Core.Data.Common;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Client
 {
@@ -45,7 +46,7 @@ namespace Client
 
         public bool IsWorldObjectSelected = false;
 
-        public float DelayTime = 3.0f;
+        public float DelayTime = ResourceManager.BeforeToolTipIsShownDuration;
 
         void OnMouseEnter()
         {
@@ -54,7 +55,7 @@ namespace Client
 
         void OnMouseExit()
         {
-            DelayTime = 3.0f;
+            DelayTime = ResourceManager.BeforeToolTipIsShownDuration;
         }
 
         void OnMouseOver()

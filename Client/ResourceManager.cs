@@ -8,5 +8,7 @@
         public static float RotateSpeed { get { return 100; } }
         public static float MinCameraHeight { get { return 10; } }
         public static float MaxCameraHeight { get { return 40; } }
+
+        public static float BeforeToolTipIsShownDuration {  get { return 3.0f; } }
     }
 }

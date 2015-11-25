@@ -1,0 +1,5 @@
+Turn Based System
+
+If end turn is pressed
+	If building is building change state
+	

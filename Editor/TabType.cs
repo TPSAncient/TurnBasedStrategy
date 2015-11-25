@@ -9,6 +9,7 @@
         Infrastructure,
         Industry,
         Farm,
-        City
+        City,
+        Building
     }
 }

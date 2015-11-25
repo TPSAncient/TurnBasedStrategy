@@ -29,6 +29,7 @@ namespace Editor
             _tabs.Add(TabType.Industry, new IndustryTab());
             _tabs.Add(TabType.Farm, new FarmTab());
             _tabs.Add(TabType.City, new CityTab());
+            _tabs.Add(TabType.Building, new BuildingTab());
         }
 
         void OnGUI()

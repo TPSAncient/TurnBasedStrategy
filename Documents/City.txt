@@ -1,3 +1,16 @@
 City
 	1. Contains buildings
 	2. 
+	
+	
+City Levels:
+	1) Level 0 - Empty
+	2) Level 1 - Village
+	3) Level 2 - Town
+	4) Level 3 - Large Town
+	5) Level 4 - City
+	6) Level 5 - Large City
+	7) Level 6 - Huge City
+	
+
+	

@@ -62,7 +62,8 @@ namespace Client
         {
             if (Time.time > DelayTime)
             {
-                print(TagName);
+
+                //print(TagName);
             }
         }
 

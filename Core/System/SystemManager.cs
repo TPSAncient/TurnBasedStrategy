@@ -87,6 +87,7 @@ namespace Core.System
             DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName, Path);
             DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName, Path);
             DataCollection.Infrastructures= LoadData.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName, Path);
+            DataCollection.Industries= LoadData.Load<StaticDictionary<StaticIndustry>>(Constants.IndustryFileName, Path);
             DataCollection.Buildings = LoadData.Load<StaticDictionary<StaticBuilding>>(Constants.BuildingsFileName, Path);
         }
 

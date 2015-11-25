@@ -1,4 +1,5 @@
-﻿using Core.Data.Actor;
+﻿using System.Collections.Generic;
+using Core.Data.Actor;
 using Core.Data.Building;
 using Core.Data.Common;
 using Core.Data.World.Country;
@@ -23,6 +24,7 @@ namespace Core.Test.Data
             SeedFarmsData();
             SeedPortsData();
             SeedInfrastructureData();
+            SeedIndustryData();
             SeedBuildingsData();
         }
 
@@ -219,15 +221,39 @@ namespace Core.Test.Data
 
         public void SeedIndustryData()
         {
-            
+            StaticIndustry industryRoma = new StaticIndustry();
+            industryRoma.Id = 1;
+            industryRoma.DataType = DataType.Industry;
+            industryRoma.Name = "Roma Industry";
+            industryRoma.TagName = "industry_roma";
+            industryRoma.BuildingTag = new List<string>();
+
+            StaticIndustry industryVelathri = new StaticIndustry();
+            industryVelathri.Id = 2;
+            industryVelathri.DataType = DataType.Industry;
+            industryVelathri.Name = "Velathri Industry";
+            industryVelathri.TagName = "industry_velathri";
+            industryVelathri.BuildingTag = new List<string>();
+
+            StaticIndustry industryAriminum = new StaticIndustry();
+            industryAriminum.Id = 3;
+            industryAriminum.DataType = DataType.Industry;
+            industryAriminum.Name = "Ariminum Industry";
+            industryAriminum.TagName = "industry_ariminum";
+            industryAriminum.BuildingTag = new List<string>();
+
+            DataCollection.Industries.DataType = DataType.Industry;
+            DataCollection.Industries.Data.Add(industryRoma.TagName, industryRoma);
+            DataCollection.Industries.Data.Add(industryVelathri.TagName, industryVelathri);
+            DataCollection.Industries.Data.Add(industryAriminum.TagName, industryAriminum);
         }
 
         public void SeedBuildingsData()
         {
             StaticBuilding pathBuilding = new StaticBuilding();
+            pathBuilding.Id = 1;
             pathBuilding.DataType = DataType.Building;
             pathBuilding.BuildingType = StaticBuildingType.Infrastructure;
-            pathBuilding.Id = 2;
             pathBuilding.TagName = "building_path";
             pathBuilding.Name = "Path";
             pathBuilding.GoldCost = 100;
@@ -235,9 +261,9 @@ namespace Core.Test.Data
             pathBuilding.Maintenance = 10;
 
             StaticBuilding roadBuilding = new StaticBuilding();
+            roadBuilding.Id = 2;
             roadBuilding.DataType = DataType.Building;
             roadBuilding.BuildingType = StaticBuildingType.Infrastructure;
-            roadBuilding.Id = 1;
             roadBuilding.TagName = "building_road";
             roadBuilding.Name = "Road";
             roadBuilding.GoldCost = 100;
@@ -262,6 +288,7 @@ namespace Core.Test.Data
             JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms, Path);
             JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports, Path);
             JsonData.SaveJson(Constants.InfrastructureFileName, DataCollection.Infrastructures, Path);
+            JsonData.SaveJson(Constants.IndustryFileName, DataCollection.Industries, Path);
             JsonData.SaveJson(Constants.BuildingsFileName, DataCollection.Buildings, Path);
         }
 

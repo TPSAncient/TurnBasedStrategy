@@ -13,6 +13,7 @@
         Infrastructure,
         Building,
         Actor,
-        Army
+        Army,
+        Industry
     }
 }

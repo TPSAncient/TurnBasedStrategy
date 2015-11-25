@@ -55,6 +55,7 @@
     <Compile Include="Data\Common\IData.cs" />
     <Compile Include="Data\Common\DataType.cs" />
     <Compile Include="Data\Prerequisite.cs" />
+    <Compile Include="Data\StaticModifier.cs" />
     <Compile Include="Data\World\Region\StaticCity.cs" />
     <Compile Include="Data\World\Region\StaticFarm.cs" />
     <Compile Include="Data\World\Region\StaticInfrastructure.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="System\Helpers\MergeData.cs" />
     <Compile Include="System\Helpers\SelectData.cs" />
     <Compile Include="System\SelectManager.cs" />
+    <Compile Include="System\TurnManager.cs" />
     <Compile Include="System\UnityMonoBehaviour.cs" />
     <Compile Include="Test\Data\SeedData.cs" />
   </ItemGroup>

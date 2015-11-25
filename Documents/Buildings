@@ -1,7 +1,9 @@
 Building
 	Road - Infrastructure - army movment - supply trough put - trade
 	
-	
+Building Modifiers
+	1) modifier_canattackcity = Army can attack city doesn't need siege equipment
+	2) 
 	
 Building List:
 	Road:
@@ -11,13 +13,23 @@ Building List:
 		4) Level 4 - Highways
 		
 	Walls:
-		1) Level 1 - Wooden Palisade
-		2) Level 2 - Wooden Walls
-		3) Level 3 - Stone Walls
-		4) Level 4 - Large Stone Walls
-		5) Level 5 - Huge Stone Walls
+		1) Level 0 - None
+			a) Army can attack city doesn't need siege equipment
+		2) Level 1 - Wooden Palisade
+			a) Army can't attack if army doesn't have siege equipment 
+			b) Adds Defence value do city
+			c) Increases siege hold out time.
+		3) Level 2 - Wooden Walls
+			a) Increase siege holt out time
+			b) Adds Defence value to city
+			c) Soldiers can mount walls
+		4) Level 3 - Stone Walls
+		5) Level 4 - Large Stone Walls
+		6) Level 5 - Huge Stone Walls
 	
 	Markets:
+		
+	
 	
 	
 	

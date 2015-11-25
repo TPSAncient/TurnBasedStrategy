@@ -16,6 +16,8 @@ namespace Core.Data.Building
 
         public List<string> Prerequisites { get; set; } = new List<string>();
 
+        public List<string> Modifiers { get; set; } = new List<string>(); 
+
         public string UpgradesFrom { get; set; }
 
         public bool IsBuilt { get; set; }

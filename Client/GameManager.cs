@@ -13,6 +13,7 @@ namespace Client
         public SystemManager SystemManager { get; set; }
         public SelectManager SelectManager { get; set; }
         public UIManager UIManager { get; set; }
+        public TurnManager TurnManager { get; set; }
 
         void Awake()
         {

@@ -26,6 +26,8 @@ namespace Client
 
             SelectManager = new SelectManager(SystemManager.DataCollection);
 
+            TurnManager = new TurnManager();
+
             UIManager = new UIManager();
             UIManager.CityBuilding = CityBuilding;
             UIManager.OverViewPanel = OverViewPanel;

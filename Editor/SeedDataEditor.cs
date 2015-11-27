@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Core.System;
 using Core.Test.Data;
 using UnityEditor;
 using UnityEngine;
@@ -20,7 +17,7 @@ namespace Editor
         {
             if (GUI.Button(new Rect(10, 10, 100, 20), "Seed Data"))
             {
-                SeedData seed = new SeedData();
+                SeedData seed = new SeedData(new DataManager());
                 seed.Path = Application.dataPath;
                 seed.SaveData();
             }

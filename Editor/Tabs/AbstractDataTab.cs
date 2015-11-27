@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Data.Common;
+using Core.System;
 using Core.System.Helpers;
 using UnityEditor;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace Editor.Tabs
         public string ModelName { get; set; }
 
         protected Rect Rect;
+
+        protected DataManager DataManager { get; } = new DataManager();
 
         public virtual void Draw() { }
 
@@ -121,7 +124,7 @@ namespace Editor.Tabs
 
         public void Load()
         {
-            DataDictionary = LoadData.Load<StaticDictionary<T>>(FileName, Application.dataPath);
+            DataDictionary = DataManager.Load<StaticDictionary<T>>(FileName, Application.dataPath);
             if (DataDictionary == null)
             {
                 DataDictionary = new StaticDictionary<T>();

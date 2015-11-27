@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Client
 {
+    /// <summary>
+    /// GameManager initializes all data needed for game.
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
         public GameObject OverViewPanel;
@@ -26,7 +29,7 @@ namespace Client
 
             SelectManager = new SelectManager(SystemManager.DataCollection);
 
-            TurnManager = new TurnManager();
+            TurnManager = new TurnManager(SystemManager.DataCollection);
 
             UIManager = new UIManager();
             UIManager.CityBuilding = CityBuilding;

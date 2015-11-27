@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
-using Core.Data;
-using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.System;
 using Core.System.Helpers;
@@ -16,7 +12,7 @@ namespace NClient
     {
         static void Main(string[] args)
         {
-            SeedData data = new SeedData();
+            SeedData data = new SeedData(new DataManager());
             data.Path = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             data.SaveData();
 

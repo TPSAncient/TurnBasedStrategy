@@ -1,14 +1,9 @@
-﻿using System.Collections.Generic;
-using Core.Data;
-using Core.Data.Actor;
+﻿using Core.Data.Actor;
 using Core.Data.Building;
 using Core.Data.Common;
-using Core.Data.World;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
-using Core.System.Helpers;
-using Core.Test.Data;
 
 namespace Core.System
 {
@@ -66,6 +61,8 @@ namespace Core.System
         #endregion
 
         public DataCollection DataCollection { get; set; } = new DataCollection();
+        
+        private DataManager _dataManager { get; set; } = new DataManager();
 
         public override void Awake()
         {
@@ -75,28 +72,25 @@ namespace Core.System
 
         public void Load()
         {
-            // For populatind data files with basic data
-            //SeedData data = new SeedData();
-            //data.SaveData();
 
-            DataCollection.Players = LoadData.Load<StaticDictionary<StaticActor>>(Constants.PlayersFileName, Path);
-            DataCollection.Countries = LoadData.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName, Path);
-            DataCollection.Provinces = LoadData.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName, Path);
-            DataCollection.Regions = LoadData.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName, Path);
-            DataCollection.Citys = LoadData.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName, Path);
-            DataCollection.Farms = LoadData.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName, Path);
-            DataCollection.Ports= LoadData.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName, Path);
-            DataCollection.Infrastructures= LoadData.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName, Path);
-            DataCollection.Industries= LoadData.Load<StaticDictionary<StaticIndustry>>(Constants.IndustryFileName, Path);
-            DataCollection.Buildings = LoadData.Load<StaticDictionary<StaticBuilding>>(Constants.BuildingsFileName, Path);
+            DataCollection.Players = _dataManager.Load<StaticDictionary<StaticActor>>(Constants.PlayersFileName, Path);
+            DataCollection.Countries = _dataManager.Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName, Path);
+            DataCollection.Provinces = _dataManager.Load<StaticDictionary<StaticProvince>>(Constants.ProvincesFileName, Path);
+            DataCollection.Regions = _dataManager.Load<StaticDictionary<StaticRegion>>(Constants.RegionsFileName, Path);
+            DataCollection.Citys = _dataManager.Load<StaticDictionary<StaticCity>>(Constants.CitysFileName, Path);
+            DataCollection.Farms = _dataManager.Load<StaticDictionary<StaticFarm>>(Constants.FarmsFileName, Path);
+            DataCollection.Ports= _dataManager.Load<StaticDictionary<StaticPort>>(Constants.PortsFileName, Path);
+            DataCollection.Infrastructures= _dataManager.Load<StaticDictionary<StaticInfrastructure>>(Constants.InfrastructureFileName, Path);
+            DataCollection.Industries= _dataManager.Load<StaticDictionary<StaticIndustry>>(Constants.IndustryFileName, Path);
+            DataCollection.Buildings = _dataManager.Load<StaticDictionary<StaticBuilding>>(Constants.BuildingsFileName, Path);
         }
 
         public void Merge()
         {
-            MergeData.MergeRegionData(DataCollection);
+            _dataManager.MergeRegionData(DataCollection);
 
-            MergeData.MergeBuildings(DataCollection.Infrastructures, DataCollection.Buildings);
-            MergeData.MergeBuildings(DataCollection.Farms, DataCollection.Buildings);
+            _dataManager.MergeBuildings(DataCollection.Infrastructures, DataCollection.Buildings);
+            _dataManager.MergeBuildings(DataCollection.Farms, DataCollection.Buildings);
         }
         
     }

@@ -5,17 +5,20 @@ using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
-using Core.System.Helpers;
+using Core.System;
 
 namespace Core.Test.Data
 {
     public class SeedData
     {
+        private readonly DataManager _dataManager;
         public DataCollection DataCollection { get; set; } = new DataCollection();
         public string Path { get; set; }
 
-        public SeedData()
+        public SeedData(DataManager dataManager)
         {
+            _dataManager = dataManager;
+
             SeedPlayerData();
             SeedCountriesData();
             SeedProvincesData();
@@ -259,6 +262,10 @@ namespace Core.Test.Data
             pathBuilding.GoldCost = 100;
             pathBuilding.IsBuilt = false;
             pathBuilding.Maintenance = 10;
+            pathBuilding.BuildTime = 2;
+            pathBuilding.RemainingBuildTime = pathBuilding.BuildTime;
+            pathBuilding.StartBuilding = false;
+            
 
             StaticBuilding roadBuilding = new StaticBuilding();
             roadBuilding.Id = 2;
@@ -271,6 +278,9 @@ namespace Core.Test.Data
             roadBuilding.Maintenance = 10;
             roadBuilding.Prerequisites.Add("building_path");
             roadBuilding.UpgradesFrom = "building_path";
+            roadBuilding.BuildTime = 2;
+            roadBuilding.RemainingBuildTime = roadBuilding.BuildTime;
+            roadBuilding.StartBuilding = false;
 
             DataCollection.Buildings.DataType = DataType.Building;
             DataCollection.Buildings.Add("building_path", pathBuilding);
@@ -280,16 +290,16 @@ namespace Core.Test.Data
 
         public void SaveData()
         {
-            JsonData.SaveJson(Constants.PlayersFileName, DataCollection.Players, Path);
-            JsonData.SaveJson(Constants.CountriesFileName, DataCollection.Countries, Path);
-            JsonData.SaveJson(Constants.ProvincesFileName, DataCollection.Provinces, Path);
-            JsonData.SaveJson(Constants.RegionsFileName, DataCollection.Regions, Path);
-            JsonData.SaveJson(Constants.CitysFileName, DataCollection.Citys, Path);
-            JsonData.SaveJson(Constants.FarmsFileName, DataCollection.Farms, Path);
-            JsonData.SaveJson(Constants.PortsFileName, DataCollection.Ports, Path);
-            JsonData.SaveJson(Constants.InfrastructureFileName, DataCollection.Infrastructures, Path);
-            JsonData.SaveJson(Constants.IndustryFileName, DataCollection.Industries, Path);
-            JsonData.SaveJson(Constants.BuildingsFileName, DataCollection.Buildings, Path);
+            _dataManager.SaveData(Constants.PlayersFileName, DataCollection.Players, Path);
+            _dataManager.SaveData(Constants.CountriesFileName, DataCollection.Countries, Path);
+            _dataManager.SaveData(Constants.ProvincesFileName, DataCollection.Provinces, Path);
+            _dataManager.SaveData(Constants.RegionsFileName, DataCollection.Regions, Path);
+            _dataManager.SaveData(Constants.CitysFileName, DataCollection.Citys, Path);
+            _dataManager.SaveData(Constants.FarmsFileName, DataCollection.Farms, Path);
+            _dataManager.SaveData(Constants.PortsFileName, DataCollection.Ports, Path);
+            _dataManager.SaveData(Constants.InfrastructureFileName, DataCollection.Infrastructures, Path);
+            _dataManager.SaveData(Constants.IndustryFileName, DataCollection.Industries, Path);
+            _dataManager.SaveData(Constants.BuildingsFileName, DataCollection.Buildings, Path);
         }
 
 

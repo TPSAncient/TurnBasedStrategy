@@ -16,7 +16,7 @@ namespace NClient
             data.Path = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             data.SaveData();
 
-            SystemManager manager = new SystemManager();
+            SystemManager manager = new SystemManager(new TurnManager(), new SelectManager());
             manager.Path = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             manager.Awake();
             StaticCountry c = SelectData.GetDataById(manager.DataCollection.Countries, "country_rome");

@@ -10,26 +10,33 @@ namespace Core.System
 {
     public class SelectManager
     {
-        private readonly DataCollection _collection;
+        public DataCollection Collection;
+        
 
         public IData SelectedData { get; set; }
 
         public SelectManager(DataCollection collection)
         {
-            _collection = collection;
+            Collection = collection;
         }
-        
+
+        public SelectManager()
+        {
+        }
+
         public IData GetData(string tag, DataType type)
         {
             switch (type)
             {
                 case DataType.City:
                 {
-                    return SelectData.GetDataById(_collection.Citys, tag);
+                    SelectedData = SelectData.GetDataById(Collection.Citys, tag);
+                    return SelectedData;
                 }
                 case DataType.Terrain:
                 {
-                    return new StaticTerrain { Id = 1, Name = "default", DataType = DataType.Terrain, TagName = "terrain_default"};
+                    SelectedData = new StaticTerrain { Id = 1, Name = "default", DataType = DataType.Terrain, TagName = "terrain_default"};
+                    return SelectedData;;
                 }
             }
             return null;

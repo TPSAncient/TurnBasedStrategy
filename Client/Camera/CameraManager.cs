@@ -1,6 +1,7 @@
 ﻿using System.CodeDom;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
+using Client.UI;
 using Core.Data.Common;
 using Core.System;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Client.Camera
         private UnityEngine.Camera _mainCamera;
 
         private GameManager _gameManager;
+        private UIManager _uiManager;
 
         #region Unity Methods
 
@@ -19,6 +21,7 @@ namespace Client.Camera
         {
             _mainCamera = UnityEngine.Camera.main;
             _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         }
 
         // Update is called once per frame
@@ -162,7 +165,7 @@ namespace Client.Camera
 
                     if (data != null)
                     {
-                        _gameManager.UIManager.OpenPanel(data);
+                        _uiManager.OpenPanel(data);
                     }
                     
                 }
@@ -175,7 +178,7 @@ namespace Client.Camera
             
             worldObject.IsWorldObjectSelected = true;
             _worldObject = worldObject;
-            return _gameManager.SelectManager.GetData(worldObject.TagName, worldObject.DataType);
+            return _gameManager.SystemManager.SelectManager.GetData(worldObject.TagName, worldObject.DataType);
         }
     }
 }

@@ -1,13 +1,44 @@
-﻿using Core.Data.Common;
+﻿using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using Core.Data.Common;
+using Core.System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Client.UI
 {
-    public class UIManager
+    public class UIManager : MonoBehaviour
     {
-        public GameObject OverViewPanel { get; set; }
-        public GameObject CityBuilding { get; set; }
+        public GameObject OverViewPanel;
+        public GameObject CityBuilding;
+
+        public GameManager GameManager;
+        public GameObject TurnView;
+        
+
+
+        void Start()
+        {
+            GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            if (GameManager != null)
+            {
+                if (GameManager.SystemManager != null)
+                {
+                    TurnManager trun = GameManager.SystemManager.TurnManager;
+                    if (trun != null)
+                    {
+                        var list = TurnView.GetComponentsInChildren<Text>();
+                        foreach (var text in list.Where(x => x.name == "Count"))
+                        {
+                            text.text = GameManager.SystemManager.TurnManager.CurrentTurn.ToString();
+                        }
+                    }
+                }
+                
+            }
+            
+            
+        }
 
         public void OpenPanel(IData data)
         {
@@ -62,6 +93,17 @@ namespace Client.UI
         {
             CityBuilding.SetActive(false);
         }
+
+        public void ClickedEndTurn()
+        {
+            var list = TurnView.GetComponentsInChildren<Text>();
+
+            foreach (var text in list.Where(x => x.name == "Count"))
+            {
+                text.text = GameManager.SystemManager.TurnManager.EndTurn().ToString();
+            }
+        }
+
         
     }
 }

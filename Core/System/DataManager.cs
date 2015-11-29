@@ -10,6 +10,8 @@ namespace Core.System
 {
     public class DataManager
     {
+        
+
         public T Load<T>(string fileName, string path)
         {
             return JsonData.LoadJson<T>(fileName, path);

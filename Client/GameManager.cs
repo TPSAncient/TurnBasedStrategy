@@ -14,29 +14,25 @@ namespace Client
         public GameObject CityBuilding;
 
         public SystemManager SystemManager { get; set; }
-        public SelectManager SelectManager { get; set; }
-        public UIManager UIManager { get; set; }
-        public TurnManager TurnManager { get; set; }
-
+        
         void Awake()
         {
             // Don't destroy this class when loading new scene
             DontDestroyOnLoad(this);
 
-            SystemManager = new SystemManager();
+            SystemManager = new SystemManager(new TurnManager(), new SelectManager());
             SystemManager.Path = Application.dataPath;
             SystemManager.Awake();
-
-            SelectManager = new SelectManager(SystemManager.DataCollection);
-
-            TurnManager = new TurnManager(SystemManager.DataCollection);
-
-            UIManager = new UIManager();
-            UIManager.CityBuilding = CityBuilding;
-            UIManager.OverViewPanel = OverViewPanel;
+            
         }
 
-        public void LoadGame()
+        void Update()
+        {
+            SystemManager.Update();
+        }
+
+
+        public void SetUpGameSystems()
         {
             
         }

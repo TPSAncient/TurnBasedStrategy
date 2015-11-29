@@ -1,9 +1,12 @@
-﻿using Core.Data.Actor;
+﻿using System.Collections.Generic;
+using System.Threading;
+using Core.Data.Actor;
 using Core.Data.Building;
 using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
+using Core.System.BuildingSystem;
 
 namespace Core.System
 {
@@ -12,52 +15,23 @@ namespace Core.System
     /// </summary>
     public class SystemManager : UnityMonoBehaviour
     {
+        public TurnManager TurnManager { get; set; }
+        public SelectManager SelectManager { get; set; }
+
+        public BuildingManager BuildingManager { get; set; } 
+
+        public SystemManager(TurnManager turnManager, SelectManager selectManager)
+        {
+            
+            TurnManager = new TurnManager();
+            SelectManager = new SelectManager(DataCollection);
+            BuildingManager = new BuildingManager();
+        }
+
         #region Variables
 
         public string Path { get; set; }
-
-        public IDataDictionary<StaticActor> Players
-        {
-            get { return DataCollection.Players; }
-            set { DataCollection.Players = value; }
-        }
-
-        public IDataDictionary<StaticCountry> Countries
-        {
-            get { return DataCollection.Countries; }
-            set { DataCollection.Countries = value; }
-        }
-
-        public IDataDictionary<StaticProvince> Provinces
-        {
-            get { return DataCollection.Provinces; }
-            set { DataCollection.Provinces = value; }
-        }
-
-        public IDataDictionary<StaticRegion> Regions
-        {
-            get { return DataCollection.Regions; }
-            set { DataCollection.Regions = value; }
-        }
-
-        public IDataDictionary<StaticCity> Citys
-        {
-            get { return DataCollection.Citys; }
-            set { DataCollection.Citys = value; }
-        }
-
-        public IDataDictionary<StaticFarm> Farms
-        {
-            get { return DataCollection.Farms; }
-            set { DataCollection.Farms = value; }
-        }
-
-        public IDataDictionary<StaticPort> Ports
-        {
-            get { return DataCollection.Ports; }
-            set { DataCollection.Ports = value; }
-        }
-
+        public List<StaticActor> Actors { get; set; } 
         #endregion
 
         public DataCollection DataCollection { get; set; } = new DataCollection();
@@ -68,6 +42,14 @@ namespace Core.System
         {
             Load();
             Merge();
+
+            SelectManager.Collection = DataCollection;
+        }
+
+        public override void Update()
+        {
+            // Run AI
+
         }
 
         public void Load()
@@ -92,6 +74,19 @@ namespace Core.System
             _dataManager.MergeBuildings(DataCollection.Infrastructures, DataCollection.Buildings);
             _dataManager.MergeBuildings(DataCollection.Farms, DataCollection.Buildings);
         }
-        
+
+        public void StartBuilding(string tag, DataType type)
+        {
+
+            // City tag
+            IData tempData = SelectManager.SelectedData;
+            // Location Tag
+
+            // Building Tag
+            IData data = SelectManager.GetData(tag, type);
+
+
+            SelectManager.SelectedData = tempData;
+        }
     }
 }

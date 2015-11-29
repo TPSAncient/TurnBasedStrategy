@@ -46,7 +46,7 @@ namespace Core.Test.Data
             country.Name = "Rome";
             country.TagName = "country_rome";
             country.DataType = DataType.Country;
-
+            country.TagProvinces.Add("province_italia");
             DataCollection.Countries.DataType = DataType.Country;
             DataCollection.Countries.Add(country.TagName, country);
         }

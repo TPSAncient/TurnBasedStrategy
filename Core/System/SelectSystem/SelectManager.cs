@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Core.Data.Common;
+﻿using Core.Data.Common;
 using Core.Data.World;
 using Core.System.Helpers;
 
-namespace Core.System
+namespace Core.System.SelectSystem
 {
     public class SelectManager
     {

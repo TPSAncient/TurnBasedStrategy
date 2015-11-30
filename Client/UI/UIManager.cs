@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Core.Data.Common;
 using Core.System;
+using Core.System.TurnSystem;
 using UnityEngine;
 using UnityEngine.UI;
 

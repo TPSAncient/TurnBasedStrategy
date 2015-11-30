@@ -1,6 +1,6 @@
-﻿using Client.UI;
-using Core.System;
-using Core.Test.Data;
+﻿using Core.System;
+using Core.System.SelectSystem;
+using Core.System.TurnSystem;
 using UnityEngine;
 
 namespace Client
@@ -34,6 +34,8 @@ namespace Client
 
         public void SetUpGameSystems()
         {
+            // Create UI Manager
+                // Inside UI Manager create UI Objects
             
         }
 

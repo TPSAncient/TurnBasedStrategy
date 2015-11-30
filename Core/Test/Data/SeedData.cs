@@ -6,6 +6,7 @@ using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
 using Core.System;
+using Core.System.DataSystem;
 
 namespace Core.Test.Data
 {

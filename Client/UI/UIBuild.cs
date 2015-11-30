@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Client.Data;
+﻿using Client.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +19,5 @@ namespace Client.UI
 
             Debug.Log("Start Building" + obj.Name);
         }
-
-        
     }
 }

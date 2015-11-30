@@ -59,6 +59,7 @@
     <Compile Include="ResourceManager.cs" />
     <Compile Include="Data\UIObject.cs" />
     <Compile Include="UI\UIBuild.cs" />
+    <Compile Include="UI\UICreator.cs" />
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Data\WorldObject.cs" />
   </ItemGroup>

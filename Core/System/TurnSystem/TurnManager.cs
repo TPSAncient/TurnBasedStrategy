@@ -1,6 +1,6 @@
 ﻿using Core.Data.Common;
 
-namespace Core.System
+namespace Core.System.TurnSystem
 {
     public class TurnManager
     {

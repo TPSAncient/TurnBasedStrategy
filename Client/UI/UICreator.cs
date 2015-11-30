@@ -48,12 +48,12 @@ namespace Client.UI
             
             trans.SetPivotAndAnchors(new Vector2(0,1));
 
-            trans.sizeDelta.Set(sizeDelta.x, sizeDelta.y);
-            trans.anchoredPosition3D = new Vector3(0, 0, 0);
+            trans.sizeDelta = sizeDelta;
+            //trans.anchoredPosition3D = new Vector3(0, 0, 0);
             trans.anchoredPosition = anchoredPosition;
-            trans.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            //trans.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             
-            trans.localPosition.Set(localPositsion.x, localPositsion.y, localPositsion.z);
+            //trans.localPosition.Set(localPositsion.x, localPositsion.y, localPositsion.z);
 
             CanvasRenderer renderer = textObject.AddComponent<CanvasRenderer>();
 

@@ -50,6 +50,7 @@
     <Compile Include="Data\Common\Constants.cs" />
     <Compile Include="Data\Common\DataCollection.cs" />
     <Compile Include="Data\Common\IDataDictionary.cs" />
+    <Compile Include="Data\Common\IUIData.cs" />
     <Compile Include="Data\Common\StaticDictionary.cs" />
     <Compile Include="Data\Actor\StaticActor.cs" />
     <Compile Include="Data\Common\IData.cs" />

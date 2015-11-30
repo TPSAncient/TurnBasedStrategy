@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Client.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace Client.UI
             GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
-        public void BuildBuilding(WorldObject obj)
+        public void BuildBuilding(UIObject obj)
         {
             GameManager.SystemManager.StartBuilding(obj.TagName, obj.DataType);
 

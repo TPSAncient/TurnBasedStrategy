@@ -1,9 +1,6 @@
-﻿using System.CodeDom;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
+﻿using Client.Data;
 using Client.UI;
 using Core.Data.Common;
-using Core.System;
 using UnityEngine;
 
 namespace Client.Camera

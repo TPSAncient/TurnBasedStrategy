@@ -1,13 +1,10 @@
 ﻿using Core.Data.Common;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-namespace Client
+namespace Client.Data
 {
-    public class WorldObject : MonoBehaviour, IData
+    public class UIObject : MonoBehaviour, IUIData
     {
-        #region Idata implementation
-
         [SerializeField]
         private int _id;
         [SerializeField]
@@ -16,7 +13,10 @@ namespace Client
         private string _tagName;
         [SerializeField]
         private DataType _dataType;
-
+        [SerializeField]
+        private string _tagRegion;
+        [SerializeField]
+        private string _tagLocation;
 
         public int Id
         {
@@ -42,30 +42,16 @@ namespace Client
             set { _dataType = value; }
         }
 
-        #endregion
-
-        public bool IsWorldObjectSelected = false;
-
-        public float DelayTime = ResourceManager.BeforeToolTipIsShownDuration;
-
-        void OnMouseEnter()
+        public string TagRegion
         {
-            DelayTime += Time.time;
+            get { return _tagRegion; }
+            set { _tagRegion = value; }
         }
 
-        void OnMouseExit()
+        public string TagLocation
         {
-            DelayTime = ResourceManager.BeforeToolTipIsShownDuration;
+            get { return _tagLocation; }
+            set { _tagLocation = value; }
         }
-
-        void OnMouseOver()
-        {
-            if (Time.time > DelayTime)
-            {
-
-                //print(TagName);
-            }
-        }
-
     }
 }

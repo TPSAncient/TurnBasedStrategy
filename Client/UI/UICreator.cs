@@ -13,7 +13,8 @@ namespace Client.UI
 
         void Start()
         {
-            CreateUI();
+            CreateOverView();
+            //CreateUI();
         }
 
         void Update()
@@ -23,7 +24,49 @@ namespace Client.UI
         
         public void CreateOverView()
         {
-            GameObject panel = CreatePanel(Canvas.transform, "OverView");
+            GameObject canvas = CreateCanvas(this.transform);
+
+            CreateEventSystem(canvas.transform);
+
+            GameObject panel = CreatePanel(canvas.transform, "OverView");
+
+
+            // Text Panel Name
+            CreateText(panel.transform, new Vector2(1, 0), new Vector2(50, 20), new Vector3(0, 0, 0), "Test1", 14);
+            // Text Name
+            // Text name from model
+        }
+
+        private GameObject CreateText(Transform parent, Vector2 anchoredPosition, Vector2 sizeDelta, Vector3 localPositsion, string message, int fontSize)
+        {
+            GameObject textObject = new GameObject("Text");
+            textObject.transform.SetParent(parent);
+
+            textObject.layer = LayerUI;
+
+            RectTransform trans = textObject.AddComponent<RectTransform>();
+            
+            trans.SetPivotAndAnchors(new Vector2(0,1));
+
+            trans.sizeDelta.Set(sizeDelta.x, sizeDelta.y);
+            trans.anchoredPosition3D = new Vector3(0, 0, 0);
+            trans.anchoredPosition = anchoredPosition;
+            trans.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            
+            trans.localPosition.Set(localPositsion.x, localPositsion.y, localPositsion.z);
+
+            CanvasRenderer renderer = textObject.AddComponent<CanvasRenderer>();
+
+            Text text = textObject.AddComponent<Text>();
+            text.supportRichText = true;
+            text.text = message;
+            text.fontSize = fontSize;
+            text.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            text.alignment = TextAnchor.UpperLeft;
+            text.horizontalOverflow = HorizontalWrapMode.Overflow;
+            text.color = new Color(0, 0, 1);
+
+            return textObject;
 
         }
 
@@ -93,15 +136,20 @@ namespace Client.UI
             panelObject.layer = LayerUI;
 
             RectTransform trans = panelObject.AddComponent<RectTransform>();
-            trans.anchorMin = new Vector2(0, 0);
-            trans.anchorMax = new Vector2(1, 1);
-            trans.anchoredPosition3D = new Vector3(0, 0, 0);
+            //trans.anchorMin = new Vector2(0, 0);
+            //trans.anchorMax = new Vector2(1, 1);
+            trans.SetPivotAndAnchors(new Vector2(0,1));
+            
+            //trans.anchorMin = new Vector2(0, 1);
+            //trans.anchorMax = new Vector2(0, 1);
+
+            //trans.anchoredPosition3D = new Vector3(0, 0, 0);
             trans.anchoredPosition = new Vector2(0, 0);
-            trans.offsetMin = new Vector2(0, 0);
-            trans.offsetMax = new Vector2(0, 0);
-            trans.localPosition = new Vector3(0, 0, 0);
-            trans.sizeDelta = new Vector2(0, 0);
-            trans.localScale = new Vector3(0.8f, 0.8f, 1.0f);
+            //trans.offsetMin = new Vector2(0, 0);
+            //trans.offsetMax = new Vector2(0, 0);
+            //trans.localPosition = new Vector3(0, 0, 0);
+            trans.sizeDelta = new Vector2(200, 100);
+            //trans.localScale = new Vector3(0.8f, 0.8f, 1.0f);
 
             CanvasRenderer renderer = panelObject.AddComponent<CanvasRenderer>();
 

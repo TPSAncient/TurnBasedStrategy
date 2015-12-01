@@ -162,7 +162,7 @@ namespace Client.Camera
 
                     if (data != null)
                     {
-                        _uiManager.OpenPanel(data);
+                        //_uiManager.OpenPanel(data);
                     }
                     
                 }

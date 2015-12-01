@@ -60,9 +60,12 @@
     <Compile Include="Data\UIObject.cs" />
     <Compile Include="UI\RectTransformExtensions.cs" />
     <Compile Include="UI\UIBuild.cs" />
-    <Compile Include="UI\UICreator.cs" />
+    <Compile Include="UI\UICityView.cs" />
+    <Compile Include="UI\UICanvas.cs" />
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Data\WorldObject.cs" />
+    <Compile Include="UI\UIOverView.cs" />
+    <Compile Include="UI\UITurnView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

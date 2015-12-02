@@ -3,10 +3,15 @@ using Core.Data.Building;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
+using Core.Data.World.Region.City;
+using Core.Data.World.Region.Farm;
+using Core.Data.World.Region.Industry;
+using Core.Data.World.Region.Infrastructure;
+using Core.Data.World.Region.Port;
 
 namespace Core.Data.Common
 {
-    public class DataCollection
+    public class DefaultDataCollection
     {
         public IDataDictionary<StaticActor> Players { get; set; } = new StaticDictionary<StaticActor>();
         public IDataDictionary<StaticCountry> Countries { get; set; } = new StaticDictionary<StaticCountry>();

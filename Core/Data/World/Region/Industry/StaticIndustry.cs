@@ -3,7 +3,7 @@ using Core.Data.Building;
 using Core.Data.Common;
 using Newtonsoft.Json;
 
-namespace Core.Data.World.Region
+namespace Core.Data.World.Region.Industry
 {
     public class StaticIndustry : IData, IBuilding
     {
@@ -16,12 +16,7 @@ namespace Core.Data.World.Region
         #region IBuilding
 
         public List<string> BuildingTag { get; set; }
-        [JsonIgnore]
-        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
-        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
-        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+        
 
         #endregion
     }

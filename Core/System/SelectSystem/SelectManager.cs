@@ -6,12 +6,12 @@ namespace Core.System.SelectSystem
 {
     public class SelectManager
     {
-        public DataCollection Collection;
+        public DefaultDataCollection Collection;
         
 
         public IData SelectedData { get; set; }
 
-        public SelectManager(DataCollection collection)
+        public SelectManager(DefaultDataCollection collection)
         {
             Collection = collection;
         }

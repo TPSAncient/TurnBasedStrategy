@@ -25,15 +25,10 @@ namespace Core.Data.Building
 
         public string UpgradesFrom { get; set; }
         // Building requirment
-        public float GoldCost { get; set; }
+        public float DefaultGoldCost { get; set; }
         // Building maintainence
-        public float Maintenance { get; set; }
-
-
-        public bool IsBuilt { get; set; }
-        public bool StartBuilding { get; set; }
-        public int BuildTime { get; set; }
-        public int RemainingBuildTime { get; set; }
-
+        public float DefaultMaintenance { get; set; }
+        public int DefaultBuildTime { get; set; }
+        
     }
 }

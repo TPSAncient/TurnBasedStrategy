@@ -4,6 +4,11 @@ using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
+using Core.Data.World.Region.City;
+using Core.Data.World.Region.Farm;
+using Core.Data.World.Region.Industry;
+using Core.Data.World.Region.Infrastructure;
+using Core.Data.World.Region.Port;
 using Core.System.Helpers;
 
 namespace Core.System.DataSystem
@@ -22,9 +27,9 @@ namespace Core.System.DataSystem
             JsonData.SaveJson(name, obj, path);
         }
 
-        public DataCollection LoadAllData(string path)
+        public DefaultDataCollection LoadAllData(string path)
         {
-            var data = new DataCollection();
+            var data = new DefaultDataCollection();
 
             data.Players = Load<StaticDictionary<StaticActor>>(Constants.PlayersFileName, path);
             data.Countries = Load<StaticDictionary<StaticCountry>>(Constants.CountriesFileName, path);
@@ -40,7 +45,7 @@ namespace Core.System.DataSystem
             return data;
         }
 
-        public void MergeAllData(DataCollection dataCollection)
+        public void MergeAllData(DefaultDataCollection dataCollection)
         {
             MergeRegionData(dataCollection);
 
@@ -48,7 +53,7 @@ namespace Core.System.DataSystem
             MergeBuildings(dataCollection.Farms, dataCollection.Buildings);
         }
 
-        public void MergeRegionData(DataCollection collection)
+        public void MergeRegionData(DefaultDataCollection collection)
         {
             MergeData.MergeRegionData(collection);
         }

@@ -44,11 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Army\StaticArmy.cs" />
+    <Compile Include="Data\Building\GameBuilding.cs" />
     <Compile Include="Data\Building\IBuilding.cs" />
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\Common\Constants.cs" />
-    <Compile Include="Data\Common\DataCollection.cs" />
+    <Compile Include="Data\Common\DefaultDataCollection.cs" />
+    <Compile Include="Data\Common\GameDataCollection.cs" />
     <Compile Include="Data\Common\IDataDictionary.cs" />
     <Compile Include="Data\Common\IUIData.cs" />
     <Compile Include="Data\Common\StaticDictionary.cs" />
@@ -57,11 +59,19 @@
     <Compile Include="Data\Common\DataType.cs" />
     <Compile Include="Data\Prerequisite.cs" />
     <Compile Include="Data\StaticModifier.cs" />
-    <Compile Include="Data\World\Region\StaticCity.cs" />
-    <Compile Include="Data\World\Region\StaticFarm.cs" />
-    <Compile Include="Data\World\Region\StaticInfrastructure.cs" />
-    <Compile Include="Data\World\Region\StaticIndustry.cs" />
-    <Compile Include="Data\World\Region\StaticPort.cs" />
+    <Compile Include="Data\World\Country\GameCountry.cs" />
+    <Compile Include="Data\World\GameRegion.cs" />
+    <Compile Include="Data\World\Province\GameProvince.cs" />
+    <Compile Include="Data\World\Region\City\GameCity.cs" />
+    <Compile Include="Data\World\Region\City\StaticCity.cs" />
+    <Compile Include="Data\World\Region\Farm\GameFarm.cs" />
+    <Compile Include="Data\World\Region\Farm\StaticFarm.cs" />
+    <Compile Include="Data\World\Region\Industry\GameIndustry.cs" />
+    <Compile Include="Data\World\Region\Infrastructure\GameInfrastructure.cs" />
+    <Compile Include="Data\World\Region\Infrastructure\StaticInfrastructure.cs" />
+    <Compile Include="Data\World\Region\Industry\StaticIndustry.cs" />
+    <Compile Include="Data\World\Region\Port\GamePort.cs" />
+    <Compile Include="Data\World\Region\Port\StaticPort.cs" />
     <Compile Include="Data\World\Country\StaticCountry.cs" />
     <Compile Include="Data\World\Region\StaticRegion.cs" />
     <Compile Include="Data\World\Province\StaticProvince.cs" />
@@ -76,6 +86,7 @@
     <Compile Include="System\SelectSystem\SelectManager.cs" />
     <Compile Include="System\TurnSystem\TurnManager.cs" />
     <Compile Include="System\UnityMonoBehaviour.cs" />
+    <Compile Include="Test\Data\SeedBuildingData.cs" />
     <Compile Include="Test\Data\SeedData.cs" />
   </ItemGroup>
   <ItemGroup>

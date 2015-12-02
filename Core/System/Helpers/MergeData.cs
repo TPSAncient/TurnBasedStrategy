@@ -10,21 +10,21 @@ namespace Core.System.Helpers
 {
     public static class MergeData
     {
-        public static void MergeRegionData(DataCollection collection)
+        public static void MergeRegionData(DefaultDataCollection collection)
         {
             foreach (var region in collection.Regions.Data)
             {
-                if (region.Value.CanBuildPort)
-                {
-                    region.Value.Port = collection.Ports.Data[region.Value.PortTag];
-                }
+                //if (region.Value.CanBuildPort)
+                //{
+                //    region.Value.Port = collection.Ports.Data[region.Value.PortTag];
+                //}
 
-                region.Value.City = collection.Citys.Data[region.Value.CityTag];
+                //region.Value.City = collection.Citys.Data[region.Value.CityTag];
 
-                region.Value.Farm = collection.Farms.Data[region.Value.FarmTag];
+                //region.Value.Farm = collection.Farms.Data[region.Value.FarmTag];
 
 
-                region.Value.Infrastructure = collection.Infrastructures.Data[region.Value.InfrastructureTag];
+                //region.Value.Infrastructure = collection.Infrastructures.Data[region.Value.InfrastructureTag];
             }
         }
 
@@ -36,8 +36,9 @@ namespace Core.System.Helpers
                 foreach (var tag in iBuilding.BuildingTag)
                 {
                     var building = buildings.Data[tag];
-                    building.IsBuilt = true;
-                    iBuilding.ListOfCompleteBuilding.Data.Add(tag, building);
+                    //TODO: Fix this
+                    //building.IsBuilt = true;
+                    //iBuilding.ListOfCompleteBuilding.Data.Add(tag, building);
                 }
             }
         }

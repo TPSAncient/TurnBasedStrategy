@@ -39,8 +39,8 @@ namespace Editor.Tabs
             Rect = EditorGUILayout.BeginVertical();
 
             Data.UpgradesFrom = EditorGUILayout.TextField("Upgrades from", Data.UpgradesFrom);
-            Data.GoldCost = int.Parse(EditorGUILayout.TextField("Gold cost", Data.GoldCost.ToString()));
-            Data.Maintenance = int.Parse(EditorGUILayout.TextField("Maintenance", Data.Maintenance.ToString()));
+            Data.DefaultGoldCost = int.Parse(EditorGUILayout.TextField("Gold cost", Data.DefaultGoldCost.ToString()));
+            Data.DefaultMaintenance = int.Parse(EditorGUILayout.TextField("Maintenance", Data.DefaultMaintenance.ToString()));
 
             EditorGUILayout.EndVertical();
 

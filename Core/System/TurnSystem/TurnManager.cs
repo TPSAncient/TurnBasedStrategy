@@ -4,10 +4,10 @@ namespace Core.System.TurnSystem
 {
     public class TurnManager
     {
-        private readonly DataCollection _collection;
+        private readonly DefaultDataCollection _collection;
         public int CurrentTurn { get; set; } = 1;
 
-        public TurnManager(DataCollection collection)
+        public TurnManager(DefaultDataCollection collection)
         {
             _collection = collection;
         }

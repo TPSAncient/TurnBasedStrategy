@@ -33,7 +33,7 @@ namespace Core.System
         public List<StaticActor> Actors { get; set; } 
         #endregion
 
-        public DataCollection DataCollection { get; set; } = new DataCollection();
+        public DefaultDataCollection DataCollection { get; set; } = new DefaultDataCollection();
         
         public override void Awake()
         {

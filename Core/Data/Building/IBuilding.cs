@@ -10,12 +10,5 @@ namespace Core.Data.Building
     public interface IBuilding
     {
         List<string> BuildingTag { get; set; }
-
-        [JsonIgnore]
-        StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
-        StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
-        StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

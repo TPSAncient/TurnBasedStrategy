@@ -1,5 +1,6 @@
 ﻿using Core.Data.Common;
 using Core.Data.World.Region;
+using Core.Data.World.Region.Industry;
 using UnityEngine;
 
 namespace Editor.Tabs

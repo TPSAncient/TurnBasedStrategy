@@ -5,6 +5,11 @@ using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
+using Core.Data.World.Region.City;
+using Core.Data.World.Region.Farm;
+using Core.Data.World.Region.Industry;
+using Core.Data.World.Region.Infrastructure;
+using Core.Data.World.Region.Port;
 using Core.System;
 using Core.System.DataSystem;
 
@@ -13,7 +18,7 @@ namespace Core.Test.Data
     public class SeedData
     {
         private readonly DataManager _dataManager;
-        public DataCollection DataCollection { get; set; } = new DataCollection();
+        public DefaultDataCollection DataCollection { get; set; } = new DefaultDataCollection();
         public string Path { get; set; }
 
         public SeedData(DataManager dataManager)
@@ -260,12 +265,9 @@ namespace Core.Test.Data
             pathBuilding.BuildingType = StaticBuildingType.Infrastructure;
             pathBuilding.TagName = "building_path";
             pathBuilding.Name = "Path";
-            pathBuilding.GoldCost = 100;
-            pathBuilding.IsBuilt = false;
-            pathBuilding.Maintenance = 10;
-            pathBuilding.BuildTime = 2;
-            pathBuilding.RemainingBuildTime = pathBuilding.BuildTime;
-            pathBuilding.StartBuilding = false;
+            pathBuilding.DefaultGoldCost = 100;
+            pathBuilding.DefaultMaintenance = 10;
+            pathBuilding.DefaultBuildTime = 2;
             
 
             StaticBuilding roadBuilding = new StaticBuilding();
@@ -274,15 +276,12 @@ namespace Core.Test.Data
             roadBuilding.BuildingType = StaticBuildingType.Infrastructure;
             roadBuilding.TagName = "building_road";
             roadBuilding.Name = "Road";
-            roadBuilding.GoldCost = 100;
-            roadBuilding.IsBuilt = false;
-            roadBuilding.Maintenance = 10;
+            roadBuilding.DefaultGoldCost = 100;
+            roadBuilding.DefaultMaintenance = 10;
             roadBuilding.Prerequisites.Add("building_path");
             roadBuilding.UpgradesFrom = "building_path";
-            roadBuilding.BuildTime = 2;
-            roadBuilding.RemainingBuildTime = roadBuilding.BuildTime;
-            roadBuilding.StartBuilding = false;
-
+            roadBuilding.DefaultBuildTime = 2;
+            
             DataCollection.Buildings.DataType = DataType.Building;
             DataCollection.Buildings.Add("building_path", pathBuilding);
             DataCollection.Buildings.Add("building_road", roadBuilding);

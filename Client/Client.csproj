@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceManager.cs" />
     <Compile Include="Data\UIObject.cs" />
-    <Compile Include="UI\RectTransformExtensions.cs" />
+    <Compile Include="UI\Helpers\RectTransformExtensions.cs" />
     <Compile Include="UI\UIBuild.cs" />
     <Compile Include="UI\UICityView.cs" />
     <Compile Include="UI\UICanvas.cs" />

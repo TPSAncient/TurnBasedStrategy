@@ -58,7 +58,7 @@ namespace Client.UI
             canvas.pixelPerfect = true;
 
             CanvasScaler canvasScal = canvasObject.AddComponent<CanvasScaler>();
-            canvasScal.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScal.uiScaleMode = CanvasScaler.ScaleMode.ConstantPhysicalSize;
             canvasScal.referenceResolution = new Vector2(800, 600);
 
             GraphicRaycaster canvasRayc = canvasObject.AddComponent<GraphicRaycaster>();

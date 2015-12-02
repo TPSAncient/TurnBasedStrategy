@@ -1,14 +1,12 @@
 ﻿using Client.UI.Helpers;
-using Core.Data.World.Region;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Client.UI
 {
-    public class UICityView : MonoBehaviour
+    public class UIInfrastructureView : MonoBehaviour
     {
-
         private const int LayerUI = 5;
         private GameObject _panel;
 
@@ -16,44 +14,22 @@ namespace Client.UI
         public GameObject Canvas;
 
 
-
         void Awake()
         {
-            CreateCityView(Canvas);
-            PopulateBuildings("region_roma");
+            
         }
 
-        public static GameObject AddUICityViewCompnent(GameObject objectAddingUICityViewTo, GameManager gameManager,
-           GameObject canvas)
+        public static GameObject AddUIInfrastructureViewCompnent(GameObject objectAddingUIInfrastructureViewTo, GameManager gameManager,
+          GameObject canvas)
         {
-            objectAddingUICityViewTo.SetActive(false);
+            objectAddingUIInfrastructureViewTo.SetActive(false);
 
-            UICityView uiCityView = objectAddingUICityViewTo.AddComponent<UICityView>() as UICityView;
+            UIInfrastructureView uiCityView = objectAddingUIInfrastructureViewTo.AddComponent<UIInfrastructureView>() as UIInfrastructureView;
             uiCityView.GameManager = gameManager;
             uiCityView.Canvas = canvas;
-            objectAddingUICityViewTo.SetActive(true);
+            objectAddingUIInfrastructureViewTo.SetActive(true);
 
-            return objectAddingUICityViewTo;
-        }
-
-
-        private void PopulateBuildings(string tagRegion)
-        {
-            // Region Id
-
-            // building list for that region
-            StaticRegion region = GameManager.SystemManager.DataCollection.Regions.Data[tagRegion];
-            //region.City.Buildings
-
-            // building list that can be built in that region
-            int count = 1;
-            foreach (var value in GameManager.SystemManager.DataCollection.Buildings.Data.Values)
-            {
-                
-                CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,
-                    delegate { OnCancel(); });
-                count++;
-            }
+            return objectAddingUIInfrastructureViewTo;
         }
 
         private void CreateCityView(GameObject canvas)
@@ -164,6 +140,5 @@ namespace Client.UI
         {
             Debug.Log("Button pressed");
         }
-
     }
 }

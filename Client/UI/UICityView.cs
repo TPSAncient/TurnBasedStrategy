@@ -50,7 +50,7 @@ namespace Client.UI
             int count = 1;
             foreach (var value in GameManager.SystemManager.DataCollection.Buildings.Data.Values)
             {
-
+                
                 CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,
                     delegate { OnCancel(); });
                 count++;

@@ -37,7 +37,7 @@ namespace Core.System.Helpers
                 {
                     var building = buildings.Data[tag];
                     building.IsBuilt = true;
-                    iBuilding.Buildings.Data.Add(tag, building);
+                    iBuilding.ListOfCompleteBuilding.Data.Add(tag, building);
                 }
             }
         }

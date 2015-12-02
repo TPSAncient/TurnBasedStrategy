@@ -11,8 +11,17 @@ namespace Core.Data.World.Region
         public string Name { get; set; }
         public DataType DataType { get; set; }
         public string TagName { get; set; }
+
+        #region IBuilding
+
         public List<string> BuildingTag { get; set; }
         [JsonIgnore]
-        public StaticDictionary<StaticBuilding> Buildings { get; set; }
+        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
+        [JsonIgnore]
+        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
+        [JsonIgnore]
+        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+
+        #endregion
     }
 }

@@ -28,9 +28,9 @@ namespace NClient
 
             foreach (var region in manager.DataCollection.Regions.Data)
             {
-                if (region.Value.Infrastructure.Buildings.Data != null)
+                if (region.Value.Infrastructure.ListOfCompleteBuilding.Data != null)
                 {
-                    foreach (var building in region.Value.Infrastructure.Buildings.Data)
+                    foreach (var building in region.Value.Infrastructure.ListOfCompleteBuilding.Data)
                     {
                         Console.WriteLine(building.Value.Name);
                     }

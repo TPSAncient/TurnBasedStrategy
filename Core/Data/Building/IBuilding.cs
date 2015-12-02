@@ -12,6 +12,10 @@ namespace Core.Data.Building
         List<string> BuildingTag { get; set; }
 
         [JsonIgnore]
-        StaticDictionary<StaticBuilding> Buildings { get; set; }
+        StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
+        [JsonIgnore]
+        StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
+        [JsonIgnore]
+        StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

@@ -15,11 +15,17 @@ namespace Core.Data.World.Region
         public string TagName { get; set; }
         public DataType DataType { get; set; }
 
-        
-        public List<string> BuildingTag { get; set; } = new List<string>();
+        #region IBuilding
 
+        public List<string> BuildingTag { get; set; } = new List<string>();
         [JsonIgnore]
-        public StaticDictionary<StaticBuilding> Buildings { get; set; }  
+        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
+        [JsonIgnore]
+        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
+        [JsonIgnore]
+        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+
+        #endregion
 
         // Spesific
         //public int PopulationCount { get; set; }
@@ -29,9 +35,9 @@ namespace Core.Data.World.Region
         //public float Income { get; set; }
         //public float Expense { get; set; }
 
-        
+
         // Building List
-        
+
 
     }
 }

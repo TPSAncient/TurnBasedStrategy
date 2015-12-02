@@ -37,7 +37,7 @@ namespace Client.UI
 
         private GameObject CreatePanel(Transform parent, Vector2 sizeDelta, Vector2 anchoredPosition, string objName)
         {
-            GameObject panelObject = this.gameObject;  //new GameObject(objName);
+            GameObject panelObject = this.gameObject;
             panelObject.name = objName;
             panelObject.transform.SetParent(parent);
 

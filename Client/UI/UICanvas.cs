@@ -16,16 +16,7 @@ namespace Client.UI
         {
             GameObject canvas = CreateCanvas(this.transform);
 
-            EventListener = CreateEventSystem(canvas.transform);
-
-            GameObject uiOverViewObject = new GameObject();
-            uiOverViewObject = UIOverView.AddUIOverViewCompnent(uiOverViewObject, new GameManager(), canvas);
-
-            GameObject uiCityViewObject = new GameObject();
-            uiCityViewObject = UICityView.AddUICityViewCompnent(uiCityViewObject, new GameManager(), canvas);
-
-            GameObject uiTurnViewObject = new GameObject();
-            uiTurnViewObject = UITurnView.AddUITurnViewCompnent(uiTurnViewObject, new GameManager(), canvas);
+            
         }
 
         void Update()
@@ -68,24 +59,7 @@ namespace Client.UI
             return canvasObject;
         }
 
-        private GameObject CreateEventSystem(Transform parent)
-        {
-            GameObject esObject = new GameObject("EventSystem");
-
-            EventSystem esClass = esObject.AddComponent<EventSystem>();
-            esClass.sendNavigationEvents = true;
-            esClass.pixelDragThreshold = 5;
-
-            StandaloneInputModule stdInput = esObject.AddComponent<StandaloneInputModule>();
-            stdInput.horizontalAxis = "Horizontal";
-            stdInput.verticalAxis = "Vertical";
-
-            TouchInputModule touchInput = esObject.AddComponent<TouchInputModule>();
-
-            esObject.transform.SetParent(parent);
-
-            return esObject;
-        }
+        
         
     }
 }

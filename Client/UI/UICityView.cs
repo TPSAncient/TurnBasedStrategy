@@ -1,4 +1,6 @@
-﻿using Client.UI.Helpers;
+﻿using System.Linq;
+using Client.UI.Helpers;
+using Core.Data.World.Region;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,12 +11,17 @@ namespace Client.UI
     {
 
         private const int LayerUI = 5;
+        private GameObject _panel;
+
         public GameManager GameManager;
         public GameObject Canvas;
+
+
 
         void Awake()
         {
             CreateCityView(Canvas);
+            PopulateBuildings("region_roma");
         }
 
         public static GameObject AddUICityViewCompnent(GameObject objectAddingUICityViewTo, GameManager gameManager,
@@ -30,14 +37,34 @@ namespace Client.UI
             return objectAddingUICityViewTo;
         }
 
+
+        private void PopulateBuildings(string tagRegion)
+        {
+            // Region Id
+
+            // building list for that region
+            StaticRegion region = GameManager.SystemManager.DataCollection.Regions.Data[tagRegion];
+            //region.City.Buildings
+
+            // building list that can be built in that region
+            int count = 1;
+            foreach (var value in GameManager.SystemManager.DataCollection.Buildings.Data.Values)
+            {
+
+                CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,
+                    delegate { OnCancel(); });
+                count++;
+            }
+        }
+
         private void CreateCityView(GameObject canvas)
         {
-            GameObject panel = CreatePanel(canvas.transform, new Vector2(200, 200), new Vector2(0, -200), "OverView");
+            _panel = CreatePanel(canvas.transform, new Vector2(200, 200), new Vector2(0, -200), "OverView");
 
 
             // Text Panel Name
-            CreateText(panel.transform, new Vector2(0, 0), new Vector2(50, 20), "City View", 14, "PanelName");
-            CreateButton(panel.transform, new Vector2(200, 20), new Vector2(0, -30), "Road", delegate { OnCancel(); });
+            CreateText(_panel.transform, new Vector2(0, 0), new Vector2(50, 20), "City View", 14, "PanelName");
+            //CreateButton(panel.transform, new Vector2(200, 20), new Vector2(0, -30), "Road", delegate { OnCancel(); });
         }
 
         private GameObject CreateText(Transform parent, Vector2 anchoredPosition, Vector2 sizeDelta, string message, int fontSize, string gameObjectName)
@@ -70,6 +97,8 @@ namespace Client.UI
         private GameObject CreatePanel(Transform parent, Vector2 sizeDelta, Vector2 anchoredPosition, string objName)
         {
             GameObject panelObject = this.gameObject;  //new GameObject(objName);
+            //GameObject panelObject = new GameObject(objName);
+
             panelObject.name = objName;
             panelObject.transform.SetParent(parent);
 

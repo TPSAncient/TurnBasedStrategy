@@ -21,8 +21,8 @@ namespace Client.UI
         void Awake()
         {
             CreateCityView(Canvas);
-            string country = GameManager.SystemManager.GameDataCollection.Player.TagCountry;
-            PopulateBuildings("region_roma", country);
+            //string country = GameManager.SystemManager.GameDataCollection.Player.TagCountry;
+            //PopulateBuildings("region_roma", country);
         }
 
         public static GameObject AddUICityViewCompnent(GameObject objectAddingUICityViewTo, GameManager gameManager,

@@ -1,4 +1,5 @@
-﻿using Core.System;
+﻿using Client.UI;
+using Core.System;
 using Core.System.SelectSystem;
 using Core.System.TurnSystem;
 using UnityEngine;
@@ -10,9 +11,8 @@ namespace Client
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        public GameObject OverViewPanel;
-        public GameObject CityBuilding;
-
+        public UIManager UIManager;
+        public SelectionManager SelectionManager;
         public SystemManager SystemManager { get; set; }
         
         void Awake()
@@ -23,7 +23,8 @@ namespace Client
             SystemManager = new SystemManager(new TurnManager(), new SelectManager());
             SystemManager.Path = Application.dataPath;
             SystemManager.Awake();
-            
+            SetUpGameSystems();
+
         }
 
         void Update()
@@ -35,8 +36,11 @@ namespace Client
         public void SetUpGameSystems()
         {
             // Create UI Manager
-                // Inside UI Manager create UI Objects
-            
+            GameObject selectionManager = new GameObject("SelectionManager");
+            SelectionManager = SelectionManager.AddSelectionManagerCompnent(selectionManager, this).GetComponent<SelectionManager>();
+            // Inside UI Manager create UI Objects
+            GameObject uiManager = new GameObject("UIManager");
+            UIManager = UIManager.AddUIManagerCompnent(uiManager, this).GetComponent<UIManager>();
         }
 
         // test

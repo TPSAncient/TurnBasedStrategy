@@ -1,7 +1,4 @@
-﻿using Client.Data;
-using Client.UI;
-using Core.Data.Common;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client.Camera
 {
@@ -9,16 +6,11 @@ namespace Client.Camera
     {
         private UnityEngine.Camera _mainCamera;
 
-        private GameManager _gameManager;
-        private UIManager _uiManager;
-
         #region Unity Methods
 
         void Awake()
         {
             _mainCamera = UnityEngine.Camera.main;
-            _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-            _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         }
 
         // Update is called once per frame
@@ -27,7 +19,6 @@ namespace Client.Camera
             MoveCamera();
             RotateCamera();
             KeyboardMoveCamera();
-            SelectObject();
         }
 
         #endregion
@@ -144,38 +135,6 @@ namespace Client.Camera
             }
         }
 
-        private WorldObject _worldObject = new WorldObject();
-
-        private void SelectObject()
-        {
-            
-
-            if (Input.GetKey(KeyCode.Mouse0))
-            {
-                Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, 100))
-                {
-                    var data = SingleSelection(hit.transform.GetComponent<WorldObject>());
-
-
-                    if (data != null)
-                    {
-                        //_uiManager.OpenPanel(data);
-                    }
-                    
-                }
-            }
-        }
         
-        private IData SingleSelection(WorldObject worldObject)
-        {
-            _worldObject.IsWorldObjectSelected = false;
-            
-            worldObject.IsWorldObjectSelected = true;
-            _worldObject = worldObject;
-            return _gameManager.SystemManager.SelectManager.GetData(worldObject.TagName, worldObject.DataType);
-        }
     }
 }

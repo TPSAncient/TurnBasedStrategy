@@ -31,7 +31,7 @@ namespace Client.UI
         private void CreateOverView(GameObject canvas)
         {
             GameObject panel = CreatePanel(canvas.transform, new Vector2(200, 100), new Vector2(0, 0), "OverView");
-
+            
             // Text Panel Name
             CreateText(panel.transform, new Vector2(0, 0), new Vector2(50, 20), "Over View", 14, "PanelName");
             CreateText(panel.transform, new Vector2(60, 0), new Vector2(50, 20), "TempName", 14, "DataName");

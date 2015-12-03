@@ -14,26 +14,26 @@ namespace Client.UI
 
         void Awake()
         {
-            GetGameManager();
             SetUpBasicUIComponents();
             SetUpViews();            
         }
 
-        void Start()
+        public static GameObject AddUIManagerCompnent(GameObject goTo, GameManager gameManager)
         {
-            
-        }
+            goTo.SetActive(false);
 
-        private void GetGameManager()
-        {
-            GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            UIManager uiManager = goTo.AddComponent<UIManager>() as UIManager;
+            uiManager.GameManager = gameManager;
+            goTo.SetActive(true);
+
+            return goTo;
         }
 
         private void SetUpBasicUIComponents()
         {
             Canvas = new GameObject();
             Canvas = UICanvas.AddUICreatorCompnent(Canvas, GameManager);
-
+            
             CreateEventSystem(Canvas.transform);
         }
 

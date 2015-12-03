@@ -1,5 +1,6 @@
 ﻿using Core.Data.Actor;
 using Core.Data.Building;
+using Core.Data.Collection;
 using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Data.Actor;
+using Core.Data.Collection;
 using Core.Data.Common;
 using Core.System.BuildingSystem;
 using Core.System.DataSystem;

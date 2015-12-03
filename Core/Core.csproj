@@ -49,8 +49,8 @@
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\Common\Constants.cs" />
-    <Compile Include="Data\Common\DefaultDataCollection.cs" />
-    <Compile Include="Data\Common\GameDataCollection.cs" />
+    <Compile Include="Data\Collection\DefaultDataCollection.cs" />
+    <Compile Include="Data\Collection\GameDataCollection.cs" />
     <Compile Include="Data\Common\IDataDictionary.cs" />
     <Compile Include="Data\Common\IUIData.cs" />
     <Compile Include="Data\Common\StaticDictionary.cs" />

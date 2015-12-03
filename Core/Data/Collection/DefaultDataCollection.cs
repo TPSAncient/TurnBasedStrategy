@@ -1,5 +1,6 @@
 ﻿using Core.Data.Actor;
 using Core.Data.Building;
+using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
@@ -9,7 +10,7 @@ using Core.Data.World.Region.Industry;
 using Core.Data.World.Region.Infrastructure;
 using Core.Data.World.Region.Port;
 
-namespace Core.Data.Common
+namespace Core.Data.Collection
 {
     public class DefaultDataCollection
     {

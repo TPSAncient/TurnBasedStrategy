@@ -2,6 +2,7 @@
 using System.Linq;
 using Core.Data;
 using Core.Data.Building;
+using Core.Data.Collection;
 using Core.Data.Common;
 using Core.Data.World;
 using Core.Data.World.Region;

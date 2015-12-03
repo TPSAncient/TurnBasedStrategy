@@ -25,12 +25,12 @@ namespace Core.Test.Data
 
         private StaticPort AddPort(string name, string tagName)
         {
-            StaticPort industry = new StaticPort();
+            StaticPort port = new StaticPort();
 
-            industry.Name = name;
-            industry.TagName = tagName;
-            industry.DataType = DataType.Port;
-            return industry;
+            port.Name = name;
+            port.TagName = tagName;
+            port.DataType = DataType.Port;
+            return port;
         }
     }
 }

@@ -4,7 +4,6 @@ using Core.Data.World.Country;
 using Core.Data.World.Province;
 using Core.Data.World.Region;
 using Core.Data.World.Region.City;
-using Core.Data.World.Region.Farm;
 using Core.System.DataSystem;
 
 namespace Core.Test.Data
@@ -65,94 +64,25 @@ namespace Core.Test.Data
 
         public void SeedRegionsData()
         {
-            StaticRegion regionRoma = new StaticRegion();
-            regionRoma.Name = "Roma";
-            regionRoma.CityTag = "city_roma";
-            regionRoma.FarmTag = "farm_roma";
-            regionRoma.PortTag = "port_roma";
-            regionRoma.InfrastructureTag = "infrastructure_roma";
-            regionRoma.CanBuildPort = true;
-            regionRoma.ProvinceTag = "province_italia";
-            regionRoma.TagName = "region_roma";
-            regionRoma.Player = 1;
-            regionRoma.DataType = DataType.Region;
-
-            StaticRegion regionVelathria = new StaticRegion();
-            regionVelathria.Name = "Velathri";
-            regionVelathria.CityTag = "city_velathri";
-            regionVelathria.FarmTag = "farm_velathri";
-            regionVelathria.PortTag = "port_velathri";
-            regionVelathria.InfrastructureTag = "infrastructure_velathri";
-            regionVelathria.CanBuildPort = true;
-            regionVelathria.ProvinceTag = "province_italia";
-            regionVelathria.TagName = "region_velathria";
-            regionVelathria.Player = 1;
-            regionVelathria.DataType = DataType.Region;
-
-            StaticRegion regionAriminum = new StaticRegion();
-            regionAriminum.Name = "Ariminum";
-            regionAriminum.CityTag = "city_ariminum";
-            regionAriminum.FarmTag = "farm_ariminum";
-            regionAriminum.PortTag = "port_ariminum";
-            regionAriminum.InfrastructureTag = "infrastructure_ariminum";
-            regionAriminum.CanBuildPort = true;
-            regionAriminum.ProvinceTag = "province_italia";
-            regionAriminum.TagName = "region_ariminum";
-            regionAriminum.Player = 1;
-            regionAriminum.DataType = DataType.Region;
-
+            var region = new SeedRegionData();
+            
             DataCollection.Regions.DataType = DataType.Region;
-            DataCollection.Regions.Add(regionRoma.TagName, regionRoma);
-            DataCollection.Regions.Add(regionVelathria.TagName, regionVelathria);
-            DataCollection.Regions.Add(regionAriminum.TagName, regionAriminum);
+            DataCollection.Regions = region.Regions;
         }
 
         public void SeedCitiesData()
         {
-            StaticCity cityRoma = new StaticCity();
-            cityRoma.Name = "Roma";
-            cityRoma.DataType = DataType.City;
-            cityRoma.TagName = "city_roma";
-            
-
-            StaticCity cityVelathri = new StaticCity();
-            cityVelathri.Name = "Velathri";
-            cityVelathri.DataType = DataType.City;
-            cityVelathri.TagName = "city_velathri";
-            
-
-            StaticCity cityArminum = new StaticCity();
-            cityArminum.Name = "Ariminum";
-            cityArminum.DataType = DataType.City;
-            cityArminum.TagName = "city_ariminum";
+            var city = new SeedCityData();
 
             DataCollection.Citys.DataType = DataType.City;
-            DataCollection.Citys.Add(cityRoma.TagName, cityRoma);
-            DataCollection.Citys.Add(cityVelathri.TagName, cityVelathri);
-            DataCollection.Citys.Add(cityArminum.TagName, cityArminum);
+            DataCollection.Citys = city.Citys;
         }
 
         public void SeedFarmsData()
         {
-            StaticFarm farmRoma = new StaticFarm();
-            farmRoma.Name = "Roma Farm";
-            farmRoma.TagName = "farm_roma";
-            farmRoma.DataType = DataType.Farm;
-
-            StaticFarm farmVelathri = new StaticFarm();
-            farmVelathri.Name = "Velathri Farm";
-            farmVelathri.TagName = "farm_velathri";
-            farmVelathri.DataType = DataType.Farm;
-
-            StaticFarm farmAriminum = new StaticFarm();
-            farmAriminum.Name = "Ariminum Farm";
-            farmAriminum.TagName = "farm_ariminum";
-            farmAriminum.DataType = DataType.Farm;
-
+            var farm = new SeedFarmData();
             DataCollection.Farms.DataType = DataType.Farm;
-            DataCollection.Farms.Add("farm_roma", farmRoma);
-            DataCollection.Farms.Add("farm_velathri", farmVelathri);
-            DataCollection.Farms.Add("farm_ariminum", farmAriminum);
+            DataCollection.Farms = farm.Farms;
         }
 
         public void SeedPortsData()

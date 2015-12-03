@@ -10,15 +10,10 @@ namespace Core.Data.World
 {
     public class GameRegion : StaticRegion
     {
-        [JsonIgnore]
-        public StaticCity City { get; set; }
-        [JsonIgnore]
-        public StaticFarm Farm { get; set; }
-        [JsonIgnore]
-        public StaticPort Port { get; set; }
-        [JsonIgnore]
-        public StaticInfrastructure Infrastructure { get; set; }
-        [JsonIgnore]
-        public StaticIndustry Industry { get; set; }
+        public GameCity City { get; set; }
+        public GameFarm Farm { get; set; }
+        public GamePort Port { get; set; }
+        public GameInfrastructure Infrastructure { get; set; }
+        public GameIndustry Industry { get; set; }
     }
 }

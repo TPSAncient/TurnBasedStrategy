@@ -8,5 +8,9 @@ namespace Core.Data.World.Country
         public StaticDictionary<GameProvince> Provinces { get; set; } = new StaticDictionary<GameProvince>();
 
         public StaticDictionary<GameRegion> Regions { get; set; } = new StaticDictionary<GameRegion>();
+
+        // Armys that Country own
+
+
     }
 }

@@ -31,7 +31,7 @@ namespace Core.Test.Data
 
         private StaticCountry AddCountryProvinces(StaticCountry country, params string[] provinces)
         {
-            country.TagProvinces = provinces.ToList();
+            //country.TagProvinces = provinces.ToList();
             return country;
         } 
     }

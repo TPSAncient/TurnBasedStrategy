@@ -13,6 +13,6 @@ namespace Core.Data.World.Country
 
         #endregion
 
-        public List<string> TagProvinces { get; set; } = new List<string>();
+        //public List<string> TagProvinces { get; set; } = new List<string>();
     }
 }

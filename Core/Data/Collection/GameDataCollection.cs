@@ -10,7 +10,7 @@ namespace Core.Data.Collection
         // List of all buildings
         public StaticDictionary<StaticBuilding> AllBuildings { get; set; } 
         // List of all Countrys ??
-        public List<GameCountry> Countrys { get; set; } 
+        public StaticDictionary<GameCountry> Countrys { get; set; } 
          
     }
 }

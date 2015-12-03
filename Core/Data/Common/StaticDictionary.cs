@@ -10,6 +10,10 @@ namespace Core.Data.Common
             Data.Add(key, value);
         }
 
+        public T this[string index] => Data[index];
+
+        public Dictionary<string, T>.ValueCollection Values => Data.Values;
+
         public DataType DataType { get; set; }
     }
 }

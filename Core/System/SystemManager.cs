@@ -23,7 +23,7 @@ namespace Core.System
         {
             
             TurnManager = new TurnManager();
-            SelectManager = new SelectManager(DataCollection);
+            SelectManager = new SelectManager(DefaultDataCollection);
             BuildingManager = new BuildingManager();
             DataManager = new DataManager();
         }
@@ -34,14 +34,15 @@ namespace Core.System
         public List<StaticActor> Actors { get; set; } 
         #endregion
 
-        public DefaultDataCollection DataCollection { get; set; } = new DefaultDataCollection();
+        public DefaultDataCollection DefaultDataCollection { get; set; } = new DefaultDataCollection();
+        public GameDataCollection GameDataCollection { get; set; } = new GameDataCollection();
         
         public override void Awake()
         {
             Load();
             Merge();
 
-            SelectManager.Collection = DataCollection;
+            SelectManager.Collection = DefaultDataCollection;
         }
 
         public override void Update()
@@ -53,12 +54,12 @@ namespace Core.System
         public void Load()
         {
 
-            DataCollection = DataManager.LoadAllData(Path);
+            DefaultDataCollection = DataManager.LoadAllData(Path);
         }
 
         public void Merge()
         {
-            DataManager.MergeAllData(DataCollection);
+            DataManager.MergeAllData(DefaultDataCollection, GameDataCollection);
         }
 
         public void StartBuilding(string tag, DataType type)

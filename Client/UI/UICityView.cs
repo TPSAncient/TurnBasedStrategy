@@ -1,4 +1,5 @@
 ﻿using Client.UI.Helpers;
+using Core.Data.World.Country;
 using Core.Data.World.Region;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,7 +21,7 @@ namespace Client.UI
         void Awake()
         {
             CreateCityView(Canvas);
-            PopulateBuildings("region_roma");
+            PopulateBuildings("region_roma", "country_rome");
         }
 
         public static GameObject AddUICityViewCompnent(GameObject objectAddingUICityViewTo, GameManager gameManager,
@@ -37,17 +38,18 @@ namespace Client.UI
         }
 
 
-        private void PopulateBuildings(string tagRegion)
+        private void PopulateBuildings(string tagRegion, string tagCountry)
         {
             // Region Id
 
             // building list for that region
-            StaticRegion region = GameManager.SystemManager.DataCollection.Regions.Data[tagRegion];
+            GameCountry country = GameManager.SystemManager.GameDataCollection.Countrys[tagCountry];
+            StaticRegion region = country.Regions[tagRegion];
             //region.City.Buildings
 
             // building list that can be built in that region
             int count = 1;
-            foreach (var value in GameManager.SystemManager.DataCollection.Buildings.Data.Values)
+            foreach (var value in GameManager.SystemManager.DefaultDataCollection.Buildings.Values)
             {
                 
                 CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,

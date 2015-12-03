@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Core.Data.Common;
 using Core.Data.World.Province;
-using Newtonsoft.Json;
 
 namespace Core.Data.World.Country
 {
     public class GameCountry : StaticCountry
     {
-        [JsonIgnore]
-        public List<StaticProvince> Provinces { get; set; } = new List<StaticProvince>();
+        public StaticDictionary<GameProvince> Provinces { get; set; } = new StaticDictionary<GameProvince>();
+
+        public StaticDictionary<GameRegion> Regions { get; set; } = new StaticDictionary<GameRegion>();
     }
 }

@@ -16,8 +16,6 @@ namespace Core.System.DataSystem
 {
     public class DataManager
     {
-        
-
         public T Load<T>(string fileName, string path)
         {
             return JsonData.LoadJson<T>(fileName, path);
@@ -46,12 +44,12 @@ namespace Core.System.DataSystem
             return data;
         }
 
-        public void MergeAllData(DefaultDataCollection dataCollection)
+        public void MergeAllData(DefaultDataCollection defaultDataCollection, GameDataCollection gameDataCollection)
         {
-            MergeRegionData(dataCollection);
+            MergeRegionData(defaultDataCollection);
 
-            MergeBuildings(dataCollection.Infrastructures, dataCollection.Buildings);
-            MergeBuildings(dataCollection.Farms, dataCollection.Buildings);
+            MergeBuildings(defaultDataCollection.Infrastructures, defaultDataCollection.Buildings);
+            MergeBuildings(defaultDataCollection.Farms, defaultDataCollection.Buildings);
         }
 
         public void MergeRegionData(DefaultDataCollection collection)

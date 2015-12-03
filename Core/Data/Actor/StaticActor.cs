@@ -6,7 +6,7 @@ namespace Core.Data.Actor
     {
         public bool IsPlayer { get; set; }
 
-        public StaticCountry Country { get; set; }
+        public string TagCountry { get; set; }
 
         public bool EndedTurn { get; set; }
     }

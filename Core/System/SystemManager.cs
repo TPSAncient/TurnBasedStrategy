@@ -19,6 +19,10 @@ namespace Core.System
         public BuildingManager BuildingManager { get; set; } 
         public DataManager DataManager { get; set; }
 
+        public DefaultDataCollection DefaultDataCollection { get; set; } = new DefaultDataCollection();
+        public GameDataCollection GameDataCollection { get; set; } = new GameDataCollection();
+
+
         public SystemManager(TurnManager turnManager, SelectManager selectManager)
         {
             
@@ -26,6 +30,8 @@ namespace Core.System
             SelectManager = new SelectManager(DefaultDataCollection);
             BuildingManager = new BuildingManager();
             DataManager = new DataManager();
+
+            GameDataCollection.Player = new StaticActor {IsPlayer = true, TagCountry = "country_rome", EndedTurn = false};
         }
 
         #region Variables
@@ -34,8 +40,6 @@ namespace Core.System
         public List<StaticActor> Actors { get; set; } 
         #endregion
 
-        public DefaultDataCollection DefaultDataCollection { get; set; } = new DefaultDataCollection();
-        public GameDataCollection GameDataCollection { get; set; } = new GameDataCollection();
         
         public override void Awake()
         {

@@ -44,7 +44,7 @@ namespace Core.Test.Data
             region.PortTag = portTag;
             region.InfrastructureTag = infrastructureTag;
             region.ProvinceTag = provinceTag;
-            return null;
+            return region;
         }
     }
 }

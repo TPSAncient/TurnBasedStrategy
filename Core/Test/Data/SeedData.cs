@@ -40,26 +40,18 @@ namespace Core.Test.Data
 
         public void SeedCountriesData()
         {
-            StaticCountry country = new StaticCountry();
-            country.Name = "Rome";
-            country.TagName = "country_rome";
-            country.DataType = DataType.Country;
-            country.TagProvinces.Add("province_italia");
+            var country = new SeedCountryData();
+
             DataCollection.Countries.DataType = DataType.Country;
-            DataCollection.Countries.Add(country.TagName, country);
+            DataCollection.Countries = country.Countries;
         }
 
         public void SeedProvincesData()
         {
-            StaticProvince province = new StaticProvince
-            {
-                Name = "Italia",
-                TagName = "province_italia",
-                DataType = DataType.Province
-            };
-
+            var province = new SeedProvinceData();
+            
             DataCollection.Provinces.DataType = DataType.Province;
-            DataCollection.Provinces.Add(province.TagName, province);
+            DataCollection.Provinces = province.Provinces;
         }
 
         public void SeedRegionsData()
@@ -116,7 +108,6 @@ namespace Core.Test.Data
             DataCollection.Buildings.DataType = DataType.Building;
             DataCollection.Buildings = buildings.Buildings;
         }
-
 
         public void SaveData()
         {

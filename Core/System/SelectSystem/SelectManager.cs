@@ -31,7 +31,7 @@ namespace Core.System.SelectSystem
                 }
                 case DataType.Terrain:
                 {
-                    SelectedData = new StaticTerrain { Id = 1, Name = "default", DataType = DataType.Terrain, TagName = "terrain_default"};
+                    SelectedData = new StaticTerrain { Name = "default", DataType = DataType.Terrain, TagName = "terrain_default"};
                     return SelectedData;;
                 }
             }

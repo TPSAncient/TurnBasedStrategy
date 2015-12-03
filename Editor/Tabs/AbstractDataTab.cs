@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Data.Common;
-using Core.System;
 using Core.System.DataSystem;
 using Core.System.Helpers;
 using UnityEditor;
@@ -42,7 +41,16 @@ namespace Editor.Tabs
             if (SelectedItemId > 0)
             {
                 IsEmpty = false;
-                Data = (T)DataDictionary.Data.Values.Cast<IData>().SingleOrDefault(x => x.Id == SelectedItemId);
+                string tagName = PopupDataList.Where(x => x.Id == SelectedItemId).Select(x => x.TagName).FirstOrDefault();
+
+                if (!string.IsNullOrEmpty(tagName))
+                {
+                    Data = (T)DataDictionary.Data.Values.Cast<IData>().SingleOrDefault(x => x.TagName == tagName);
+                }
+                else
+                {
+                    Debug.LogError("Tag Name is null or empty");
+                }
             }
 
             if (SelectedItemId == 0)
@@ -86,8 +94,6 @@ namespace Editor.Tabs
             var rect = EditorGUILayout.BeginVertical();
             EditorGUILayout.LabelField(ModelName, EditorStyles.boldLabel);
 
-            ((IData)Data).DataType = DataType.Country;
-            ((IData)Data).Id = int.Parse(EditorGUILayout.TextField("Id", ((IData)Data).Id.ToString()));
             ((IData)Data).Name = EditorGUILayout.TextField("Name", ((IData)Data).Name);
             ((IData)Data).TagName = EditorGUILayout.TextField("Tag Name", ((IData)Data).TagName);
             ((IData)Data).DataType = (DataType)EditorGUILayout.EnumPopup("Data Type", ((IData)Data).DataType);
@@ -116,9 +122,9 @@ namespace Editor.Tabs
             {
                 DataDictionary.Add(((IData)data).TagName, data);
                 JsonData.SaveJson(Constants.CountriesFileName, DataDictionary, Application.dataPath);
-
-                PopupDataList.Add(new PopupData { Id = ((IData)data).Id, Name = ((IData)data).Name });
-                SelectedItemId = ((IData)data).Id;
+                int maxId = PopupDataList.Select(x => x.Id).Max();
+                PopupDataList.Add(new PopupData { Id = maxId, Name = ((IData)data).Name, TagName = ((IData)data).TagName});
+                SelectedItemId = maxId;
                 IsNew = false;
             }
         }
@@ -131,11 +137,12 @@ namespace Editor.Tabs
                 DataDictionary = new StaticDictionary<T>();
             }
 
-            PopupDataList.Add(new PopupData { Id = 0, Name = "Empty" });
-            
+            PopupDataList.Add(new PopupData { Id = 0, Name = "Empty", TagName = "empty"});
+            int count = 1;
             foreach (var data in DataDictionary.Data)
             {
-                PopupDataList.Add(new PopupData { Id = ((IData)data.Value).Id, Name = ((IData)data.Value).Name });
+                PopupDataList.Add(new PopupData { Id = count, Name = ((IData)data.Value).Name, TagName = ((IData)data.Value).TagName});
+                count++;
             }
         }
     }

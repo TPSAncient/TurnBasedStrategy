@@ -8,20 +8,12 @@ namespace Client.Data
         #region Idata implementation
 
         [SerializeField]
-        private int _id;
-        [SerializeField]
         private string _name;
         [SerializeField]
         private string _tagName;
         [SerializeField]
         private DataType _dataType;
 
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
 
         public string Name
         {

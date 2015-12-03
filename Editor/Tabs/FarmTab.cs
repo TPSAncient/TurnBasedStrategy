@@ -1,7 +1,5 @@
 ﻿using Core.Data.Common;
-using Core.Data.World.Region;
 using Core.Data.World.Region.Farm;
-using UnityEngine;
 
 namespace Editor.Tabs
 {

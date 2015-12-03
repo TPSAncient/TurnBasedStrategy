@@ -88,6 +88,9 @@
     <Compile Include="System\UnityMonoBehaviour.cs" />
     <Compile Include="Test\Data\SeedBuildingData.cs" />
     <Compile Include="Test\Data\SeedData.cs" />
+    <Compile Include="Test\Data\SeedIndustryData.cs" />
+    <Compile Include="Test\Data\SeedInfrastructureData.cs" />
+    <Compile Include="Test\Data\SeedPortData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

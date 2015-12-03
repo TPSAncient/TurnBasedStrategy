@@ -7,7 +7,6 @@ namespace Core.Data.World.Region.Port
 {
     public class StaticPort : IData, IBuilding
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public DataType DataType { get; set; }
         public string TagName { get; set; }

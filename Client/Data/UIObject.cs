@@ -6,8 +6,6 @@ namespace Client.Data
     public class UIObject : MonoBehaviour, IUIData
     {
         [SerializeField]
-        private int _id;
-        [SerializeField]
         private string _name;
         [SerializeField]
         private string _tagName;
@@ -18,11 +16,6 @@ namespace Client.Data
         [SerializeField]
         private string _tagLocation;
 
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
 
         public string Name
         {

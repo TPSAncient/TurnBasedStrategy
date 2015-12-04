@@ -16,7 +16,7 @@ namespace Client.Camera
         // Update is called once per frame
         void Update()
         {
-            MoveCamera();
+            //MoveCamera();
             RotateCamera();
             KeyboardMoveCamera();
         }

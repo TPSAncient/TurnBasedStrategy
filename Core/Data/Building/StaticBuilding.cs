@@ -7,6 +7,23 @@ namespace Core.Data.Building
 {
     public class StaticBuilding : IData
     {
+        public StaticBuilding()
+        {
+        }
+
+        public StaticBuilding(StaticBuilding building)
+        {
+            Name = building.Name;
+            TagName = building.TagName;
+            DataType = building.DataType;
+            BuildingType = building.BuildingType;
+            Prerequisites = building.Prerequisites;
+            Modifiers = building.Modifiers;
+            UpgradesFrom = building.UpgradesFrom;
+            DefaultGoldCost = building.DefaultGoldCost;
+            DefaultMaintenance = building.DefaultMaintenance;
+            DefaultBuildTime = building.DefaultBuildTime;
+        }
         #region IData implementation
 
         public string Name { get; set; }

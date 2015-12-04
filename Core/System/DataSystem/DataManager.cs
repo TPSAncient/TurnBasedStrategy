@@ -68,10 +68,19 @@ namespace Core.System.DataSystem
                     var gameRegion = new GameRegion(region);
                     
                     gameRegion.City = new GameCity(defaultDataCollection.Citys[region.CityTag]);
+                    MergeBuildings(defaultDataCollection, gameRegion.City);
+
                     gameRegion.Farm = new GameFarm(defaultDataCollection.Farms[region.FarmTag]);
+                    MergeBuildings(defaultDataCollection, gameRegion.Farm);
+
                     gameRegion.Port = new GamePort(defaultDataCollection.Ports[region.PortTag]);
+                    MergeBuildings(defaultDataCollection, gameRegion.Port);
+
                     gameRegion.Industry = new GameIndustry(defaultDataCollection.Industries[region.IndustryTag]);
+                    MergeBuildings(defaultDataCollection, gameRegion.Industry);
+
                     gameRegion.Infrastructure = new GameInfrastructure(defaultDataCollection.Infrastructures[region.InfrastructureTag]);
+                    MergeBuildings(defaultDataCollection, gameRegion.Infrastructure);
 
                     country.Regions.Add(gameRegion.TagName, gameRegion);
                 }
@@ -89,6 +98,20 @@ namespace Core.System.DataSystem
 
             MergeBuildings(defaultDataCollection.Infrastructures, defaultDataCollection.Buildings);
             MergeBuildings(defaultDataCollection.Farms, defaultDataCollection.Buildings);
+        }
+
+        private void MergeBuildings(DefaultDataCollection collection, IGameBuilding data)
+        {
+            data.ListOfCompleteBuilding = new StaticDictionary<GameBuilding>();
+            if (((IBuilding) data).BuildingTag != null)
+            {
+                foreach (var building in ((IBuilding)data).BuildingTag)
+                {
+                    data.ListOfCompleteBuilding.Add(building, new GameBuilding(collection.Buildings.Values.Single(x => x.TagName == building)));
+                }
+            }
+
+            
         }
 
         public void MergeRegionData(DefaultDataCollection collection)

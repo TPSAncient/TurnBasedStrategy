@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region.Infrastructure
 {
-    public class GameInfrastructure : StaticInfrastructure
+    public class GameInfrastructure : StaticInfrastructure, IGameBuilding
     {
         public GameInfrastructure()
         {
@@ -14,8 +14,8 @@ namespace Core.Data.World.Region.Infrastructure
         {
         }
 
-        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfCompleteBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfUnderConstructionBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

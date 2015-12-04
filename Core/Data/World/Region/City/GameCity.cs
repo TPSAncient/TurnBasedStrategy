@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region.City
 {
-    public class GameCity : StaticCity
+    public class GameCity : StaticCity, IGameBuilding
     {
         public GameCity()
         {
@@ -14,8 +14,8 @@ namespace Core.Data.World.Region.City
         {
         }
 
-        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfCompleteBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfUnderConstructionBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

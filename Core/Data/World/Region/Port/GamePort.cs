@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region.Port
 {
-    public class GamePort : StaticPort
+    public class GamePort : StaticPort, IGameBuilding
     {
         public GamePort()
         {
@@ -14,8 +14,8 @@ namespace Core.Data.World.Region.Port
         {
         }
 
-        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfCompleteBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfUnderConstructionBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

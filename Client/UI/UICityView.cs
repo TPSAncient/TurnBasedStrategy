@@ -58,14 +58,14 @@ namespace Client.UI
             GameCity city = country.Regions.Values.Where(x => x.City.TagName == data.TagName).Select(x=>x.City).SingleOrDefault();
             Texts["CityName"].GetComponent<Text>().text = city.Name;
 
-            //int count = 1;
-            //foreach (var value in GameManager.SystemManager.DefaultDataCollection.Buildings.Values)
-            //{
+            int count = 1;
+            foreach (var value in city.ListOfCompleteBuilding.Values)
+            {
 
-            //    CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,
-            //        delegate { OnCancel(); });
-            //    count++;
-            //}
+                CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), value.Name,
+                    delegate { OnCancel(); });
+                count++;
+            }
         }
 
         private void CreateCityView(GameObject canvas)

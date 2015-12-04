@@ -1,4 +1,5 @@
-﻿using Core.Data.Common;
+﻿using System.Linq;
+using Core.Data.Common;
 using Core.Data.World.Region.City;
 
 namespace Core.Test.Data
@@ -13,6 +14,7 @@ namespace Core.Test.Data
             StaticCity city;
 
             city = AddCity("Roma City", "city_roma");
+            city = AddBuildingsToCity(city, "building_woodenpalisade");
             Citys.Add(city.TagName, city);
 
             city = AddCity("Velathri City", "city_velathri");
@@ -31,5 +33,12 @@ namespace Core.Test.Data
             city.DataType = DataType.City;
             return city;
         }
+
+        private StaticCity AddBuildingsToCity(StaticCity city, params string[] buildings)
+        {
+            city.BuildingTag = buildings.ToList();
+            return city;
+        }
+
     }
 }

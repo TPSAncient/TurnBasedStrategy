@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region.Industry
 {
-    public class GameIndustry : StaticIndustry
+    public class GameIndustry : StaticIndustry, IGameBuilding
     {
         public GameIndustry()
         {
@@ -12,8 +12,8 @@ namespace Core.Data.World.Region.Industry
 
         public GameIndustry(StaticIndustry industry) : base(industry) { }
 
-        public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfCompleteBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfUnderConstructionBuilding { get; set; }
+        public IDataDictionary<GameBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

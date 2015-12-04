@@ -7,14 +7,15 @@ namespace Core.System.SelectSystem
 {
     public class SelectManager
     {
-        public DefaultDataCollection Collection;
-        
+        public DefaultDataCollection DefaultCollection;
+        public GameDataCollection GameCollection;
 
         public IData SelectedData { get; set; }
 
-        public SelectManager(DefaultDataCollection collection)
+        public SelectManager(DefaultDataCollection defaultDataCollection, GameDataCollection gameDataCollection)
         {
-            Collection = collection;
+            DefaultCollection = defaultDataCollection;
+            GameCollection = gameDataCollection;
         }
 
         public SelectManager()
@@ -27,7 +28,7 @@ namespace Core.System.SelectSystem
             {
                 case DataType.City:
                 {
-                    SelectedData = SelectData.GetDataById(Collection.Citys, tag);
+                    SelectedData = SelectData.GetDataById(DefaultCollection.Citys, tag);
                     return SelectedData;
                 }
                 case DataType.Terrain:

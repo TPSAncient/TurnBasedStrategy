@@ -9,6 +9,19 @@ namespace Core.Data.World.Region.City
     [Serializable]
     public class StaticCity : IData, IBuilding
     {
+        public StaticCity()
+        {
+        }
+
+        public StaticCity(StaticCity city)
+        {
+            Name = city.Name;
+            TagName = city.TagName;
+            DataType = city.DataType;
+            BuildingTag = city.BuildingTag;
+        }
+
+
         // General
         public string Name { get; set; }
         public string TagName { get; set; }

@@ -6,11 +6,16 @@ namespace Core.Data.World.Region.City
 {
     public class GameCity : StaticCity
     {
-        [JsonIgnore]
+        public GameCity()
+        {
+        }
+
+        public GameCity(StaticCity city) : base(city)
+        {
+        }
+
         public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

@@ -41,8 +41,12 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Actor\GameActor.cs" />
     <Compile Include="Data\Army\StaticArmy.cs" />
     <Compile Include="Data\Building\GameBuilding.cs" />
     <Compile Include="Data\Building\IBuilding.cs" />
@@ -60,7 +64,7 @@
     <Compile Include="Data\Prerequisite.cs" />
     <Compile Include="Data\StaticModifier.cs" />
     <Compile Include="Data\World\Country\GameCountry.cs" />
-    <Compile Include="Data\World\GameRegion.cs" />
+    <Compile Include="Data\World\Region\GameRegion.cs" />
     <Compile Include="Data\World\Province\GameProvince.cs" />
     <Compile Include="Data\World\Region\City\GameCity.cs" />
     <Compile Include="Data\World\Region\City\StaticCity.cs" />

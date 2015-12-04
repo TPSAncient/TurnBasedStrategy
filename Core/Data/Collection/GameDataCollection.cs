@@ -9,12 +9,12 @@ namespace Core.Data.Collection
     public class GameDataCollection
     {
         // List of all buildings
-        public StaticDictionary<StaticBuilding> AllBuildings { get; set; } 
+        public IDataDictionary<StaticBuilding> AllBuildings { get; set; } 
         // List of all Countrys ??
-        public StaticDictionary<GameCountry> Countrys { get; set; }
+        public IDataDictionary<GameCountry> Countrys { get; set; }
 
-        public StaticDictionary<StaticActor> AIActores { get; set; }
+        public StaticDictionary<GameActor> Actores { get; set; }
 
-        public StaticActor Player { get; set; } 
+        public GameActor Player { get; set; } 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Core.Data.Common
 {
@@ -11,7 +12,7 @@ namespace Core.Data.Common
         }
 
         public T this[string index] => Data[index];
-
+        [JsonIgnore]
         public Dictionary<string, T>.ValueCollection Values => Data.Values;
 
         public DataType DataType { get; set; }

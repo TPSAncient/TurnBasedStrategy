@@ -7,16 +7,13 @@ namespace Client.UI
 {
     public class UICanvas : MonoBehaviour
     {
-        public GameObject Canvas { get; set; }
         public GameObject EventListener { get; set; }
         public GameManager GameManager { get; set; }
         private const int LayerUI = 5;
         
         void Start()
         {
-            GameObject canvas = CreateCanvas(this.transform);
-
-            
+            CreateCanvas(this.transform);
         }
 
         void Update()
@@ -49,7 +46,7 @@ namespace Client.UI
             canvas.pixelPerfect = true;
 
             CanvasScaler canvasScal = canvasObject.AddComponent<CanvasScaler>();
-            canvasScal.uiScaleMode = CanvasScaler.ScaleMode.ConstantPhysicalSize;
+            canvasScal.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
             canvasScal.referenceResolution = new Vector2(800, 600);
 
             GraphicRaycaster canvasRayc = canvasObject.AddComponent<GraphicRaycaster>();

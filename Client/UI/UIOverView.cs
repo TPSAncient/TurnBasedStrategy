@@ -1,4 +1,6 @@
-﻿using Client.UI.Helpers;
+﻿using System.Collections.Generic;
+using Client.UI.Helpers;
+using Core.Data.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +12,13 @@ namespace Client.UI
         public GameManager GameManager;
         public GameObject Canvas;
 
+        public Dictionary<string, GameObject> Texts; 
+
         void Awake()
         {
+            Texts = new Dictionary<string, GameObject>();
             CreateOverView(Canvas);
+            this.gameObject.SetActive(false);
         }
 
         public static GameObject AddUIOverViewCompnent(GameObject objectAddingUIOverViewTo, GameManager gameManager,
@@ -28,14 +34,23 @@ namespace Client.UI
             return objectAddingUIOverViewTo;
         }
 
+        public void ShowUI(IData data)
+        {
+            Texts["DataName"].GetComponent<Text>().text = data.Name;
+            Texts["DataType"].GetComponent<Text>().text = data.DataType.ToString();
+        }
+
         private void CreateOverView(GameObject canvas)
         {
             GameObject panel = CreatePanel(canvas.transform, new Vector2(200, 100), new Vector2(0, 0), "OverView");
             
             // Text Panel Name
-            CreateText(panel.transform, new Vector2(0, 0), new Vector2(50, 20), "Over View", 14, "PanelName");
-            CreateText(panel.transform, new Vector2(60, 0), new Vector2(50, 20), "TempName", 14, "DataName");
-            CreateText(panel.transform, new Vector2(0, -30), new Vector2(50, 20), "TempName", 14, "DataType");
+            Texts.Add("PanelName", CreateText(panel.transform, 
+                new Vector2(0, 0), new Vector2(50, 20), "Over View", 14, "PanelName"));
+            Texts.Add("DataName", CreateText(panel.transform, 
+                new Vector2(0, -30), new Vector2(50, 20), "TempName", 14, "DataName"));
+            Texts.Add("DataType", CreateText(panel.transform, 
+                new Vector2(0, -60), new Vector2(50, 20), "TempName", 14, "DataType"));
         }
 
         private GameObject CreateText(Transform parent, Vector2 anchoredPosition, Vector2 sizeDelta, string message, int fontSize, string gameObjectName)
@@ -89,5 +104,6 @@ namespace Client.UI
             return panelObject;
         }
 
+        
     }
 }

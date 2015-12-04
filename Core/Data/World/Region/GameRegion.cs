@@ -1,15 +1,21 @@
-﻿using Core.Data.World.Region;
-using Core.Data.World.Region.City;
+﻿using Core.Data.World.Region.City;
 using Core.Data.World.Region.Farm;
 using Core.Data.World.Region.Industry;
 using Core.Data.World.Region.Infrastructure;
 using Core.Data.World.Region.Port;
-using Newtonsoft.Json;
 
-namespace Core.Data.World
+namespace Core.Data.World.Region
 {
     public class GameRegion : StaticRegion
     {
+        public GameRegion()
+        {
+        }
+
+        public GameRegion(StaticRegion region) : base(region)
+        {
+        }
+
         public GameCity City { get; set; }
         public GameFarm Farm { get; set; }
         public GamePort Port { get; set; }

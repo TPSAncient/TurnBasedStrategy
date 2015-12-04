@@ -1,6 +1,12 @@
-﻿using Client.UI.Helpers;
+﻿using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
+using System.Linq;
+using Client.Data;
+using Client.UI.Helpers;
+using Core.Data.Common;
 using Core.Data.World.Country;
 using Core.Data.World.Region;
+using Core.Data.World.Region.City;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -16,13 +22,15 @@ namespace Client.UI
         public GameManager GameManager;
         public GameObject Canvas;
 
-
+        public Dictionary<string, GameObject> Texts;
 
         void Awake()
         {
+            Texts = new Dictionary<string, GameObject>();
             CreateCityView(Canvas);
             //string country = GameManager.SystemManager.GameDataCollection.Player.TagCountry;
             //PopulateBuildings("region_roma", country);
+            this.gameObject.SetActive(false);
         }
 
         public static GameObject AddUICityViewCompnent(GameObject objectAddingUICityViewTo, GameManager gameManager,
@@ -38,25 +46,40 @@ namespace Client.UI
             return objectAddingUICityViewTo;
         }
 
+        public void ShowUI(IData data)
+        {
+            var game = (GameData) data;
+            PopulateBuildings(game);
+        }
 
-        private void PopulateBuildings(string tagRegion, string tagCountry)
+        private void PopulateBuildings(GameData data)
         {
             // Region Id
-
+            //Debug.Log(data.TagCountry);
+            //foreach (var value in GameManager.SystemManager.GameDataCollection.Countrys.Values)
+            //{
+            //    Debug.Log(value.TagName);
+            //}
+            
             // building list for that region
-            GameCountry country = GameManager.SystemManager.GameDataCollection.Countrys[tagCountry];
-            StaticRegion region = country.Regions[tagRegion];
+            GameCountry country = GameManager.SystemManager.GameDataCollection.Countrys[data.TagCountry];
+            //StaticRegion region = country.Regions[tagRegion];
             //region.City.Buildings
+            var cities = country.Regions.Values.Single(x => x.CityTag == data.TagName);
 
             // building list that can be built in that region
-            int count = 1;
-            foreach (var value in GameManager.SystemManager.DefaultDataCollection.Buildings.Values)
-            {
-                
-                CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,
-                    delegate { OnCancel(); });
-                count++;
-            }
+
+            GameCity city = country.Regions.Values.Where(x => x.City.TagName == data.TagName).Select(x=>x.City).SingleOrDefault();
+            Texts["CityName"].GetComponent<Text>().text = city.Name;
+
+            //int count = 1;
+            //foreach (var value in GameManager.SystemManager.DefaultDataCollection.Buildings.Values)
+            //{
+
+            //    CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30*count)), value.Name,
+            //        delegate { OnCancel(); });
+            //    count++;
+            //}
         }
 
         private void CreateCityView(GameObject canvas)
@@ -65,7 +88,8 @@ namespace Client.UI
 
 
             // Text Panel Name
-            CreateText(_panel.transform, new Vector2(0, 0), new Vector2(50, 20), "City View", 14, "PanelName");
+            Texts.Add("CityName", CreateText(_panel.transform, new Vector2(0, 0), new Vector2(50, 20), "City View", 14, "CityName"));
+
             //CreateButton(panel.transform, new Vector2(200, 20), new Vector2(0, -30), "Road", delegate { OnCancel(); });
         }
 

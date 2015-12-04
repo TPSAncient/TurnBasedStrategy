@@ -37,12 +37,13 @@ namespace Client
 
                 if (Physics.Raycast(ray, out hit, 100))
                 {
+                    var game = hit.transform.GetComponent<WorldObject>();
                     var data = SingleSelection(hit.transform.GetComponent<WorldObject>());
 
 
                     if (data != null)
                     {
-                        _gameManager.UIManager.UICityViewGO.SetActive(false);
+                        _gameManager.UIManager.ShowUI(game.GameData);
                     }
 
                 }
@@ -55,7 +56,7 @@ namespace Client
 
             worldObject.IsWorldObjectSelected = true;
             _worldObject = worldObject;
-            return _gameManager.SystemManager.SelectManager.GetData(worldObject.TagName, worldObject.DataType);
+            return _gameManager.SystemManager.SelectManager.GetData(worldObject.GameData.TagName, worldObject.GameData.DataType);
         }
     }
 }

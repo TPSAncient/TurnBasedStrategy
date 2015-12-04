@@ -1,4 +1,5 @@
-﻿using Core.Data.Actor;
+﻿using System.Linq;
+using Core.Data.Actor;
 using Core.Data.Building;
 using Core.Data.Collection;
 using Core.Data.Common;
@@ -11,6 +12,7 @@ using Core.Data.World.Region.Industry;
 using Core.Data.World.Region.Infrastructure;
 using Core.Data.World.Region.Port;
 using Core.System.Helpers;
+using UnityEngine;
 
 namespace Core.System.DataSystem
 {
@@ -46,6 +48,38 @@ namespace Core.System.DataSystem
 
         public void MergeAllData(DefaultDataCollection defaultDataCollection, GameDataCollection gameDataCollection)
         {
+            // Merge data from default do game
+
+            // Add all buildings do Game Collection
+            gameDataCollection.AllBuildings = defaultDataCollection.Buildings;
+            gameDataCollection.Countrys = new StaticDictionary<GameCountry>();
+
+            foreach (var country in defaultDataCollection.Countries.Values)
+            {
+                gameDataCollection.Countrys.Add(country.TagName, new GameCountry(country));
+            }
+
+            foreach (var country in gameDataCollection.Countrys.Values)
+            {
+                country.Regions = new StaticDictionary<GameRegion>();
+                foreach (var region in defaultDataCollection.Regions.Values.Where(x => x.CountryTag == country.TagName))
+                {
+                    var gameRegion = new GameRegion(region);
+                    
+                    gameRegion.City = new GameCity(defaultDataCollection.Citys[region.CityTag]);
+                    
+                    country.Regions.Add(gameRegion.TagName, gameRegion);
+                }
+
+                foreach (var provinceTag in defaultDataCollection.Regions.Values.Select(x => x.ProvinceTag).Distinct())
+                {
+                    foreach (var province in defaultDataCollection.Provinces.Values.Where(x => x.TagName == provinceTag))
+                    {
+                        country.Provinces.Add(province.TagName, new GameProvince(province));
+                    }
+                }
+            }
+
             MergeRegionData(defaultDataCollection);
 
             MergeBuildings(defaultDataCollection.Infrastructures, defaultDataCollection.Buildings);

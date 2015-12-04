@@ -27,11 +27,11 @@ namespace Core.System
         {
             
             TurnManager = new TurnManager();
-            SelectManager = new SelectManager(DefaultDataCollection);
+            SelectManager = new SelectManager(DefaultDataCollection, GameDataCollection);
             BuildingManager = new BuildingManager();
             DataManager = new DataManager();
 
-            GameDataCollection.Player = new StaticActor {IsPlayer = true, TagCountry = "country_rome", EndedTurn = false};
+            GameDataCollection.Player = new GameActor {IsPlayer = true, TagCountry = "country_rome", EndedTurn = false};
         }
 
         #region Variables
@@ -46,7 +46,7 @@ namespace Core.System
             Load();
             Merge();
 
-            SelectManager.Collection = DefaultDataCollection;
+            SelectManager.DefaultCollection = DefaultDataCollection;
         }
 
         public override void Update()

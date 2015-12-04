@@ -1,15 +1,12 @@
-﻿using Core.Data.Actor;
+﻿using System;
 using Core.Data.Common;
 using UnityEngine;
 
 namespace Client.Data
 {
-    public class WorldObject : MonoBehaviour, IData
+    [Serializable]
+    public class GameData : IData
     {
-        public GameData GameData;
-
-        #region Idata implementation
-
         [SerializeField]
         private string _name;
         [SerializeField]
@@ -18,6 +15,8 @@ namespace Client.Data
         private DataType _dataType;
         [SerializeField]
         private string _tagCountry;
+
+        
 
         public string Name
         {
@@ -42,31 +41,5 @@ namespace Client.Data
             get { return _tagCountry; }
             set { _tagCountry = value; }
         }
-
-        #endregion
-
-        public bool IsWorldObjectSelected = false;
-
-        public float DelayTime = ResourceManager.BeforeToolTipIsShownDuration;
-
-        void OnMouseEnter()
-        {
-            DelayTime += Time.time;
-        }
-
-        void OnMouseExit()
-        {
-            DelayTime = ResourceManager.BeforeToolTipIsShownDuration;
-        }
-
-        void OnMouseOver()
-        {
-            if (Time.time > DelayTime)
-            {
-
-                //print(TagName);
-            }
-        }
-
     }
 }

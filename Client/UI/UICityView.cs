@@ -54,21 +54,7 @@ namespace Client.UI
 
         private void PopulateBuildings(GameData data)
         {
-            // Region Id
-            //Debug.Log(data.TagCountry);
-            //foreach (var value in GameManager.SystemManager.GameDataCollection.Countrys.Values)
-            //{
-            //    Debug.Log(value.TagName);
-            //}
-            
-            // building list for that region
             GameCountry country = GameManager.SystemManager.GameDataCollection.Countrys[data.TagCountry];
-            //StaticRegion region = country.Regions[tagRegion];
-            //region.City.Buildings
-            var cities = country.Regions.Values.Single(x => x.CityTag == data.TagName);
-
-            // building list that can be built in that region
-
             GameCity city = country.Regions.Values.Where(x => x.City.TagName == data.TagName).Select(x=>x.City).SingleOrDefault();
             Texts["CityName"].GetComponent<Text>().text = city.Name;
 

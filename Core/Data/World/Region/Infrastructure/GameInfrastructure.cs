@@ -6,11 +6,16 @@ namespace Core.Data.World.Region.Infrastructure
 {
     public class GameInfrastructure : StaticInfrastructure
     {
-        [JsonIgnore]
+        public GameInfrastructure()
+        {
+        }
+
+        public GameInfrastructure(StaticInfrastructure infrastructure) : base(infrastructure)
+        {
+        }
+
         public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

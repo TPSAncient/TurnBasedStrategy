@@ -6,11 +6,14 @@ namespace Core.Data.World.Region.Industry
 {
     public class GameIndustry : StaticIndustry
     {
-        [JsonIgnore]
+        public GameIndustry()
+        {
+        }
+
+        public GameIndustry(StaticIndustry industry) : base(industry) { }
+
         public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

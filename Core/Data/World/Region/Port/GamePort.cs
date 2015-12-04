@@ -6,11 +6,16 @@ namespace Core.Data.World.Region.Port
 {
     public class GamePort : StaticPort
     {
-        [JsonIgnore]
+        public GamePort()
+        {
+        }
+
+        public GamePort(StaticPort port) : base(port)
+        {
+        }
+
         public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using Core.Data.Actor;
 using Core.Data.Building;
 using Core.Data.Collection;
@@ -67,7 +68,11 @@ namespace Core.System.DataSystem
                     var gameRegion = new GameRegion(region);
                     
                     gameRegion.City = new GameCity(defaultDataCollection.Citys[region.CityTag]);
-                    
+                    gameRegion.Farm = new GameFarm(defaultDataCollection.Farms[region.FarmTag]);
+                    gameRegion.Port = new GamePort(defaultDataCollection.Ports[region.PortTag]);
+                    gameRegion.Industry = new GameIndustry(defaultDataCollection.Industries[region.IndustryTag]);
+                    gameRegion.Infrastructure = new GameInfrastructure(defaultDataCollection.Infrastructures[region.InfrastructureTag]);
+
                     country.Regions.Add(gameRegion.TagName, gameRegion);
                 }
 

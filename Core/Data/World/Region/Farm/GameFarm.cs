@@ -4,13 +4,13 @@ using Newtonsoft.Json;
 
 namespace Core.Data.World.Region.Farm
 {
-    public class GameFarm
+    public class GameFarm : StaticFarm
     {
-        [JsonIgnore]
+        public GameFarm() { }
+        public GameFarm(StaticFarm farm) : base(farm) { }
+
         public StaticDictionary<StaticBuilding> ListOfCompleteBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfUnderConstructionBuilding { get; set; }
-        [JsonIgnore]
         public StaticDictionary<StaticBuilding> ListOfPotentialBuilding { get; set; }
     }
 }

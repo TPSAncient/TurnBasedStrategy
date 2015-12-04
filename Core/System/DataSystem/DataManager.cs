@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using Core.Data.Actor;
 using Core.Data.Building;
 using Core.Data.Collection;
@@ -13,7 +12,6 @@ using Core.Data.World.Region.Industry;
 using Core.Data.World.Region.Infrastructure;
 using Core.Data.World.Region.Port;
 using Core.System.Helpers;
-using UnityEngine;
 
 namespace Core.System.DataSystem
 {
@@ -68,19 +66,19 @@ namespace Core.System.DataSystem
                     var gameRegion = new GameRegion(region);
                     
                     gameRegion.City = new GameCity(defaultDataCollection.Citys[region.CityTag]);
-                    MergeBuildings(defaultDataCollection, gameRegion.City);
+                    MergeBuildings(defaultDataCollection, gameRegion.City, RequiredEnum.City);
 
                     gameRegion.Farm = new GameFarm(defaultDataCollection.Farms[region.FarmTag]);
-                    MergeBuildings(defaultDataCollection, gameRegion.Farm);
+                    MergeBuildings(defaultDataCollection, gameRegion.Farm, RequiredEnum.Farm);
 
                     gameRegion.Port = new GamePort(defaultDataCollection.Ports[region.PortTag]);
-                    MergeBuildings(defaultDataCollection, gameRegion.Port);
+                    MergeBuildings(defaultDataCollection, gameRegion.Port, RequiredEnum.Port);
 
                     gameRegion.Industry = new GameIndustry(defaultDataCollection.Industries[region.IndustryTag]);
-                    MergeBuildings(defaultDataCollection, gameRegion.Industry);
+                    MergeBuildings(defaultDataCollection, gameRegion.Industry, RequiredEnum.Industry);
 
                     gameRegion.Infrastructure = new GameInfrastructure(defaultDataCollection.Infrastructures[region.InfrastructureTag]);
-                    MergeBuildings(defaultDataCollection, gameRegion.Infrastructure);
+                    MergeBuildings(defaultDataCollection, gameRegion.Infrastructure, RequiredEnum.Infrastructure);
 
                     country.Regions.Add(gameRegion.TagName, gameRegion);
                 }
@@ -100,7 +98,7 @@ namespace Core.System.DataSystem
             MergeBuildings(defaultDataCollection.Farms, defaultDataCollection.Buildings);
         }
 
-        private void MergeBuildings(DefaultDataCollection collection, IGameBuilding data)
+        private void MergeBuildings(DefaultDataCollection collection, IGameBuilding data, RequiredEnum requiredEnum)
         {
             data.ListOfCompleteBuilding = new StaticDictionary<GameBuilding>();
             if (((IBuilding) data).BuildingTag != null)
@@ -111,7 +109,18 @@ namespace Core.System.DataSystem
                 }
             }
 
-            
+            data.ListOfPotentialBuilding = new StaticDictionary<GameBuilding>();
+
+            foreach (var building in collection.Buildings.Values.Where(x=>x.RequiredEnum == requiredEnum))
+            {
+                data.ListOfPotentialBuilding.Add(building.TagName, new GameBuilding(building));
+            }
+
+
+            // Add potential buildings
+
+            // Add buildings that are building at the moment
+
         }
 
         public void MergeRegionData(DefaultDataCollection collection)

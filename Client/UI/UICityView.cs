@@ -23,10 +23,12 @@ namespace Client.UI
         public GameObject Canvas;
 
         public Dictionary<string, GameObject> Texts;
-
+        public Dictionary<string, GameObject> Buildings;
+         
         void Awake()
         {
             Texts = new Dictionary<string, GameObject>();
+            Buildings = new Dictionary<string, GameObject>();
             CreateCityView(Canvas);
             //string country = GameManager.SystemManager.GameDataCollection.Player.TagCountry;
             //PopulateBuildings("region_roma", country);
@@ -59,13 +61,25 @@ namespace Client.UI
             Texts["CityName"].GetComponent<Text>().text = city.Name;
 
             int count = 1;
-            foreach (var value in city.ListOfCompleteBuilding.Values)
+            foreach (var value in city.ListOfPotentialBuilding.Values.Where(x=> string.IsNullOrEmpty(x.UpgradesFrom)))
             {
 
-                CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), value.Name,
-                    delegate { OnCancel(); });
+                Buildings.Add(value.TagName, CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), value.Name,
+                    delegate { OnCancel(); }));
                 count++;
             }
+
+
+            //foreach (var value in city.ListOfCompleteBuilding.Values)
+            //{
+            //    // if Building is built and there is next level show that
+
+                
+                
+            //    CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), value.Name,
+            //        delegate { OnCancel(); });
+            //    count++;
+            //}
         }
 
         private void CreateCityView(GameObject canvas)

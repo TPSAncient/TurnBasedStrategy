@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Core.Data.Common;
 using Newtonsoft.Json;
 
@@ -24,6 +25,7 @@ namespace Core.Data.Building
             DefaultMaintenance = building.DefaultMaintenance;
             DefaultBuildTime = building.DefaultBuildTime;
         }
+
         #region IData implementation
 
         public string Name { get; set; }
@@ -35,11 +37,14 @@ namespace Core.Data.Building
         // Building Type
         public StaticBuildingType BuildingType { get; set; }
 
+        public RequiredEnum RequiredEnum { get; set; }
+
         public List<string> Prerequisites { get; set; } = new List<string>();
 
         public List<string> Modifiers { get; set; } = new List<string>(); 
 
         public string UpgradesFrom { get; set; }
+        public string UpgradesTo { get; set; }
         // Building requirment
         public float DefaultGoldCost { get; set; }
         // Building maintainence

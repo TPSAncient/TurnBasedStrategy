@@ -51,6 +51,7 @@
     <Compile Include="Data\Building\GameBuilding.cs" />
     <Compile Include="Data\Building\IBuilding.cs" />
     <Compile Include="Data\Building\IGameBuilding.cs" />
+    <Compile Include="Data\Building\RequiredEnum.cs" />
     <Compile Include="Data\Building\StaticBuilding.cs" />
     <Compile Include="Data\Building\StaticBuildingType.cs" />
     <Compile Include="Data\Common\Constants.cs" />

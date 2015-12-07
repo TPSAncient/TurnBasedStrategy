@@ -43,11 +43,10 @@ namespace Core.Data.Building
 
         public List<string> Modifiers { get; set; } = new List<string>(); 
 
+        public string BuildingChain { get; set; }
         public string UpgradesFrom { get; set; }
         public string UpgradesTo { get; set; }
-        // Building requirment
         public float DefaultGoldCost { get; set; }
-        // Building maintainence
         public float DefaultMaintenance { get; set; }
         public int DefaultBuildTime { get; set; }
         

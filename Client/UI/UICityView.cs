@@ -59,15 +59,25 @@ namespace Client.UI
             GameCountry country = GameManager.SystemManager.GameDataCollection.Countrys[data.TagCountry];
             GameCity city = country.Regions.Values.Where(x => x.City.TagName == data.TagName).Select(x=>x.City).SingleOrDefault();
             Texts["CityName"].GetComponent<Text>().text = city.Name;
-
             int count = 1;
-            foreach (var value in city.ListOfPotentialBuilding.Values.Where(x=> string.IsNullOrEmpty(x.UpgradesFrom)))
+            foreach (var chain in GameManager.SystemManager.GameDataCollection.AllBuildings.Values)
             {
-
-                Buildings.Add(value.TagName, CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), value.Name,
+                if (!Buildings.ContainsKey(chain.BuildingChain))
+                {
+                    Buildings.Add(chain.BuildingChain, CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), chain.Name,
                     delegate { OnCancel(); }));
-                count++;
+                    count++;
+                }
             }
+
+            //int count = 1;
+            //foreach (var value in city.ListOfPotentialBuilding.Values.Where(x=> string.IsNullOrEmpty(x.UpgradesFrom)))
+            //{
+
+            //    Buildings.Add(value.TagName, CreateButton(_panel.transform, new Vector2(200, 20), new Vector2(0, -(30 * count)), value.Name,
+            //        delegate { OnCancel(); }));
+            //    count++;
+            //}
 
 
             //foreach (var value in city.ListOfCompleteBuilding.Values)

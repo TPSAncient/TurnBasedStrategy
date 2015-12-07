@@ -92,10 +92,14 @@ namespace Core.System.DataSystem
                 }
             }
 
-            MergeRegionData(defaultDataCollection);
+            
+            gameDataCollection.AllBuildings = defaultDataCollection.Buildings;
+            
 
-            MergeBuildings(defaultDataCollection.Infrastructures, defaultDataCollection.Buildings);
-            MergeBuildings(defaultDataCollection.Farms, defaultDataCollection.Buildings);
+            //MergeRegionData(defaultDataCollection);
+
+            //MergeBuildings(defaultDataCollection.Infrastructures, defaultDataCollection.Buildings);
+            //MergeBuildings(defaultDataCollection.Farms, defaultDataCollection.Buildings);
         }
 
         private void MergeBuildings(DefaultDataCollection collection, IGameBuilding data, RequiredEnum requiredEnum)

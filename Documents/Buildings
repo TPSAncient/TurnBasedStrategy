@@ -31,7 +31,22 @@ Building List:
 	
 	Markets:
 		
+
 	
 	
-	
-	
+Building system:
+	1. How do create building chain
+		Example: path -> road -> paven road -> highways
+		ChainName: "chain_road"
+		
+		Example: wooden palisade -> wooden walls -> stone walls -> large stone walls -> huge stone walls
+		ChainName: "chain_walls"
+		
+		
+		
+	ListOfCompleteBuilding
+		
+	ListOfUnderConstructionBuilding
+		
+	ListOfPotentialBuilding
+		

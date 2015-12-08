@@ -42,7 +42,14 @@ Building system:
 		Example: wooden palisade -> wooden walls -> stone walls -> large stone walls -> huge stone walls
 		ChainName: "chain_walls"
 		
-		
+	2. Building chain may have different branches
+	3. It should be easy do access it
+	
+	4. There should be only one List of buildings
+		1) List Of Buildings
+	5. UI building boxes 25*25 px
+	6. Add picture file name
+	
 		
 	ListOfCompleteBuilding
 		

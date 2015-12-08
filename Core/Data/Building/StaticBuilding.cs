@@ -21,9 +21,11 @@ namespace Core.Data.Building
             Prerequisites = building.Prerequisites;
             Modifiers = building.Modifiers;
             UpgradesFrom = building.UpgradesFrom;
+            UpgradesTo = building.UpgradesTo;
             DefaultGoldCost = building.DefaultGoldCost;
             DefaultMaintenance = building.DefaultMaintenance;
             DefaultBuildTime = building.DefaultBuildTime;
+            BuildingChain = building.BuildingChain;
         }
 
         #region IData implementation

@@ -70,6 +70,17 @@ namespace Client.UI
                 }
             }
 
+            foreach (var complete in city.ListOfCompleteBuilding.Values)
+            {
+                if (Buildings.ContainsKey(complete.BuildingChain))
+                {
+                    var go = Buildings[complete.BuildingChain];
+                    go.GetComponentInChildren<Text>().text = city.ListOfPotentialBuilding[complete.UpgradesTo].Name;
+                }
+            }
+
+            
+
             //int count = 1;
             //foreach (var value in city.ListOfPotentialBuilding.Values.Where(x=> string.IsNullOrEmpty(x.UpgradesFrom)))
             //{
@@ -172,9 +183,9 @@ namespace Client.UI
 
             Image image = buttonObject.AddComponent<Image>();
             image.color = Color.grey;
-            //Texture2D tex = Resources.Load<Texture2D>("Background");
-            //image.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height),
-            //                                          new Vector2(0.5f, 0.5f));
+            Texture2D tex = Resources.Load<Texture2D>(("Elements_Air");
+            image.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height),
+                                                      new Vector2(0.5f, 0.5f));
 
             Button button = buttonObject.AddComponent<Button>();
             button.interactable = true;

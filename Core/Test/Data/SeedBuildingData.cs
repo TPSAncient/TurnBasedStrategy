@@ -84,7 +84,7 @@ namespace Core.Test.Data
         private StaticBuilding AddBuildingPrerequisites(StaticBuilding building, string upgradesFrom, string upgradesTo, string buildingChain)
         {
             building.UpgradesFrom = upgradesFrom;
-            building.UpgradesFrom = upgradesTo;
+            building.UpgradesTo = upgradesTo;
             building.BuildingChain = buildingChain;
             //building.Prerequisites = prerequisites.ToList();
             

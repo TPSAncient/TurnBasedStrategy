@@ -56,4 +56,30 @@ Building system:
 	ListOfUnderConstructionBuilding
 		
 	ListOfPotentialBuilding
+	
+Building Component:
+	GenericComponent
+	RequirmentComponent
+	RequirmentComponent
+	RequirmentComponent
+	ModifierComponent
+	SpesificComponent
+	
+	IComponent
+		Id
+		Update
+		Start
+	
+	ICollection components
+	
+	[Serialize(Enum.Initial)]
+	[Serialize(Enum.Game)]
+	Name
+	
+	[Serialize(Enum.Game)]
+	IsBuilt
+	
+	
+	
+
 		
